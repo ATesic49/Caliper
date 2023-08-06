@@ -35,6 +35,7 @@ export default function Navbar() {
                 e.preventDefault();
                 if (upGallery === styles.up) SetUpGallery(styles.down);
                 else SetUpGallery(styles.up);
+                SetUpShop(styles.down);
               }}
             ></Image>
             <div className={styles.menu}>
@@ -155,8 +156,113 @@ export default function Navbar() {
                 e.preventDefault();
                 if (upShop === styles.up) SetUpShop(styles.down);
                 else SetUpShop(styles.up);
+                SetUpGallery(styles.down);
               }}
             ></Image>
+            <div className={styles.menu}>
+              <div className={styles.container}>
+                <Link href="/fotelje">
+                  {" "}
+                  <h4>Fotelje</h4>{" "}
+                </Link>
+                <ul>
+                  <li>
+                    <Link href="">Fotelja #1</Link>
+                  </li>
+                  <li>
+                    <Link href="">Fotelja #2</Link>
+                  </li>
+                  <li>
+                    <Link href="">Fotelja #3</Link>
+                  </li>
+                </ul>
+              </div>
+              <div className={styles.container}>
+                <Link href="/fotelje">
+                  {" "}
+                  <h4>Fotelje</h4>{" "}
+                </Link>
+                <ul>
+                  <li>
+                    <Link href="">Fotelja #1</Link>
+                  </li>
+                  <li>
+                    <Link href="">Fotelja #2</Link>
+                  </li>
+                  <li>
+                    <Link href="">Fotelja #3</Link>
+                  </li>
+                </ul>
+              </div>
+              <div className={styles.container}>
+                <Link href="/fotelje">
+                  {" "}
+                  <h4>Fotelje</h4>{" "}
+                </Link>
+                <ul>
+                  <li>
+                    <Link href="">Fotelja #1</Link>
+                  </li>
+                  <li>
+                    <Link href="">Fotelja #2</Link>
+                  </li>
+                  <li>
+                    <Link href="">Fotelja #3</Link>
+                  </li>
+                </ul>
+              </div>
+              <div className={styles.container}>
+                <Link href="/fotelje">
+                  {" "}
+                  <h4>Fotelje</h4>{" "}
+                </Link>
+                <ul>
+                  <li>
+                    <Link href="">Fotelja #1</Link>
+                  </li>
+                  <li>
+                    <Link href="">Fotelja #2</Link>
+                  </li>
+                  <li>
+                    <Link href="">Fotelja #3</Link>
+                  </li>
+                </ul>
+              </div>
+              <div className={styles.container}>
+                <Link href="/fotelje">
+                  {" "}
+                  <h4>Fotelje</h4>{" "}
+                </Link>
+                <ul>
+                  <li>
+                    <Link href="">Fotelja #1</Link>
+                  </li>
+                  <li>
+                    <Link href="">Fotelja #2</Link>
+                  </li>
+                  <li>
+                    <Link href="">Fotelja #3</Link>
+                  </li>
+                </ul>
+              </div>
+              <div className={styles.container}>
+                <Link href="/fotelje">
+                  {" "}
+                  <h4>Fotelje</h4>{" "}
+                </Link>
+                <ul>
+                  <li>
+                    <Link href="">Fotelja #1</Link>
+                  </li>
+                  <li>
+                    <Link href="">Fotelja #2</Link>
+                  </li>
+                  <li>
+                    <Link href="">Fotelja #3</Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </li>
           <li>
             <Link href="/usluge">Kontakt</Link>
