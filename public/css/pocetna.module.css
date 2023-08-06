@@ -1,0 +1,12 @@
+.xlarge {
+  font-size: var(--font-size-Xlarge);
+}
+.large {
+  font-size: var(--font-size-large);
+}
+.mid {
+  font-size: var(--font-size-mid);
+}
+.small {
+  font-size: var(--font-size-small);
+}

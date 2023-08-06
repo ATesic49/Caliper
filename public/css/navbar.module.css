@@ -1,0 +1,219 @@
+.nav {
+  position: fixed;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  background-color: white;
+  width: 100%;
+  z-index: 99;
+  padding: 0;
+  margin: 0px;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
+}
+.nav .logo {
+  width: clamp(25px, 12.5%, 200px);
+  margin-inline: clamp(10px, 2.5%, 40px) 5%;
+}
+.nav .logo img {
+  height: auto;
+  width: 100%;
+  min-width: 50px;
+  object-position: center;
+}
+
+.nav nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav nav ul {
+  display: flex;
+  height: 100%;
+}
+.nav nav ul li {
+  z-index: 102;
+  padding: 2vh;
+  list-style-type: none;
+  min-width: max-content;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+  column-gap: calc(var(--font-size-small) / 3.5);
+  position: relative;
+}
+.nav nav ul li:has(.up) {
+  background-color: var(--almost-white);
+}
+.nav nav ul li:has(.up) a {
+  color: white;
+}
+.nav nav ul li a {
+  position: relative;
+  cursor: default;
+  padding: 1vh;
+  user-select: none;
+  text-decoration: none;
+  font-weight: 400;
+  color: var(--font-color-primary);
+  font-size: var(--font-size-small);
+}
+.nav nav ul li a::before {
+  position: absolute;
+  top: calc(50% + var(--font-size-small) / 1);
+  user-select: none;
+  left: 50%;
+  width: 0%;
+  height: calc(var(--font-size-small) / 17.5);
+  content: "";
+  background-color: var(--font-color-primary);
+  transform: translate(-50%);
+  outline: none !important;
+  transition-property: width;
+  transition-duration: 0.25s;
+}
+.nav nav ul li a:hover::before {
+  width: 110%;
+  transition-property: width;
+  transition-duration: 0.25s;
+}
+.nav nav ul li a:focus::before {
+  display: none;
+}
+.nav nav ul li img {
+  width: var(--font-size-small);
+  height: var(--font-size-small);
+  cursor: pointer;
+  object-fit: center;
+  object-position: center calc(var(--font-size-small) / 14);
+}
+.nav nav ul li .up {
+  transform: rotateZ(-180deg);
+  transition-property: transform;
+  transition: 0.5s ease-in-out;
+}
+.nav nav ul li .menu {
+  display: grid;
+  content: "";
+  background-color: var(--almost-white);
+  top: -1000%;
+  padding: 5vh;
+  left: -1000%;
+  z-index: 100;
+  opacity: 0;
+  transition-property: top left opacity;
+  transition: 1.25s;
+  position: absolute;
+  gap: 2vh;
+  grid-template-columns: auto auto auto auto;
+}
+.nav nav ul li:has(.up) .menu {
+  transition-property: top left opacity;
+  transition: 1.25s;
+  top: 100%;
+  opacity: 1;
+  left: 0%;
+}
+.nav nav ul li .menu .container {
+  padding: 2vh;
+  display: flex;
+  gap: 1vh 0px;
+  flex-direction: column;
+}
+.nav nav ul li .menu .container h4 {
+  font-size: var(--font-size-mid);
+  font-weight: 500;
+  cursor: pointer;
+  color: white;
+
+  user-select: none;
+  text-decoration: underline;
+}
+.nav nav ul li .menu .container:has(h4) a {
+  cursor: default;
+  color: white;
+}
+.nav nav ul li .menu .container:has(h4) ul li a:hover {
+  text-decoration: underline;
+}
+.nav nav ul li .menu .container:has(h4) a:hover::before {
+  width: 0;
+}
+.nav nav ul li .menu .container ul {
+  flex-direction: column;
+  margin-left: 2vh;
+}
+.nav nav ul li .menu .container ul li {
+  padding: 0;
+}
+
+.nav nav ul li .down {
+  transform: rotateZ(0deg);
+  transition-property: transform;
+  transition: 0.5s ease-in-out;
+}
+.nav .buttons {
+  display: flex;
+  margin-inline: 2.5vw;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25vw;
+  margin-left: auto;
+}
+.nav .buttons button {
+  padding: 1vh;
+  min-width: 85px;
+  color: var(--font-color-secondary);
+
+  border: none;
+  background-color: transparent;
+  letter-spacing: 1.2px;
+  cursor: pointer;
+}
+.nav .logIn {
+  position: fixed;
+  z-index: 100;
+  background-color: white;
+  padding: 5vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5vh;
+  min-width: 300;
+  width: 40%;
+  border-radius: 2vh;
+  box-shadow: 0 0 10px black;
+  display: none;
+}
+.nav .logIn h2 {
+  text-align: center;
+}
+.nav .logIn label {
+  width: 80%;
+  text-align: left;
+}
+.nav .logIn input {
+  width: 80%;
+}
+.nav .logIn button {
+  padding: 1vh;
+  min-width: 85px;
+  border: none;
+  background-color: transparent;
+  letter-spacing: 1.2px;
+  cursor: pointer;
+}
+@media only screen and (max-width: 700px) {
+}
+@keyframes rotation {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(-180deg);
+  }
+}
