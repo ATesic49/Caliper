@@ -20,7 +20,8 @@
 .nav .logo img {
   height: auto;
   width: 100%;
-  min-width: 50px;
+  min-width: 80px;
+
   object-position: center;
 }
 
@@ -225,8 +226,10 @@
 @media only screen and (max-width: 700px) {
   .nav .options {
     display: flex;
+    padding: 1vh;
   }
   .nav {
+    padding: 1vh;
     justify-content: space-between !important;
   }
   .nav nav {
@@ -262,9 +265,7 @@
     padding: 0.5vh;
     color: white;
   }
-  .nav .logo {
-    margin: 0;
-  }
+
   .nav .buttons {
     gap: 1px;
     width: 40%;
