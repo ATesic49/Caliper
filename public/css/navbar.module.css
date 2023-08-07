@@ -274,12 +274,11 @@
   }
 
   .nav .buttons {
-    gap: 1px;
-    width: 40%;
     margin: 0;
+    gap: 0;
   }
   .nav .buttons button {
-    letter-spacing: normal !important;
+    letter-spacing: -0px !important;
   }
 }
 @keyframes rotation {
