@@ -14,8 +14,16 @@ export default function Navbar() {
   const [upShop, SetUpShop] = useState(styles.down);
   return (
     <div className={[styles.nav, ubuntu.className].join(" ")}>
+      <div className={styles.options}>
+        <Image
+          src="/svgs/options.svg"
+          width={20}
+          height={20}
+          alt="options"
+        ></Image>
+      </div>
       <Link href="/" className={styles.logo}>
-        <Image src="/imgs/logo.svg" alt="Caliper" width={20} height={1}></Image>
+        <Image src="/svgs/logo.svg" alt="Caliper" width={20} height={1}></Image>
       </Link>
       <nav>
         <ul>
@@ -26,7 +34,7 @@ export default function Navbar() {
             <Link href="/usluge">Galerija</Link>
             <Image
               className={upGallery}
-              src="/imgs/down.svg"
+              src="/svgs/down.svg"
               alt="down"
               width={5}
               height={5}
@@ -147,7 +155,7 @@ export default function Navbar() {
             <Link href="/o-nama">Web Shop</Link>
             <Image
               className={upShop}
-              src="/imgs/down.svg"
+              src="/svgs/down.svg"
               alt="down"
               width={5}
               height={5}

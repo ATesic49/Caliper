@@ -13,6 +13,9 @@
 .nav .logo {
   width: clamp(25px, 12.5%, 200px);
   margin-inline: clamp(10px, 2.5%, 40px) 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .nav .logo img {
   height: auto;
@@ -162,12 +165,12 @@
 }
 .nav .buttons button {
   padding: 1vh;
-  min-width: 85px;
+  min-width: max-content;
   color: var(--font-color-secondary);
-
+  font-size: var(--font-size-small);
   border: none;
   background-color: transparent;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   cursor: pointer;
 }
 .nav .logIn {
@@ -207,7 +210,52 @@
   letter-spacing: 1.2px;
   cursor: pointer;
 }
-@media only screen and (max-width: 700px) {
+.nav .options {
+  width: var(--font-size-Xlarge);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 40%;
+}
+.nav .options img {
+  margin-left: 10%;
+  cursor: pointer;
+  object-fit: cover;
+}
+@media only screen and (max-width: 1700px) {
+  .nav .options {
+    display: flex;
+  }
+  .nav {
+    justify-content: space-between !important;
+  }
+  .nav nav {
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    width: 100%;
+    justify-content: center;
+    background-color: var(--font-color-primary);
+  }
+  .nav nav ul {
+    width: 80%;
+    justify-content: space-around;
+  }
+  .nav nav ul li a {
+    padding: 0.5vh;
+    color: white;
+  }
+  .nav .logo {
+    margin: 0;
+  }
+  .nav .buttons {
+    gap: 1px;
+    width: 40%;
+    margin: 0 0 0;
+  }
+  .nav .buttons button {
+    letter-spacing: normal !important;
+  }
 }
 @keyframes rotation {
   0% {
