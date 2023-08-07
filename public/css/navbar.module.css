@@ -232,8 +232,9 @@
     min-width: 80px;
     position: absolute;
     left: 50%;
+    top: 50%;
     margin: 0;
-    transform: translateX(-50%);
+    transform: translateX(-50%, -50%);
   }
   .nav {
     padding: 1vh;
