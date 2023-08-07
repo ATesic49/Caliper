@@ -228,6 +228,10 @@
     display: flex;
     padding: 1vh;
   }
+  .nav .logo {
+    float: left;
+    min-width: 80px;
+  }
   .nav {
     padding: 1vh;
     justify-content: space-between !important;
