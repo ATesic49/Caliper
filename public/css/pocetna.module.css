@@ -3,6 +3,10 @@
 }
 .large {
   font-size: var(--font-size-large);
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .mid {
   font-size: var(--font-size-mid);

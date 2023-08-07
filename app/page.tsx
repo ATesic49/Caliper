@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <main>
       <p className={styles.xlarge}>Xlarge</p>
-      <p className={styles.large}>Large</p>
+      <p className={styles.large}>I</p>
       <p className={styles.mid}>Middle</p>
       <p className={styles.small}>Small</p>
     </main>

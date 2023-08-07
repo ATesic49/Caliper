@@ -100,7 +100,7 @@
   display: grid;
   content: "";
   background-color: var(--almost-white);
-  top: -1000%;
+  top: -700%;
   padding: 5vh;
   left: -1000%;
   z-index: 100;
