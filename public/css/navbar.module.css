@@ -212,7 +212,7 @@
 }
 .nav .options {
   width: var(--font-size-Xlarge);
-  display: flex;
+  display: none;
   justify-content: flex-start;
   align-items: center;
   width: 40%;
@@ -222,7 +222,7 @@
   cursor: pointer;
   object-fit: cover;
 }
-@media only screen and (max-width: 1700px) {
+@media only screen and (max-width: 700px) {
   .nav .options {
     display: flex;
   }
@@ -232,14 +232,31 @@
   .nav nav {
     position: absolute;
     top: 100%;
-    left: 0%;
+    left: -100%;
     width: 100%;
+
     justify-content: center;
     background-color: var(--font-color-primary);
+    transition-property: left;
+    transition: 0.5s ease-in-out;
+  }
+  .nav nav:has(.slide) {
+    left: 0;
+    transition-property: left;
+    transition: 0.5s ease-in-out;
   }
   .nav nav ul {
-    width: 80%;
+    width: 100%;
+    padding-inline: 10%;
+    position: relative;
     justify-content: space-around;
+  }
+  .nav nav ul li {
+    position: static;
+  }
+  .nav nav ul li .menu {
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(75px, 1fr)) !important;
   }
   .nav nav ul li a {
     padding: 0.5vh;

@@ -12,6 +12,7 @@ const ubuntu = Ubuntu({
 export default function Navbar() {
   const [upGallery, SetUpGallery] = useState(styles.down);
   const [upShop, SetUpShop] = useState(styles.down);
+  const [options, SetOptions] = useState(styles.notSlide);
   return (
     <div className={[styles.nav, ubuntu.className].join(" ")}>
       <div className={styles.options}>
@@ -20,13 +21,17 @@ export default function Navbar() {
           width={20}
           height={20}
           alt="options"
+          onClick={() => {
+            if (options === styles.notSlide) SetOptions(styles.slide);
+            else SetOptions(styles.notSlide);
+          }}
         ></Image>
       </div>
       <Link href="/" className={styles.logo}>
         <Image src="/svgs/logo.svg" alt="Caliper" width={20} height={1}></Image>
       </Link>
       <nav>
-        <ul>
+        <ul className={options}>
           <li>
             <Link href="/o-nama">O Nama</Link>
           </li>
