@@ -1,0 +1,8 @@
+.swiper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 20000px; /* Adjust the max width as needed */
+  margin: 0 auto; /* Center horizontally */
+}

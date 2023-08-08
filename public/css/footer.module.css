@@ -1,0 +1,16 @@
+.footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--font-color-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+.footer p {
+  color: var(--font-color-secondary);
+  font-size: var(--font-size-small);
+  padding: 2vh;
+}
