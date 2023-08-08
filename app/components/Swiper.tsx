@@ -1,0 +1,48 @@
+"use client";
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import style from "../../public/css/swiper.module.css";
+import "node_modules/swiper/swiper-bundle.min.css";
+import Image from "next/image";
+import Link from "next/link";
+
+export default function Swipper() {
+  return (
+    <div className={style.swiper}>
+      <Swiper spaceBetween={300} slidesPerView={1} loop={true}>
+        <SwiperSlide className={style.slide}>
+          <Image
+            src="/imgs/fotelja.jpeg"
+            alt="Fotelja"
+            width={500}
+            height={300}
+          />
+        </SwiperSlide>
+        <SwiperSlide className={style.slide}>
+          <Image
+            src="/imgs/fotelja.jpeg"
+            alt="Fotelja"
+            width={500}
+            height={300}
+          />
+        </SwiperSlide>
+        <SwiperSlide className={style.slide}>
+          <Image
+            src="/imgs/fotelja.jpeg"
+            alt="Fotelja"
+            width={500}
+            height={300}
+          />
+        </SwiperSlide>
+        <SwiperSlide className={style.slide}>
+          <Image
+            src="/imgs/fotelja.jpeg"
+            alt="Fotelja"
+            width={500}
+            height={300}
+          />
+        </SwiperSlide>
+      </Swiper>
+    </div>
+  );
+}

@@ -157,7 +157,7 @@ export default function Navbar() {
             </div>
           </li>
           <li>
-            <Link href="/o-nama">Web Shop</Link>
+            <Link href="/o-nama">Dizajnerske Rucice</Link>
             <Image
               className={upShop}
               src="/svgs/down.svg"
@@ -283,6 +283,7 @@ export default function Navbar() {
         </ul>
       </nav>
       <div className={styles.buttons}>
+        <a href="">Web Shop</a>
         <button>Log In</button>
         <button>Sing Up</button>
       </div>

@@ -2,6 +2,9 @@ import { Ubuntu } from "next/font/google";
 
 import Navbar from "./components/Navbar";
 import "../public/globals.css";
+import Footer from "./components/Footer";
+import Swiper from "./components/Swiper";
+import Grid from "./components/Grid";
 export const metadata = {
   title: "Caliper - Enterijeri | Nameštaj po meri | Dizajnerske ručice",
   description:
@@ -24,6 +27,9 @@ export default function RootLayout({
       <body className={ubuntu.className}>
         <Navbar />
         {children}
+        <Swiper />
+        <Grid />
+        <Footer />
       </body>
     </html>
   );
