@@ -1,0 +1,17 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  justify-items: center;
+  align-items: center;
+}
+
+.gridItem {
+  position: relative;
+  overflow: hidden;
+}
+.gridItem Image {
+  display: block;
+  max-width: 100%;
+  transition: transform 1s ease-in;
+}

@@ -10,9 +10,13 @@
   --font-size-Xlarge: clamp(30px, 5vw, 55px);
   --almost-white: #252525;
 }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   color: var(--font-color);
+}
+body{
+  min-height: 100vh;
 }
