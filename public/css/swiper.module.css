@@ -1,11 +1,13 @@
-/* .swiper {
+.swiper {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .swiper img {
   width: 100%;
+  max-height: 90vh !important;
   object-fit: cover;
   height: auto;
-  filter: brightness(0.7);
-} */
+
+  filter: brightness(0.4);
+}

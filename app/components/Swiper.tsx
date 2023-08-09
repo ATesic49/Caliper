@@ -21,8 +21,8 @@ export default function Swipper() {
             loading="lazy"
             src="/imgs/pocetna.jpeg"
             alt="Fotelja"
-            width={500}
-            height={300}
+            width={3840}
+            height={2160}
           />
         </SwiperSlide>
         <SwiperSlide className={styles.slide}>
@@ -30,8 +30,8 @@ export default function Swipper() {
             loading="lazy"
             src="/imgs/pocetna.jpeg"
             alt="Fotelja"
-            width={500}
-            height={300}
+            width={3840}
+            height={2160}
           />
         </SwiperSlide>
         <SwiperSlide className={styles.slide}>
@@ -39,17 +39,8 @@ export default function Swipper() {
             loading="lazy"
             src="/imgs/pocetna.jpeg"
             alt="Fotelja"
-            width={500}
-            height={300}
-          />
-        </SwiperSlide>
-        <SwiperSlide className={styles.slide}>
-          <Image
-            loading="lazy"
-            src="/imgs/pocetna.jpeg"
-            alt="Fotelja"
-            width={500}
-            height={300}
+            width={3840}
+            height={2160}
           />
         </SwiperSlide>
       </Swiper>

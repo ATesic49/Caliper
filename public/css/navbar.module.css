@@ -1,5 +1,6 @@
 .nav {
-  position: sticky;
+  position: fixed;
+  top: 0;
   display: flex;
   justify-content: flex-start;
   align-items: stretch;
@@ -244,7 +245,7 @@
   .nav nav {
     position: absolute;
     top: 100%;
-    left: -100%;
+    left: -150%;
     width: 100%;
 
     justify-content: center;

@@ -1,8 +1,9 @@
 import Image from "next/image";
+import Swipper from "./components/Swiper";
 export default function Home() {
   return (
-    <main>
-      <h1>A</h1>
-    </main>
+    <div>
+      <Swipper />
+    </div>
   );
 }
