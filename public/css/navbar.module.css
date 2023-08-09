@@ -1,5 +1,5 @@
 .nav {
-  position: fixed;
+  position: sticky;
   display: flex;
   justify-content: flex-start;
   align-items: stretch;
@@ -12,7 +12,7 @@
 }
 .nav .logo {
   width: clamp(25px, 12.5%, 200px);
-  margin-inline: clamp(10px, 2.5%, 40px) 5%;
+  margin-inline: clamp(10px, 2.5%, 140px) 10%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -100,20 +100,20 @@
   display: grid;
   content: "";
   background-color: var(--almost-white);
-  top: -700%;
+  top: -1000%;
   padding: 5vh;
   left: -1000%;
   z-index: 100;
   opacity: 0;
   transition-property: top left opacity;
-  transition: 1.25s;
+  transition: 0.75s ease-in-out;
   position: absolute;
   gap: 2vh;
   grid-template-columns: auto auto auto auto;
 }
 .nav nav ul li:has(.up) .menu {
   transition-property: top left opacity;
-  transition: 1.25s;
+  transition: 0.75s;
   top: 100%;
   opacity: 1;
   left: 0%;
@@ -165,6 +165,7 @@
   margin-left: auto;
 }
 .nav .buttons button {
+  display: none;
   padding: 1vh;
   min-width: max-content;
   color: var(--font-color-secondary);
