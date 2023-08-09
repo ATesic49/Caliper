@@ -17,6 +17,3 @@
   box-sizing: border-box;
   color: var(--font-color);
 }
-body{
-  min-height: 100vh;
-}
