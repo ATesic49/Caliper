@@ -36,7 +36,7 @@ export default function Navbar() {
             <Link href="/o-nama">O Nama</Link>
           </li>
           <li>
-            <Link href="/usluge">Galerija</Link>
+            <Link href="">Galerija</Link>
             <Image
               className={upGallery}
               src="/svgs/down.svg"
@@ -278,7 +278,7 @@ export default function Navbar() {
             </div>
           </li>
           <li>
-            <Link href="/usluge">Kontakt</Link>
+            <Link href="">Kontakt</Link>
           </li>
         </ul>
       </nav>
