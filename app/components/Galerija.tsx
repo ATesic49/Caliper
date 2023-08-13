@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "../../public/css/grid.module.css";
 
-export default function Grid() {
+export default function Galerija() {
   return (
     <div className={styles.grid}>
       <div className={styles.gridItem}>

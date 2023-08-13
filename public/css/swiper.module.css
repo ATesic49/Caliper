@@ -1,4 +1,5 @@
 .swiper {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,6 +9,97 @@
   max-height: 90vh !important;
   object-fit: cover;
   height: auto;
+  filter: brightness(0.6);
+}
+/* .slide {
+  position: relative;
+} */
+.swiper h1 {
+  font-size: var(--font-size-Xlarge);
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  align-self: flex-start;
+  min-width: 600px !important;
+  width: 70%;
+  text-align: center;
+  color: #ffffff00;
+  transition: 1s ease-in forwards;
+  transform: translate(-50%, -50%);
+  font-weight: 400;
+  z-index: 2;
+  animation: opacity 0.75s 1s forwards;
+}
+.swiper h1::after {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  content: "Caliper";
+  /* opacity: 0.8; */
+  color: rgba(255, 255, 255, 0.7);
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: var(--primary-color);
+  width: 0;
+  animation: animacija 1s 0.5s forwards;
+}
+/* .swiper span {
+  background-color: red;
+  position: absolute;
+  width: 100%;
+} */
+.swiper a {
+  font-size: var(--font-size-mid);
+  padding: 2vh;
+  position: absolute;
+  top: 67.5%;
+  background-color: var(--secondary-color);
+  left: 50%;
+  z-index: 2;
+  color: #ffffff;
+  text-decoration: none;
+  overflow: hidden;
+  transform: translate(-50%, -50%);
+}
+.swiper a::after {
+  content: "";
+  top: 50%;
+  left: 50%;
+  width: 0%;
+  position: absolute;
+  height: 00%;
+  transition: 0.5s;
+  background-color: var(--primary-color);
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+.swiper a:hover::after {
+  width: 110%;
+  height: 110%;
+}
+@keyframes animacija {
+  0% {
+    width: 0;
+    left: 0;
+  }
 
-  filter: brightness(0.4);
+  50% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    left: 100%;
+    width: 0;
+  }
+}
+@keyframes opacity {
+  0% {
+    color: #ffffff00;
+  }
+  100% {
+    color: #ffffff;
+  }
 }
