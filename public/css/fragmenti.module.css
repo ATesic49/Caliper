@@ -1,0 +1,13 @@
+.fragment {
+  width: 100%;
+  padding-block: 10vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fll, minmax(300px, 100px));
+}
+.fragment .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
+}

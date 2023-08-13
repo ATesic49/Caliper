@@ -6,7 +6,7 @@
   --logo-color: #d71920;
   --font-size-small: clamp(10px, 1.4vw, 15px);
   --font-size-mid: clamp(14px, 1.75vw, 18px);
-  --font-size-large: clamp(20px, 2.5vw, 50px);
+  --font-size-large: clamp(18px, 2.3vw, 25px);
   --font-size-Xlarge: clamp(30px, 5vw, 55px);
   --almost-white: #252525;
 }
