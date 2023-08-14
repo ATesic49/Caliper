@@ -40,6 +40,7 @@
 .oNama .text {
   padding: 15vh 0vw;
   display: grid;
+  grid-template-columns: 1fr;
   gap: 5vw;
   flex-direction: row;
 }
@@ -75,11 +76,19 @@
 .oNama .text .p {
   padding-block: 2.5vh;
   padding-inline: 1.25vw;
-  border-top: 2px solid var(--primary-color);
-  border-bottom: 2px solid var(--primary-color);
+  position: relative;
   grid-area: paragraf;
   display: grid;
   gap: clamp(2vh, 50px, 6vh) 0;
+}
+.oNama .text .p::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 2px;
+  background-color: var(--primary-color);
+  content: "";
 }
 .oNama .text p {
   width: 100%;
