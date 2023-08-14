@@ -1,0 +1,126 @@
+.oNama {
+  width: 100%;
+  padding-top: 4vh;
+}
+.oNama .slika {
+  position: relative;
+  height: auto;
+}
+.oNama .slika::after {
+  content: "";
+  position: absolute;
+  background-color: var(--secondary-color);
+  top: 0;
+  opacity: 0.8;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.oNama .slika h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% + 2vh));
+  font-size: var(--font-size-Xlarge);
+  color: white;
+  z-index: 1;
+  font-weight: 500;
+  word-spacing: 2vh;
+  width: 80%;
+  text-align: center;
+  text-align: center;
+}
+.oNama .slika img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  max-height: 80vh !important;
+}
+.oNama .text {
+  padding: 15vh 0vw;
+  display: grid;
+  gap: 5vw;
+  flex-direction: row;
+}
+.oNama .text .container {
+  display: grid;
+  grid-template-areas:
+    "naslov naslov"
+    "paragraf slika";
+  align-items: center;
+  justify-content: center;
+  grid-auto-columns: 1fr;
+}
+.oNama .text h2 {
+  margin-left: 5vw;
+  font-size: var(--font-size-large);
+  margin-bottom: clamp(2vh, 50px, 6vh);
+  font-weight: 200;
+  width: max-content;
+  letter-spacing: 5px;
+  position: relative;
+  grid-area: naslov;
+}
+.oNama .text h2::after {
+  top: calc(100% + 10px);
+  left: 50%;
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: var(--primary-color);
+  width: 80%;
+  transform: translateX(-50%);
+}
+.oNama .text .p {
+  padding-block: 2.5vh;
+  padding-inline: 1.25vw;
+  border-top: 2px solid var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+  grid-area: paragraf;
+  display: grid;
+  gap: clamp(2vh, 50px, 6vh) 0;
+}
+.oNama .text p {
+  width: 100%;
+  font-size: var(--font-size-small);
+  font-weight: 200;
+  letter-spacing: 0.1vw;
+}
+.oNama .text .img img {
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.oNama .text .img {
+  width: 100%;
+  position: relative;
+  height: 100%;
+  z-index: 1;
+  grid-area: slika;
+}
+.oNama .text .img::after {
+  content: "";
+  top: 0;
+  opacity: 0.75;
+  left: 0;
+  height: 100%;
+  position: absolute;
+  background-color: var(--primary-color);
+  width: 100%;
+}
+.oNama .text .img h3 {
+  color: white;
+  max-width: 80%;
+  z-index: 2;
+  position: absolute;
+  font-size: var(--font-size-Xlarge);
+  font-weight: 300;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
