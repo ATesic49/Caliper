@@ -4,10 +4,19 @@
   height: 100svh;
   display: flex;
   justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
   align-items: center;
   flex-direction: column;
 }
 .loading h2 {
   font-size: var(--font-size-large);
   color: var(--font-color-secondary);
+}
+@media (max-width: 700px) {
+  .loading img {
+    width: 300px;
+    height: 200px;
+  }
 }

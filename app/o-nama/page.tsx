@@ -54,6 +54,73 @@ export default function page() {
             <h3>Lorem ipsum dolor sit.</h3>
           </div>
         </div>
+        <div className={styles.container}>
+          <h2>MISIJA, VIZIJA I CILJEVI</h2>
+          <div className={styles.p}>
+            <div>
+              <h3>Misija:</h3>
+              <p>
+                Naša misija je da obezbedimo visokokvalitetan nameštaj po meri
+                koji zadovoljava jedinstvene potrebe i stil svakog kupca.
+                Nastojimo da kreiramo lepe, funkcionalne komade koji su
+                izgrađeni da traju, koristeći samo najkvalitetnije materijale i
+                okove. Naš cilj je da proces dizajniranja i nabavke nameštaja po
+                meri učinimo što lakšim i prijatnijim.
+              </p>
+            </div>
+            <div>
+              <h3>Vizija:</h3>
+              <p>
+                Naša vizija je da budemo vodeći dobavljač nameštaja, poznat po
+                izuzetnoj izradi, personalizovanoj usluzi i posvećenosti
+                kvalitetu. Cilj nam je da stvorimo nasleđe izvrsnosti i
+                inovacije, inspirišući druge u industriji i zaslužujući
+                poverenje i lojalnost naših kupaca.
+              </p>
+            </div>
+            <div>
+              <h3>Ciljevi:</h3>
+              <ul>
+                <li>
+                  <p>
+                    Da obezbedimo najkvalitetniji nameštaj po meri, koristeći
+                    samo najkvalitetnije materijale i stručnu izradu.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Da ponudimo personalizovanu uslugu usmerenu na kupca koja
+                    proces dizajniranja i nabavke nameštaja po meri čini
+                    besprekornim i prijatnim.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Da budemo na čelu inovacija u industriji nameštaja po meri,
+                    kontinuirano poboljšavajući naše proizvode i usluge kako
+                    bismo zadovoljili promenljive potrebe naših kupaca.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Da uspostavimo i održimo jake, trajne odnose sa našim
+                    klijentima, zaslužujući njihovo poverenje i lojalnost kroz
+                    našu posvećenost kvalitetu i usluzi.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className={styles.img}>
+            <Image
+              src="/imgs/pocetna.jpeg"
+              alt=""
+              width={1300}
+              height={600}
+            ></Image>
+            <h3>Lorem ipsum dolor sit.</h3>
+          </div>
+        </div>
       </div>
     </div>
   );

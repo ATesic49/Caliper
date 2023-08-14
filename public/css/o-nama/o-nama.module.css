@@ -41,7 +41,7 @@
   padding: 15vh 0vw;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 5vw;
+  gap: 10vw;
   flex-direction: row;
 }
 .oNama .text .container {
@@ -53,6 +53,16 @@
   justify-content: center;
   grid-auto-columns: 1fr;
 }
+.oNama .text .container:nth-child(even) {
+  grid-template-areas:
+    "naslov naslov"
+    "slika paragraf";
+}
+
+.oNama .text .container .img:nth-child(even)::after {
+  background-color: var(--secondary-color);
+}
+
 .oNama .text h2 {
   margin-left: 5vw;
   font-size: var(--font-size-large);
@@ -81,14 +91,30 @@
   display: grid;
   gap: clamp(2vh, 50px, 6vh) 0;
 }
+.oNama .text .p p {
+  color: var(--font-color-secondary);
+}
 .oNama .text .p::after {
   position: absolute;
   top: 0;
-  right: 0;
-  width: 50%;
+  left: 0;
+  width: 35%;
   height: 2px;
   background-color: var(--primary-color);
   content: "";
+  opacity: 0.75;
+  z-index: 2;
+}
+.oNama .text .p::before {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 35%;
+  height: 2px;
+  background-color: var(--primary-color);
+  content: "";
+  opacity: 0.75;
+  z-index: 2;
 }
 .oNama .text p {
   width: 100%;
@@ -100,11 +126,25 @@
   width: 100%;
   position: absolute;
   height: 100%;
-  top: 0;
-  left: 0;
-}
+  top: 50%;
 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.5s;
+}
+.oNama .text .img:hover h3 {
+  transform: translate(-50%, -50%) scale(1.05);
+  transition: 0.5s;
+}
+.oNama .text .img:hover img {
+  transform: translate(-50%, -50%) scale(1.15);
+  transition: 0.5s;
+}
+.oNama .text .img:hover {
+  cursor: pointer;
+}
 .oNama .text .img {
+  overflow: hidden;
   width: 100%;
   position: relative;
   height: 100%;
@@ -123,6 +163,8 @@
 }
 .oNama .text .img h3 {
   color: white;
+  transition: 0.5s;
+
   max-width: 80%;
   z-index: 2;
   position: absolute;
@@ -132,4 +174,35 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+@media (max-width: 500px) {
+  .oNama .text .container {
+    grid-template-areas:
+      "naslov naslov"
+      "paragraf paragraf"
+      "slika slika";
+  }
+  .oNama .text .img {
+    height: 40vh;
+  }
+  .oNama .text .container:nth-child(even) {
+    grid-template-areas:
+      "naslov naslov"
+      "paragraf paragraf"
+      "slika slika";
+  }
+  .oNama .text h2 {
+    letter-spacing: 1px;
+  }
+}
+.oNama .text .p h3 {
+  font-weight: 400;
+  margin-bottom: 2vh;
+  font-size: var(--font-size-mid);
+}
+.oNama .text .container ul {
+  margin-left: 2vw;
+  display: grid;
+  list-style-type: decimal;
+  gap: 2vh;
 }
