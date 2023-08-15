@@ -38,59 +38,6 @@ export default function Galerija() {
       </div>
       <div className={styles.grid}>
         <div className={styles.container}>
-          <Image
-            src="/imgs/pocetna.jpeg"
-            alt=""
-            width={400}
-            height={250}
-          ></Image>
-          <h4>Fotelja</h4>
-        </div>
-        <div className={styles.container}>
-          <Link href="">
-            <Image
-              src="/imgs/pocetna.jpeg"
-              alt=""
-              width={300}
-              height={300}
-            ></Image>
-            <h4>Fotelja</h4>
-          </Link>
-        </div>
-        <div className={styles.container}>
-          <Link href="">
-            <Image
-              src="/imgs/pocetna.jpeg"
-              alt=""
-              width={300}
-              height={300}
-            ></Image>
-            <h4>Fotelja</h4>
-          </Link>
-        </div>
-        <div className={styles.container}>
-          <Link href="">
-            <Image
-              src="/imgs/pocetna.jpeg"
-              alt=""
-              width={300}
-              height={300}
-            ></Image>
-            <h4>Fotelja</h4>
-          </Link>
-        </div>
-        <div className={styles.container}>
-          <Link href="">
-            <Image
-              src="/imgs/pocetna.jpeg"
-              alt=""
-              width={300}
-              height={300}
-            ></Image>
-            <h4>Fotelja</h4>
-          </Link>
-        </div>
-        <div className={styles.container}>
           <Link href="">
             <Image
               src="/imgs/pocetna.jpeg"
