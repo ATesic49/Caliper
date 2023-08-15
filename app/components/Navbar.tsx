@@ -2,7 +2,9 @@
 import { Ubuntu } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import Router from "next/navigation";
+import React, { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import styles from "../../public/css/navbar.module.css";
 
 const ubuntu = Ubuntu({
@@ -11,9 +13,15 @@ const ubuntu = Ubuntu({
   style: ["normal"],
 });
 export default function Navbar() {
+  const pathname = usePathname();
   const [upGallery, SetUpGallery] = useState(styles.down);
   const [upShop, SetUpShop] = useState(styles.down);
   const [options, SetOptions] = useState(styles.notSlide);
+  useEffect(() => {
+    SetUpGallery(styles.down);
+    SetUpShop(styles.down);
+  }, [pathname]);
+
   return (
     <div className={[styles.nav, ubuntu.className].join(" ")}>
       <div className={styles.options}>
@@ -37,7 +45,7 @@ export default function Navbar() {
             <Link href="/o-nama">O Nama</Link>
           </li>
           <li>
-            <Link href="">Galerija</Link>
+            <Link href="/galerija">Galerija</Link>
             <Image
               className={upGallery}
               src="/svgs/down.svg"
