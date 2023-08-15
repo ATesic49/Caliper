@@ -2,10 +2,12 @@
   width: 100%;
   padding-top: 4vh;
 }
+
 .galerija .slika {
   position: relative;
   height: auto;
 }
+
 .galerija .slika::after {
   content: "";
   position: absolute;
@@ -32,6 +34,7 @@
   text-align: center;
   text-align: center;
 }
+
 .galerija .slika img {
   width: 100%;
   object-fit: cover;
@@ -39,29 +42,51 @@
   max-height: 80vh !important;
   object-fit: cover;
 }
+
 .galerija .grid {
   display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(30rem, 2fr));
   justify-content: center;
   margin: auto;
-  padding: 1rem 2rem;
+  padding: 2rem 2rem;
 }
 
 .galerija .grid .container {
   max-width: 400px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  z-index: 0;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative; /* Added this line for positioning */
 }
+
 .galerija .grid .container img {
   width: 400px;
   height: 250px;
+  transition: filter 0.3s ease-in-out; /* Added this line for image animation */
 }
 
 .galerija .grid .container h4 {
-  text-decoration: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  font-size: var(--font-size-Xlarge);
+  color: var(--primary-color);
+  opacity: 0;
+  display: none;
 }
 
-.galerija .grid .container img:hover {
+.galerija .grid .container:hover img {
+  filter: brightness(70%);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 .galerija .predGrid {
@@ -124,4 +149,18 @@
   cursor: pointer;
   margin-inline: 10px;
   filter: invert(0.5);
+
+.galerija .grid .container:hover h4 {
+  display: block;
+  animation: fade-in 0.5s ease-in-out forwards;
+  background-color: transparent;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
