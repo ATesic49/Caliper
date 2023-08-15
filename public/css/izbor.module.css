@@ -1,0 +1,5 @@
+.izbor {
+  width: 100%;
+  display: grid;
+  grid-column: 1fr;
+}

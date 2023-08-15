@@ -3,7 +3,7 @@
   --secondary-color: #49a5a5;
   --font-color-secondary: #5a5a5a;
   --font-color-primary: #252525;
-  --logo-color: #d71920;
+  /* --logo-color: #d71920; */
   --font-size-small: clamp(10px, 1.4vw, 15px);
   --font-size-mid: clamp(14px, 1.75vw, 18px);
   --font-size-large: clamp(18px, 2.3vw, 25px);

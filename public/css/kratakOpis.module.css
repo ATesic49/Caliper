@@ -1,0 +1,51 @@
+.wrapper {
+  padding: 10vh 2.5vw;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 7.5vh;
+  width: 100%;
+}
+.wrapper .container {
+  display: grid;
+  gap: 2.5vw;
+  grid-auto-columns: 1fr;
+  align-items: center;
+  justify-content: center;
+  grid-template-areas:
+    "naslov naslov "
+    "paragraf image";
+}
+
+.wrapper .container h2 {
+  width: max-content;
+  margin-left: 2vh;
+  position: relative;
+  font-size: var(--font-size-large);
+  font-weight: 200;
+  letter-spacing: 2.5px;
+  grid-area: naslov;
+}
+.wrapper .container h2::after {
+  top: 110%;
+  transform: translateX(-50%);
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 80%;
+  height: 2px;
+  background-color: var(--secondary-color);
+}
+.wrapper .container .p {
+  grid-area: paragraf;
+  display: grid;
+  gap: 5vh;
+}
+.wrapper .container .p p {
+  color: var(--font-color-secondary);
+}
+.wrapper .container img {
+  grid-area: image;
+  object-fit: cover;
+  height: auto;
+  width: 100%;
+}
