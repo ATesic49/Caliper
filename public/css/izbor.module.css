@@ -2,13 +2,82 @@
   width: 100%;
   display: grid;
   grid-column: 1fr;
+  padding-block: 10vh;
 }
 .izbor h2 {
-  width: 100%;
+  width: max-content;
+  font-size: var(--font-size-large);
+  position: relative;
   text-align: center;
+  margin-inline: auto;
   color: var(--font-color-primary);
   font-weight: 400;
 }
+.izbor h2::after {
+  background-color: var(--font-color-secondary);
+  content: "";
+  top: 120%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  width: 60%;
+  height: 2px;
+}
 .izbor .container {
-  width: max(60%, 300px);
+  margin-block: 10vh;
+  margin-inline: auto;
+  width: max(80%, 300px);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  justify-content: center;
+  gap: 5vh;
+  align-items: center;
+}
+.izbor .container .box {
+  position: relative;
+  width: max(200px, 30%);
+  display: flex;
+  padding: max(20px, 4vh);
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 10%;
+}
+.izbor .container .box:hover .image {
+  transform: translate(-50%, -50%) scale(1.12);
+  cursor: pointer;
+  transition: 0.5s;
+}
+.izbor .container .box img {
+  filter: invert(1);
+  z-index: 1;
+  transition: 0.5s;
+}
+.izbor .container .box .image {
+  position: absolute;
+  filter: invert(0);
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  left: 50%;
+  width: 100%;
+  z-index: 0;
+}
+.izbor .container .box h4 {
+  color: white;
+  z-index: 2;
+}
+.izbor .container .box::after {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  content: "";
+  background-color: var(--font-color-secondary);
+  opacity: 0.95;
+  z-index: 0;
 }
