@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "../../public/css/grid.module.css";
-import "tailwindcss/tailwind.css";
 
 export default function Slike() {
   return (
