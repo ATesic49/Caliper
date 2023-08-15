@@ -27,8 +27,8 @@ export default function Navbar() {
       <div className={styles.options}>
         <Image
           src="/svgs/options.svg"
-          width={80}
-          height={26}
+          width={20}
+          height={20}
           alt="options"
           onClick={() => {
             if (options === styles.notSlide) SetOptions(styles.slide);
@@ -37,7 +37,12 @@ export default function Navbar() {
         ></Image>
       </div>
       <Link href="/" className={styles.logo}>
-        <Image src="/svgs/logo.svg" alt="Caliper" width={20} height={1}></Image>
+        <Image
+          src="/svgs/logo.svg"
+          alt="Caliper"
+          width={80}
+          height={26}
+        ></Image>
       </Link>
       <nav>
         <ul className={options}>
