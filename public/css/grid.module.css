@@ -42,18 +42,19 @@
 .galerija .grid {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(400px, 1fr)
-  ); /* Use minmax to allow flexible columns */
-  justify-content: center; /* Center the columns horizontally */
+  grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+  justify-content: center;
   margin: auto;
-  padding: 1rem 1.5rem; /* Add some padding to the sides to prevent items from touching the screen edge */
+  padding: 1rem 2rem;
 }
 
 .galerija .grid .container {
-  max-width: 300px; /* Use max-width instead of fixed width */
-  margin: 0 auto; /* Center the container within the column */
+  max-width: 400px;
+  margin: 0 auto;
+}
+.galerija .grid .container img {
+  width: 400px;
+  height: 250px;
 }
 
 .galerija .grid .container h4 {
