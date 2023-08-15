@@ -149,7 +149,7 @@
   cursor: pointer;
   margin-inline: 10px;
   filter: invert(0.5);
-
+}
 .galerija .grid .container:hover h4 {
   display: block;
   animation: fade-in 0.5s ease-in-out forwards;
