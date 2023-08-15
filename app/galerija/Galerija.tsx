@@ -24,8 +24,8 @@ export default function Slike() {
               width={400}
               height={250}
             ></Image>
+            <h4>Fotelja</h4>
           </Link>
-          <h4>Fotelja</h4>
         </div>
         <div className={styles.container}>
           <Link href="">
@@ -35,8 +35,8 @@ export default function Slike() {
               width={300}
               height={300}
             ></Image>
+            <h4>Fotelja</h4>
           </Link>
-          <h4>Fotelja</h4>
         </div>
         <div className={styles.container}>
           <Link href="">
@@ -46,8 +46,8 @@ export default function Slike() {
               width={300}
               height={300}
             ></Image>
+            <h4>Fotelja</h4>
           </Link>
-          <h4>Fotelja</h4>
         </div>
         <div className={styles.container}>
           <Link href="">
@@ -57,8 +57,8 @@ export default function Slike() {
               width={300}
               height={300}
             ></Image>
+            <h4>Fotelja</h4>
           </Link>
-          <h4>Fotelja</h4>
         </div>
         <div className={styles.container}>
           <Link href="">
@@ -68,8 +68,8 @@ export default function Slike() {
               width={300}
               height={300}
             ></Image>
+            <h4>Fotelja</h4>
           </Link>
-          <h4>Fotelja</h4>
         </div>
         <div className={styles.container}>
           <Link href="">
@@ -79,8 +79,8 @@ export default function Slike() {
               width={300}
               height={300}
             ></Image>
+            <h4>Fotelja</h4>
           </Link>
-          <h4>Fotelja</h4>
         </div>
         <div className={styles.container}>
           <Link href="">
@@ -90,8 +90,8 @@ export default function Slike() {
               width={300}
               height={300}
             ></Image>
+            <h4>Fotelja</h4>
           </Link>
-          <h4>Fotelja</h4>
         </div>
         <div className={styles.container}>
           <Link href="">
@@ -101,8 +101,8 @@ export default function Slike() {
               width={300}
               height={300}
             ></Image>
+            <h4>Fotelja</h4>
           </Link>
-          <h4>Fotelja</h4>
         </div>
         <div className={styles.container}>
           <Link href="">
@@ -112,8 +112,8 @@ export default function Slike() {
               width={300}
               height={300}
             ></Image>
+            <h4>Fotelja</h4>
           </Link>
-          <h4>Fotelja</h4>
         </div>
         <div className={styles.container}>
           <Link href="">
@@ -123,8 +123,8 @@ export default function Slike() {
               width={300}
               height={300}
             ></Image>
+            <h4>Fotelja</h4>
           </Link>
-          <h4>Fotelja</h4>
         </div>
         <div className={styles.container}>
           <Link href="">
@@ -134,8 +134,8 @@ export default function Slike() {
               width={300}
               height={300}
             ></Image>
+            <h4>Fotelja</h4>
           </Link>
-          <h4>Fotelja</h4>
         </div>
         <div className={styles.container}>
           <Link href="">
@@ -145,8 +145,8 @@ export default function Slike() {
               width={300}
               height={300}
             ></Image>
+            <h4>Fotelja</h4>
           </Link>
-          <h4>Fotelja</h4>
         </div>
         <div className={styles.container}>
           <Link href="">
@@ -156,8 +156,8 @@ export default function Slike() {
               width={300}
               height={300}
             ></Image>
+            <h4>Fotelja</h4>
           </Link>
-          <h4>Fotelja</h4>
         </div>
         <div className={styles.container}>
           <Link href="">
@@ -167,8 +167,8 @@ export default function Slike() {
               width={300}
               height={300}
             ></Image>
+            <h4>Fotelja</h4>
           </Link>
-          <h4>Fotelja</h4>
         </div>
         <div className={styles.container}>
           <Link href="">
@@ -178,8 +178,8 @@ export default function Slike() {
               width={300}
               height={300}
             ></Image>
+            <h4>Fotelja</h4>
           </Link>
-          <h4>Fotelja</h4>
         </div>
         <div className={styles.container}>
           <Link href="">
@@ -189,8 +189,8 @@ export default function Slike() {
               width={300}
               height={300}
             ></Image>
+            <h4>Fotelja</h4>
           </Link>
-          <h4>Fotelja</h4>
         </div>
         <div className={styles.container}>
           <Link href="">
@@ -200,8 +200,8 @@ export default function Slike() {
               width={300}
               height={300}
             ></Image>
+            <h4>Fotelja</h4>
           </Link>
-          <h4>Fotelja</h4>
         </div>
         <div className={styles.container}>
           <Link href="">
@@ -211,21 +211,74 @@ export default function Slike() {
               width={300}
               height={300}
             ></Image>
+            <h4>Fotelja</h4>
           </Link>
-          <h4>Fotelja</h4>
         </div>
         <div className={styles.container}>
           <Link href="">
-            <div className={styles.image}>
-              <Image
-                src="/imgs/pocetna.jpeg"
-                alt=""
-                width={300}
-                height={300}
-              ></Image>
-            </div>
+            <Image
+              src="/imgs/pocetna.jpeg"
+              alt=""
+              width={300}
+              height={300}
+            ></Image>
+            <h4>Fotelja</h4>
           </Link>
-          <h4>Fotelja</h4>
+        </div>
+        <div className={styles.container}>
+          <Link href="">
+            <Image
+              src="/imgs/pocetna.jpeg"
+              alt=""
+              width={300}
+              height={300}
+            ></Image>
+            <h4>Fotelja</h4>
+          </Link>
+        </div>
+        <div className={styles.container}>
+          <Link href="">
+            <Image
+              src="/imgs/pocetna.jpeg"
+              alt=""
+              width={300}
+              height={300}
+            ></Image>
+            <h4>Fotelja</h4>
+          </Link>
+        </div>
+        <div className={styles.container}>
+          <Link href="">
+            <Image
+              src="/imgs/pocetna.jpeg"
+              alt=""
+              width={300}
+              height={300}
+            ></Image>
+            <h4>Fotelja</h4>
+          </Link>
+        </div>
+        <div className={styles.container}>
+          <Link href="">
+            <Image
+              src="/imgs/pocetna.jpeg"
+              alt=""
+              width={300}
+              height={300}
+            ></Image>
+            <h4>Fotelja</h4>
+          </Link>
+        </div>
+        <div className={styles.container}>
+          <Link href="">
+            <Image
+              src="/imgs/pocetna.jpeg"
+              alt=""
+              width={300}
+              height={300}
+            ></Image>
+            <h4>Fotelja</h4>
+          </Link>
         </div>
       </div>
     </div>
