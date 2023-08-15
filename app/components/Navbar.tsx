@@ -6,6 +6,7 @@ import Router from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import styles from "../../public/css/navbar.module.css";
+
 const ubuntu = Ubuntu({
   subsets: ["latin"],
   weight: ["300", "400", "500", "700"],
@@ -61,7 +62,7 @@ export default function Navbar() {
             ></Image>
             <div className={styles.menu}>
               <div className={styles.container}>
-                <Link href="/fotelje">
+                <Link href="/galerija" onClick={() => {}}>
                   {" "}
                   <h4>Fotelje</h4>{" "}
                 </Link>
@@ -78,7 +79,7 @@ export default function Navbar() {
                 </ul>
               </div>
               <div className={styles.container}>
-                <Link href="/fotelje">
+                <Link href="">
                   {" "}
                   <h4>Fotelje</h4>{" "}
                 </Link>
@@ -182,92 +183,7 @@ export default function Navbar() {
             ></Image>
             <div className={styles.menu}>
               <div className={styles.container}>
-                <Link href="/fotelje">
-                  {" "}
-                  <h4>Fotelje</h4>{" "}
-                </Link>
-                <ul>
-                  <li>
-                    <Link href="">Fotelja #1</Link>
-                  </li>
-                  <li>
-                    <Link href="">Fotelja #2</Link>
-                  </li>
-                  <li>
-                    <Link href="">Fotelja #3</Link>
-                  </li>
-                </ul>
-              </div>
-              <div className={styles.container}>
-                <Link href="/fotelje">
-                  {" "}
-                  <h4>Fotelje</h4>{" "}
-                </Link>
-                <ul>
-                  <li>
-                    <Link href="">Fotelja #1</Link>
-                  </li>
-                  <li>
-                    <Link href="">Fotelja #2</Link>
-                  </li>
-                  <li>
-                    <Link href="">Fotelja #3</Link>
-                  </li>
-                </ul>
-              </div>
-              <div className={styles.container}>
-                <Link href="/fotelje">
-                  {" "}
-                  <h4>Fotelje</h4>{" "}
-                </Link>
-                <ul>
-                  <li>
-                    <Link href="">Fotelja #1</Link>
-                  </li>
-                  <li>
-                    <Link href="">Fotelja #2</Link>
-                  </li>
-                  <li>
-                    <Link href="">Fotelja #3</Link>
-                  </li>
-                </ul>
-              </div>
-              <div className={styles.container}>
-                <Link href="/fotelje">
-                  {" "}
-                  <h4>Fotelje</h4>{" "}
-                </Link>
-                <ul>
-                  <li>
-                    <Link href="">Fotelja #1</Link>
-                  </li>
-                  <li>
-                    <Link href="">Fotelja #2</Link>
-                  </li>
-                  <li>
-                    <Link href="">Fotelja #3</Link>
-                  </li>
-                </ul>
-              </div>
-              <div className={styles.container}>
-                <Link href="/fotelje">
-                  {" "}
-                  <h4>Fotelje</h4>{" "}
-                </Link>
-                <ul>
-                  <li>
-                    <Link href="">Fotelja #1</Link>
-                  </li>
-                  <li>
-                    <Link href="">Fotelja #2</Link>
-                  </li>
-                  <li>
-                    <Link href="">Fotelja #3</Link>
-                  </li>
-                </ul>
-              </div>
-              <div className={styles.container}>
-                <Link href="/fotelje">
+                <Link href="/fotelje" onClick={() => {}}>
                   {" "}
                   <h4>Fotelje</h4>{" "}
                 </Link>

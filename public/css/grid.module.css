@@ -1,17 +1,65 @@
-.grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 0;
-  justify-items: center;
-  align-items: center;
+.galerija {
+  width: 100%;
+  padding-top: 4vh;
+}
+.galerija .slika {
+  position: relative;
+  height: auto;
+}
+.galerija .slika::after {
+  content: "";
+  position: absolute;
+  background-color: var(--primary-color);
+  top: 0;
+  opacity: 0.8;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
-.gridItem {
-  position: relative;
-  overflow: hidden;
+.galerija .slika h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% + 2vh));
+  font-size: var(--font-size-Xlarge);
+  color: white;
+  z-index: 1;
+  font-weight: 500;
+  word-spacing: 2vh;
+  width: 80%;
+  text-align: center;
+  text-align: center;
 }
-.gridItem Image {
-  display: block;
-  max-width: 100%;
-  transition: transform 1s ease-in;
+.galerija .slika img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  max-height: 80vh !important;
+  object-fit: cover;
+}
+.galerija .grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(400px, 1fr)
+  ); /* Use minmax to allow flexible columns */
+  justify-content: center; /* Center the columns horizontally */
+  margin: auto;
+  padding: 1rem 1.5rem; /* Add some padding to the sides to prevent items from touching the screen edge */
+}
+
+.galerija .grid .container {
+  max-width: 300px; /* Use max-width instead of fixed width */
+  margin: 0 auto; /* Center the container within the column */
+}
+
+.galerija .grid .container h4 {
+  text-decoration: none;
+}
+
+.galerija .grid .container img:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
