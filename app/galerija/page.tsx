@@ -1,7 +1,7 @@
 import React from "react";
 import Galerija from "./Galerija";
 
-export default function Slike() {
+export default function page() {
   return (
     <>
       <Galerija />

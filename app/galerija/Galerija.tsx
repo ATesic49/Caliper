@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "../../public/css/grid.module.css";
 
-export default function Slike() {
+export default function Galerija() {
   return (
     <div className={styles.galerija}>
       <div className={styles.slika}>
@@ -14,6 +14,27 @@ export default function Slike() {
           height={3400}
         ></Image>
         <h1>Najveci Izbor u Srbiji</h1>
+      </div>
+      <div className={styles.predGrid}>
+        <h2>Nasa Galerija</h2>
+        <div className={styles.searchBar}>
+          <div className={styles.filter}>
+            <Image
+              src={"/svgs/options.svg"}
+              alt="filter"
+              width={50}
+              height={50}
+            ></Image>
+          </div>
+          <input type="text" placeholder="Stolice, Stolovi, Namestaj..." />
+          <Image
+            className={styles.search}
+            src={"/svgs/search.svg"}
+            alt="filter"
+            width={50}
+            height={50}
+          ></Image>
+        </div>
       </div>
       <div className={styles.grid}>
         <div className={styles.container}>

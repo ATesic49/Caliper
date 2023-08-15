@@ -49,3 +49,12 @@
   height: auto;
   width: 100%;
 }
+@media (max-width: 700px) {
+  .wrapper .container {
+    gap: 5vh;
+    grid-template-areas:
+      "naslov naslov "
+      "paragraf paragraf"
+      "image image";
+  }
+}

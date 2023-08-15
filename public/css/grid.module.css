@@ -64,3 +64,64 @@
 .galerija .grid .container img:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
+.galerija .predGrid {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 7.5vh;
+  align-items: center;
+  padding-block: 15vh 10vh;
+  justify-content: center;
+}
+.galerija .predGrid h2 {
+  font-size: var(--font-size-Xlarge);
+  font-weight: 400;
+  position: relative;
+  width: max-content;
+}
+.galerija .predGrid h2::after {
+  top: 110%;
+  left: 50%;
+  position: absolute;
+  width: 60%;
+  transform: translate(-50%, -50%);
+  height: 2px;
+  content: "";
+  background-color: var(--primary-color);
+}
+.galerija .predGrid .searchBar {
+  width: 80%;
+  border: 1px solid #252525;
+  height: auto;
+  border-radius: 0 20px 20px 0;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.galerija .predGrid .searchBar .filter {
+  background-color: var(--font-color-primary);
+  display: flex;
+  width: max(70px, 5%);
+  padding-block: 0.5vh;
+  justify-content: center;
+  align-items: center;
+}
+.galerija .predGrid .searchBar .filter img {
+  filter: invert(1);
+  width: 40%;
+  cursor: pointer;
+}
+.galerija .predGrid .searchBar input {
+  outline: none;
+  box-sizing: border-box;
+  padding: 2vh;
+  font-size: var(--font-size-mid);
+  border: none;
+  width: max(calc(100% - 90px - 5vh), calc(100% - 5vh - 20px - 10%));
+}
+.galerija .predGrid .searchBar .search {
+  width: 5vh;
+  cursor: pointer;
+  margin-inline: 10px;
+  filter: invert(0.5);
+}

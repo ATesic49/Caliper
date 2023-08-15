@@ -10,7 +10,6 @@ import "swiper/css";
 export default function Swipper() {
   return (
     <div className={styles.swiper}>
-      {}
       <Swiper
         //@ts-ignore
         spaceBetween={0}

@@ -269,7 +269,7 @@
   }
   .nav nav ul li .menu {
     width: 100%;
-    grid-template-columns: repeat(auto-fit, minmax(75px, 1fr)) !important;
+    grid-template-columns: repeat(auto-fill, minmax(75px, 1fr)) !important;
   }
   .nav nav ul li a {
     padding: 0.5vh;

@@ -7,7 +7,7 @@
   --font-size-small: clamp(10px, 1.4vw, 15px);
   --font-size-mid: clamp(14px, 1.75vw, 18px);
   --font-size-large: clamp(18px, 2.3vw, 25px);
-  --font-size-Xlarge: clamp(30px, 5vw, 55px);
+  --font-size-Xlarge: clamp(25px, 5vw, 55px);
   --almost-white: #252525;
 }
 
