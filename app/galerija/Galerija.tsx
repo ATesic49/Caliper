@@ -21,8 +21,8 @@ export default function Slike() {
             <Image
               src="/imgs/pocetna.jpeg"
               alt=""
-              width={300}
-              height={300}
+              width={400}
+              height={250}
             ></Image>
           </Link>
           <h4>Fotelja</h4>

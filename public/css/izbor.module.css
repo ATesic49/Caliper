@@ -3,3 +3,12 @@
   display: grid;
   grid-column: 1fr;
 }
+.izbor h2 {
+  width: 100%;
+  text-align: center;
+  color: var(--font-color-primary);
+  font-weight: 400;
+}
+.izbor .container {
+  width: max(60%, 300px);
+}
