@@ -56,7 +56,7 @@ export default function Galerija() {
               width={300}
               height={300}
             ></Image>
-            <h4>Fotelja</h4>
+            <h4>Fotelja Sa Navlakom</h4>
           </Link>
         </div>
         <div className={styles.container}>
