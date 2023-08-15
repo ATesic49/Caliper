@@ -216,12 +216,14 @@ export default function Slike() {
         </div>
         <div className={styles.container}>
           <Link href="">
-            <Image
-              src="/imgs/pocetna.jpeg"
-              alt=""
-              width={300}
-              height={300}
-            ></Image>
+            <div className={styles.image}>
+              <Image
+                src="/imgs/pocetna.jpeg"
+                alt=""
+                width={300}
+                height={300}
+              ></Image>
+            </div>
           </Link>
           <h4>Fotelja</h4>
         </div>
