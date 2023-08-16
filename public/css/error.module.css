@@ -1,0 +1,21 @@
+.error {
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5vh;
+  align-items: center;
+}
+.error img {
+  width: 15%;
+  min-width: 100px;
+  opacity: 0.5;
+}
+.error div {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+  border-radius: 2px;
+}
