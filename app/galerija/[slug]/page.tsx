@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../../../public/css/gallery/slug/page.module.css";
 import { PrismaClient } from "@prisma/client";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 const prisma = new PrismaClient();
 interface Params {
   params: { slug: string };
@@ -25,7 +26,7 @@ export default async function page({ params }: Params) {
     },
   });
   if (!product) {
-    throw new Error("Produkt Nije Nadjen");
+    notFound();
   }
   return (
     <div className={styles.page}>

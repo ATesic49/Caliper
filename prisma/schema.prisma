@@ -19,3 +19,11 @@ model Galerija{
   boje String[]
 
 }
+
+model User{
+  id Int @id @default(autoincrement())
+  image String
+  name String 
+  email String @unique
+
+}
