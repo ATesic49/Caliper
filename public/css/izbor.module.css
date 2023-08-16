@@ -78,6 +78,6 @@
   position: absolute;
   content: "";
   background-color: var(--font-color-secondary);
-  opacity: 0.95;
+  opacity: 0.85;
   z-index: 0;
 }

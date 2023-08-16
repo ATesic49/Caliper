@@ -2,8 +2,36 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "../../public/css/grid.module.css";
-
-export default function Galerija() {
+import { PrismaClient } from "@prisma/client";
+interface Galerija {
+  id: number;
+  image: String;
+  name: String;
+  boje: String[];
+}
+const prisma = new PrismaClient();
+export default async function Galerija() {
+  const proizvodi = await prisma.galerija.findMany({
+    select: {
+      id: true,
+      image: true,
+      name: true,
+      boje: true,
+    },
+  });
+  const toSlug = (name: String) => {
+    const lowername = name.toLocaleLowerCase();
+    const slug = lowername.replace(" ", "-");
+    return slug;
+  };
+  // const proizvod = await prisma.galerija.create({
+  //   data: {
+  //     name: "novo",
+  //     image: "/imgs/pocetna.jpeg",
+  //     description: "Ovo je jako luda zurka",
+  //     boje: ["crna", "plava"],
+  //   },
+  // });
   return (
     <div className={styles.galerija}>
       <div className={styles.slika}>
@@ -37,215 +65,21 @@ export default function Galerija() {
         </div>
       </div>
       <div className={styles.grid}>
-        <div className={styles.container}>
-          <Link href="">
-            <Image
-              src="/imgs/pocetna.jpeg"
-              alt=""
-              width={300}
-              height={300}
-            ></Image>
-            <h4>Fotelja</h4>
-          </Link>
-        </div>
-        <div className={styles.container}>
-          <Link href="">
-            <Image
-              src="/imgs/pocetna.jpeg"
-              alt=""
-              width={300}
-              height={300}
-            ></Image>
-            <h4>Fotelja Sa Navlakom</h4>
-          </Link>
-        </div>
-        <div className={styles.container}>
-          <Link href="">
-            <Image
-              src="/imgs/pocetna.jpeg"
-              alt=""
-              width={300}
-              height={300}
-            ></Image>
-            <h4>Fotelja</h4>
-          </Link>
-        </div>
-        <div className={styles.container}>
-          <Link href="">
-            <Image
-              src="/imgs/pocetna.jpeg"
-              alt=""
-              width={300}
-              height={300}
-            ></Image>
-            <h4>Fotelja</h4>
-          </Link>
-        </div>
-        <div className={styles.container}>
-          <Link href="">
-            <Image
-              src="/imgs/pocetna.jpeg"
-              alt=""
-              width={300}
-              height={300}
-            ></Image>
-            <h4>Fotelja</h4>
-          </Link>
-        </div>
-        <div className={styles.container}>
-          <Link href="">
-            <Image
-              src="/imgs/pocetna.jpeg"
-              alt=""
-              width={300}
-              height={300}
-            ></Image>
-            <h4>Fotelja</h4>
-          </Link>
-        </div>
-        <div className={styles.container}>
-          <Link href="">
-            <Image
-              src="/imgs/pocetna.jpeg"
-              alt=""
-              width={300}
-              height={300}
-            ></Image>
-            <h4>Fotelja</h4>
-          </Link>
-        </div>
-        <div className={styles.container}>
-          <Link href="">
-            <Image
-              src="/imgs/pocetna.jpeg"
-              alt=""
-              width={300}
-              height={300}
-            ></Image>
-            <h4>Fotelja</h4>
-          </Link>
-        </div>
-        <div className={styles.container}>
-          <Link href="">
-            <Image
-              src="/imgs/pocetna.jpeg"
-              alt=""
-              width={300}
-              height={300}
-            ></Image>
-            <h4>Fotelja</h4>
-          </Link>
-        </div>
-        <div className={styles.container}>
-          <Link href="">
-            <Image
-              src="/imgs/pocetna.jpeg"
-              alt=""
-              width={300}
-              height={300}
-            ></Image>
-            <h4>Fotelja</h4>
-          </Link>
-        </div>
-        <div className={styles.container}>
-          <Link href="">
-            <Image
-              src="/imgs/pocetna.jpeg"
-              alt=""
-              width={300}
-              height={300}
-            ></Image>
-            <h4>Fotelja</h4>
-          </Link>
-        </div>
-        <div className={styles.container}>
-          <Link href="">
-            <Image
-              src="/imgs/pocetna.jpeg"
-              alt=""
-              width={300}
-              height={300}
-            ></Image>
-            <h4>Fotelja</h4>
-          </Link>
-        </div>
-        <div className={styles.container}>
-          <Link href="">
-            <Image
-              src="/imgs/pocetna.jpeg"
-              alt=""
-              width={300}
-              height={300}
-            ></Image>
-            <h4>Fotelja</h4>
-          </Link>
-        </div>
-        <div className={styles.container}>
-          <Link href="">
-            <Image
-              src="/imgs/pocetna.jpeg"
-              alt=""
-              width={300}
-              height={300}
-            ></Image>
-            <h4>Fotelja</h4>
-          </Link>
-        </div>
-        <div className={styles.container}>
-          <Link href="">
-            <Image
-              src="/imgs/pocetna.jpeg"
-              alt=""
-              width={300}
-              height={300}
-            ></Image>
-            <h4>Fotelja</h4>
-          </Link>
-        </div>
-        <div className={styles.container}>
-          <Link href="">
-            <Image
-              src="/imgs/pocetna.jpeg"
-              alt=""
-              width={300}
-              height={300}
-            ></Image>
-            <h4>Fotelja</h4>
-          </Link>
-        </div>
-        <div className={styles.container}>
-          <Link href="">
-            <Image
-              src="/imgs/pocetna.jpeg"
-              alt=""
-              width={300}
-              height={300}
-            ></Image>
-            <h4>Fotelja</h4>
-          </Link>
-        </div>
-        <div className={styles.container}>
-          <Link href="">
-            <Image
-              src="/imgs/pocetna.jpeg"
-              alt=""
-              width={300}
-              height={300}
-            ></Image>
-            <h4>Fotelja</h4>
-          </Link>
-        </div>
-        <div className={styles.container}>
-          <Link href="">
-            <Image
-              src="/imgs/pocetna.jpeg"
-              alt=""
-              width={300}
-              height={300}
-            ></Image>
-            <h4>Fotelja</h4>
-          </Link>
-        </div>
+        {proizvodi.map((proizvod) => {
+          return (
+            <div className={styles.container}>
+              <Link href={`/galerija/${toSlug(proizvod.name)}`}>
+                <Image
+                  src={proizvod.image}
+                  alt={proizvod.name}
+                  width={300}
+                  height={300}
+                ></Image>
+                <h4>{proizvod.name}</h4>
+              </Link>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
