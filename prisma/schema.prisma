@@ -14,7 +14,7 @@ datasource db {
 model Galerija{
   id Int @id @default(autoincrement())
   image String
-  name String
+  name String @unique
   description String
   boje String[]
 
