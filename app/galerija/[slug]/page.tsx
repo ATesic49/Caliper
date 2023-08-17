@@ -10,7 +10,7 @@ interface Params {
 
 export default async function page({ params }: Params) {
   const fromSlugToName = (slug: String) => {
-    const replaced = slug.replace("-", " ");
+    const replaced = slug.replaceAll("-", " ");
     return replaced;
   };
   const product = await prisma.galerija.findFirst({

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "../../public/css/grid.module.css";
 import { PrismaClient } from "@prisma/client";
+import New from "./components/New";
 interface Galerija {
   id: number;
   image: String;
@@ -21,7 +22,7 @@ export default async function Galerija() {
   });
   const toSlug = (name: String) => {
     const lowername = name.toLocaleLowerCase();
-    const slug = lowername.replace(" ", "-");
+    const slug = lowername.replaceAll(" ", "-");
     return slug;
   };
   // const proizvod = await prisma.galerija.create({
@@ -75,12 +76,13 @@ export default async function Galerija() {
                   width={300}
                   height={300}
                 ></Image>
-                <h4>{proizvod.name}</h4>
+                <h4>{toSlug(proizvod.name)}</h4>
               </Link>
             </div>
           );
         })}
       </div>
+      <New />
     </div>
   );
 }
