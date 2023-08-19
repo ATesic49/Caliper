@@ -4,6 +4,7 @@ import Link from "next/link";
 import styles from "../../public/css/grid.module.css";
 import { PrismaClient } from "@prisma/client";
 import New from "./components/New";
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
 interface Galerija {
   id: number;
   image: String;
@@ -66,21 +67,26 @@ export default async function Galerija() {
         </div>
       </div>
       <div className={styles.grid}>
-        {proizvodi.map((proizvod) => {
-          return (
-            <div className={styles.container}>
-              <Link href={`/galerija/${toSlug(proizvod.name)}`}>
-                <Image
-                  src={proizvod.image}
-                  alt={proizvod.name}
-                  width={300}
-                  height={300}
-                ></Image>
-                <h4>{toSlug(proizvod.name)}</h4>
-              </Link>
-            </div>
-          );
-        })}
+        {proizvodi.map(
+          (proizvod: {
+            name: string | String;
+            image: string | StaticImport;
+          }) => {
+            return (
+              <div className={styles.container}>
+                <Link href={`/galerija/${toSlug(proizvod.name)}`}>
+                  <Image
+                    src={proizvod.image}
+                    alt={proizvod.name}
+                    width={300}
+                    height={300}
+                  ></Image>
+                  <h4>{toSlug(proizvod.name)}</h4>
+                </Link>
+              </div>
+            );
+          }
+        )}
       </div>
       <New />
     </div>
