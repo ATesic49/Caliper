@@ -69,7 +69,7 @@ export default async function Galerija() {
       <div className={styles.grid}>
         {proizvodi.map(
           (proizvod: {
-            name: string | String;
+            name: string | string;
             image: string | StaticImport;
           }) => {
             return (
