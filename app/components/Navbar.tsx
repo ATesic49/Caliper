@@ -207,7 +207,7 @@ export default function Navbar() {
             </div>
           </li>
           <li>
-            <Link href="">Kontakt</Link>
+            <Link href="/kontakt">Kontakt</Link>
           </li>
         </ul>
       </nav>
