@@ -1,9 +1,11 @@
 import Image from "next/image";
 import React from "react";
 import styles from "../../public/css/o-nama/o-nama.module.css";
+import New from "../galerija/components/New";
 export default function page() {
   return (
     <div className={styles.oNama}>
+      <New />
       <div className={styles.slika}>
         <Image
           src="/imgs/pocetna.jpeg"

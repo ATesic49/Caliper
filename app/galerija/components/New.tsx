@@ -8,13 +8,29 @@ export default function New() {
         <p>+</p>
       </div>
       <div className={styles.modal}>
-        <label htmlFor="name">Ime:</label>
-        <input type="text" name="name" />
-        <label htmlFor="slika">Slika</label>
-        <input type="text" name="slika" />
-        <label htmlFor="deskripcija">Deskripcija</label>
-        <textarea name="deskripcija"></textarea>
+        <h3>Unesite podatke proizvoda</h3>
+        <div>
+          <label htmlFor="name">Ime:</label>
+
+          <input type="text" name="name" />
+        </div>
+        <div>
+          <label htmlFor="slika">Slika:</label>
+          <input type="text" name="slika" />
+        </div>
+
+        <div>
+          <label htmlFor="deskripcija">Deskripcija:</label>
+
+          <textarea name="deskripcija"></textarea>
+        </div>
+
+        <div className={styles.doleSkroz}>
+          <button>Cancle</button>
+          <button>Save changes</button>
+        </div>
       </div>
+      <div className={styles.outlay}></div>
     </>
   );
 }
