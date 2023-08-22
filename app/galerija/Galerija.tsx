@@ -5,6 +5,7 @@ import styles from "../../public/css/grid.module.css";
 import { PrismaClient } from "@prisma/client";
 import New from "./components/New";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
+import dynamic from "next/dynamic";
 interface Galerija {
   id: number;
   image: String;
@@ -13,6 +14,8 @@ interface Galerija {
 }
 const prisma = new PrismaClient();
 export default async function Galerija() {
+  const NewDynamic = dynamic(() => import("./components/New"));
+
   const proizvodi = await prisma.galerija.findMany({
     select: {
       id: true,
@@ -88,7 +91,7 @@ export default async function Galerija() {
           }
         )}
       </div>
-      <New />
+      <NewDynamic />
     </div>
   );
 }
