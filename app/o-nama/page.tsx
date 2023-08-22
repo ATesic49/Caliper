@@ -5,7 +5,6 @@ import New from "../galerija/components/New";
 export default function page() {
   return (
     <div className={styles.oNama}>
-      <New />
       <div className={styles.slika}>
         <Image
           src="/imgs/pocetna.jpeg"

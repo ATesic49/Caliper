@@ -77,11 +77,11 @@ export default async function Galerija() {
                 <Link href={`/galerija/${toSlug(proizvod.name)}`}>
                   <Image
                     src={proizvod.image}
-                    alt={proizvod.name}
+                    alt="slika"
                     width={300}
                     height={300}
                   ></Image>
-                  <h4>{toSlug(proizvod.name)}</h4>
+                  <h4>{proizvod.name}</h4>
                 </Link>
               </div>
             );

@@ -2,13 +2,14 @@
 import React, { useState } from "react";
 import styles from "../../../public/css/grid.module.css";
 export default function New() {
+  const [state, SetState] = useState(styles.not);
   return (
     <>
       <div className={styles.createNew}>
-        <p>+</p>
+        <p onClick={() => SetState(styles.yes)}>+</p>
       </div>
-      <div className={styles.modal}>
-        <h3>Unesite podatke proizvoda</h3>
+      <div className={[styles.modal, state].join(" ")}>
+        <h3>Unesite podatke proizvoda:</h3>
         <div>
           <label htmlFor="name">Ime:</label>
 
@@ -26,11 +27,22 @@ export default function New() {
         </div>
 
         <div className={styles.doleSkroz}>
-          <button>Cancle</button>
+          <button
+            onClick={() => {
+              SetState(styles.not);
+            }}
+          >
+            Cancle
+          </button>
           <button>Save changes</button>
         </div>
       </div>
-      <div className={styles.outlay}></div>
+      <div
+        className={[styles.outlay, state].join(" ")}
+        onClick={() => {
+          SetState(styles.not);
+        }}
+      ></div>
     </>
   );
 }
