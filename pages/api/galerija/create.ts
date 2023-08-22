@@ -23,6 +23,6 @@ export default async function handler(
       });
       res.status(200).json({ newProizvod });
     }
-    res.status(200).json({ error: "Ovaj proizvod vec postoji" });
+    res.status(401).json({ error: "Ovaj proizvod vec postoji" });
   }
 }

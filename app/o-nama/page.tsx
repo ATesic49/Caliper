@@ -14,6 +14,16 @@ export default function page() {
         />
         <h1>Najbolji Namestaj u Srbiji</h1>
       </div>
+      <div>
+        <form
+          action="/api/galerija/upload"
+          method="POST"
+          encType="multipart/form-data"
+        >
+          <input type="file" />
+          <button type="submit">sus</button>
+        </form>
+      </div>
       <div className={styles.text}>
         <div className={styles.container}>
           <h2>O NAMA</h2>
