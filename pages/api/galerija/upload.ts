@@ -1,15 +1,28 @@
+import formidable from "formidable";
 import { NextApiRequest, NextApiResponse } from "next";
-import multer from "multer";
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const e = await req;
-  return res.status(200).json({ hello: e });
-}
+  if (req.method === "POST") {
+    try {
+      const form = new formidable.IncomingForm();
+      form.parse(req, (err, fields, files) => {
+        if (err) {
+          return res.status(500).json({ error: "Error uploading file" });
+        }
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
+        // 'files' will contain the uploaded file details
+        const uploadedFile = files.file;
+
+        res.status(200).json({ message: "File uploaded successfully" });
+      });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ error: "An error occurred during upload" });
+    }
+  } else {
+    res.status(405).end();
+  }
+}

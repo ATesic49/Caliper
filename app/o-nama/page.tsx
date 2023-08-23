@@ -1,8 +1,10 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import styles from "../../public/css/o-nama/o-nama.module.css";
-import New from "../galerija/components/New";
-export default function page() {
+import axios from "axios";
+export default async function page() {
+  const [state, setState] = useState<File>();
   return (
     <div className={styles.oNama}>
       <div className={styles.slika}>
@@ -14,16 +16,7 @@ export default function page() {
         />
         <h1>Najbolji Namestaj u Srbiji</h1>
       </div>
-      <div>
-        <form
-          action="/api/galerija/upload"
-          method="POST"
-          encType="multipart/form-data"
-        >
-          <input type="file" />
-          <button type="submit">sus</button>
-        </form>
-      </div>
+
       <div className={styles.text}>
         <div className={styles.container}>
           <h2>O NAMA</h2>
