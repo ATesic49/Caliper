@@ -17,3 +17,7 @@
   box-sizing: border-box;
   color: var(--font-color-primary);
 }
+body {
+  overflow: hidden;
+  width: 100%;
+}

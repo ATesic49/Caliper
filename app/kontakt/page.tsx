@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
+
 import styles from "../../public/css/kontakt.module.css";
 import { Dr_Sugiyama } from "next/font/google";
 
