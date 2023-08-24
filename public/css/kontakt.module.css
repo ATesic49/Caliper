@@ -56,7 +56,7 @@
   padding: 5vh;
   width: 30%;
   margin-left: 7vw;
-  position: relative; /* Add position relative to create a stacking context */
+  position: relative;
   z-index: 3;
 }
 
