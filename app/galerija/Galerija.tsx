@@ -13,7 +13,7 @@ interface Galerija {
   boje: String[];
 }
 const prisma = new PrismaClient();
-export default async function Galerija() {
+const Galerija = async function () {
   const NewDynamic = dynamic(() => import("./components/New"));
 
   const proizvodi = await prisma.galerija.findMany({
@@ -94,4 +94,5 @@ export default async function Galerija() {
       <NewDynamic />
     </div>
   );
-}
+};
+export default Galerija;

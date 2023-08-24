@@ -44,7 +44,7 @@ export default async function page({ params }: Params) {
         <div className={styles.boje}>
           <p>Boje:</p>{" "}
           <div className={styles.container}>
-            {product.boje.map((boja) => {
+            {product.boje.map((boja: string) => {
               return (
                 <div>
                   <p>{boja}</p> <span></span>
