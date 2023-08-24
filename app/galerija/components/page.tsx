@@ -5,11 +5,10 @@ export default async function Image() {
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!file) return;
-
+    const data = new FormData();
+    data.append("file", file);
     try {
-      const data = new FormData();
-      data.set("file", file);
-
+      console.log(data);
       const res = await fetch("/api/galerija/upload", {
         method: "POST",
         body: data,
