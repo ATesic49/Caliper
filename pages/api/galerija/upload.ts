@@ -9,6 +9,30 @@ export const config = {
     bodyParser: false,
   },
 };
+const create = async (
+  name: string,
+  image: string,
+  boje: string[],
+  description: string
+) => {
+  const dugaciji = await prisma.galerija.findFirst({
+    where: {
+      name,
+    },
+  });
+  name = name.toLowerCase();
+  if (!dugaciji) {
+    const newProizvod = await prisma.galerija.create({
+      data: {
+        name,
+        image,
+        boje,
+        description,
+      },
+    });
+  }
+};
+
 const readFile = (
   req: NextApiRequest,
   saveLocally: boolean
@@ -34,7 +58,15 @@ const readFile = (
       readStream.on("end", () => {
         fs.unlinkSync(oldPath);
       });
-
+      const name = fields.ime[0];
+      console.log(name);
+      const image = `/imgs/${filename}`;
+      console.log(image);
+      const boje = fields.boje[0].split(",");
+      console.log(boje);
+      const description = fields.deskripcija[0];
+      console.log(description);
+      create(name, image, boje, description);
       resolve({ fields, files });
     });
   });

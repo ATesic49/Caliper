@@ -7,6 +7,7 @@ export default function New() {
   const [file, setFile] = useState<File | undefined>();
   const [name, setName] = useState<string>("name");
   const [descriprion, setDescription] = useState<string>("name");
+  const [boje, setBoje] = useState<string[]>([]);
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!file) return;
@@ -15,6 +16,7 @@ export default function New() {
     await data.append("file", file);
     await data.append("ime", name);
     await data.append("deskripcija", descriprion);
+    await data.append("boje", boje.toString());
 
     try {
       console.log(name);
@@ -69,10 +71,24 @@ export default function New() {
             ></textarea>
           </div>
           <div>
-            <select name="boje" id="">
-              <label htmlFor="boje">Izaberi boju:</label>
-              <option value={styles.plava}>Plava</option>
-              <option value={styles.crvena}>Crvena</option>
+            <label htmlFor="boje">Izaberi boju:</label>
+
+            <select
+              multiple
+              name="boje"
+              id=""
+              onChange={(e) => {
+                const selectedValues = Array.from(e.target.options)
+                  .filter((o) => o.selected)
+                  .map((o) => o.value);
+                console.log(selectedValues.toString().split(","));
+                console.log(e.target.options[0].value);
+                setBoje(selectedValues);
+              }}
+            >
+              <option value={"plavaBojaNamestaj"}>Plava</option>
+              <option value={"crvenaBojaNamestaj"}>Crvena</option>
+              <option value={"rozeBojaNamestaj"}>Roze</option>
             </select>
           </div>
           <div className={styles.doleSkroz}>
@@ -83,7 +99,14 @@ export default function New() {
             >
               Cancle
             </button>
-            <button type="submit">Save changes</button>
+            <button
+              type="submit"
+              onClick={() => {
+                SetState(styles.not);
+              }}
+            >
+              Save changes
+            </button>
           </div>
         </div>
       </form>
