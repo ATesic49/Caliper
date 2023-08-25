@@ -21,7 +21,7 @@ export default function New() {
     try {
       console.log(name);
       console.log("data");
-      const res = await fetch("/api/galerija/upload", {
+      const res = await fetch("api/galerija/upload", {
         method: "POST",
         body: data,
       });
