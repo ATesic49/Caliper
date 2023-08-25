@@ -51,6 +51,7 @@ export default function New() {
             />
           </div>
           <div>
+            <label htmlFor="file">Izaberi sliku:</label>
             <input
               type="file"
               name="file"
