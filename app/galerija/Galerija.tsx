@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "../../public/css/grid.module.css";
 import { PrismaClient } from "@prisma/client";
-import New from "./components/New";
 import dynamic from "next/dynamic";
 interface Galerija {
   id: number;
@@ -33,7 +32,7 @@ const Galerija = async function () {
   //     name: "novo",
   //     image: "/imgs/pocetna.jpeg",
   //     description: "Ovo je jako luda zurka",
-  //     boje: ["crna", "plava"],
+  //     boje: ["crn cfca", "plava"],
   //   },
   // });
   return (
