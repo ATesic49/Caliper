@@ -48,7 +48,8 @@ const readFile = (
   return new Promise((resolve, reject) => {
     form.parse(req, (err, fields, files) => {
       if (err) reject(err);
-      console.log(files.file[0].newFilename, "faJLNEJM");
+      if (files){
+        console.log(files.file[0].newFilename, "faJLNEJM");
       const oldPath = files.file[0].filepath;
       const filename = `${fields.ime[0]}${getExt(files.file[0].newFilename)}`;
       const newPath = path.join(process.cwd(), "/public/imgs", filename);
@@ -58,6 +59,7 @@ const readFile = (
       readStream.on("end", () => {
         fs.unlinkSync(oldPath);
       });
+      
       const name = fields.ime[0];
       console.log(name);
       const image = `/imgs/${filename}`;
@@ -68,6 +70,20 @@ const readFile = (
       console.log(description);
       create(name, image, boje, description);
       resolve({ fields, files });
+      }else{
+      const name = fields.ime[0];
+      console.log(name);
+      const image = `/imgs/pocetna`;
+      console.log(image);
+      const boje = fields.boje[0].split(",");
+      console.log(boje);
+      const description = fields.deskripcija[0];
+      console.log(description);
+      create(name, image, boje, description);
+      resolve({ fields, files });
+      }
+      
+     
     });
   });
 };
