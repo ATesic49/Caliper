@@ -1,5 +1,4 @@
 import formidable from "formidable";
-import { NextApiHandler, NextApiRequest, NextConfig } from "next";
 import path from "path";
 import fs from "fs";
 import { PrismaClient } from "@prisma/client";
@@ -51,15 +50,15 @@ const readFile = (
     form.parse(req, (err, fields, files) => {
       if (err) reject(err);
       console.log(files.file[0].newFilename, "faJLNEJM");
-      const oldPath = files.file[0].filepath;
-      const filename = `${fields.ime[0]}${getExt(files.file[0].newFilename)}`;
-      const newPath = path.join(process.cwd(), "/public/imgs", filename);
-      const readStream = fs.createReadStream(oldPath);
-      const writeStream = fs.createWriteStream(newPath);
-      readStream.pipe(writeStream);
-      readStream.on("end", () => {
-        fs.unlinkSync(oldPath);
-      });
+      // const oldPath = files.file[0].filepath;
+      // const filename = `${fields.ime[0]}${getExt(files.file[0].newFilename)}`;
+      // const newPath = path.join(process.cwd(), "/public/imgs", filename);
+      // const readStream = fs.createReadStream(oldPath);
+      // const writeStream = fs.createWriteStream(newPath);
+      // readStream.pipe(writeStream);
+      // readStream.on("end", () => {
+      //   fs.unlinkSync(oldPath);
+      // });
       const name = fields.ime[0];
       console.log(name);
       const image = `/imgs/${filename}`;
