@@ -15,12 +15,7 @@ const ubuntu = Ubuntu({
   style: ["normal"],
 });
 
-// export function getStaticProps() {
-//   console.log("[NextJS] Running getStaticProps");
-//   return {
-//     revalidate: 1,
-//   };
-// }
+
 
 export default function RootLayout({
   children,

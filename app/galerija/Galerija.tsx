@@ -4,7 +4,6 @@ import Link from "next/link";
 import styles from "../../public/css/grid.module.css";
 import { PrismaClient } from "@prisma/client";
 import New from "./components/New";
-import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import dynamic from "next/dynamic";
 interface Galerija {
   id: number;
@@ -73,7 +72,7 @@ const Galerija = async function () {
         {proizvodi.map(
           (proizvod: {
             name: string | String;
-            image: string | StaticImport;
+            image: string ;
           }) => {
             return (
               <div className={styles.container}>
