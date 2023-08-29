@@ -10,10 +10,10 @@ export const config = {
   },
 };
 const create = async (
-  name: string,
-  image: string,
-  boje: string[],
-  description: string
+  // name: string,
+  // image: string,
+  // boje: string[],
+  // description: string
 ) => {
   const dugaciji = await prisma.galerija.findFirst({
     where: {
@@ -34,10 +34,12 @@ const create = async (
 };
 
 const readFile = (
-  req: NextApiRequest,
-  saveLocally: boolean
-): Promise<{ fields: formidable.Fields; files: formidable.Files }> => {
-  const options: formidable.Options = {};
+  req,
+  // : NextApiRequest,
+  saveLocally
+  // : boolean
+) => {
+  const options = {};
   if (saveLocally) {
     options.uploadDir = path.join(process.cwd(), "/public/imgs");
     options.filename = (name, ext, path, form) => {
@@ -72,7 +74,7 @@ const readFile = (
   });
 };
 
-const handler: NextApiHandler = async (req, res) => {
+const handler = async (req, res) => {
   if (req.method === "POST") {
     await readFile(req, true);
     return res.status(200).json({ success: true });
@@ -82,6 +84,6 @@ const handler: NextApiHandler = async (req, res) => {
 };
 
 export default handler;
-const getExt = (part: string | null) => {
+const getExt = (part) => {
   return part?.slice(part?.lastIndexOf("."));
 };
