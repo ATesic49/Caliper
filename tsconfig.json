@@ -28,7 +28,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "pages/api/galerija/upload.js"
+    "pages/api/galerija/upload.ts"
   ],
   "exclude": ["node_modules"]
 }
