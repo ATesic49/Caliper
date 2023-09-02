@@ -1,3 +1,4 @@
+// @ts-nocheck
 import formidable from "formidable";
 import { NextApiHandler, NextApiRequest, NextConfig } from "next";
 import path from "path";

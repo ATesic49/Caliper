@@ -36,7 +36,7 @@ export default async function page({ params }: Params) {
       </div>
       <div className={styles.slika}>
         <Image
-          src={"/imgs/pocetna.jpeg"}
+          src={`${product.image}`}
           width={1000}
           height={1000}
           alt="ime"
