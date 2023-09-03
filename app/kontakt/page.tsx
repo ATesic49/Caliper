@@ -7,6 +7,8 @@ import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import { faViber } from "@fortawesome/free-brands-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
+import axios from "axios";
+import validator from "validator";
 
 export default function Form() {
   const [isRightPanelActive, setIsRightPanelActive] = useState(false);
@@ -23,8 +25,33 @@ export default function Form() {
     setIsRightPanelActive(false);
   };
 
+
+  const [ime, SetIme] = useState("Petar");
+  const [text, SetText] = useState("U vezi sa namestajem...");
+  const [email, SetEmail] = useState("petar.petrovic@gmail.com");
+  const [prezime,SetPrezime] = useState("")
+  const [status,SetStatus]= useState("")
+
+  const fetchData = async () => {
+    try {
+      const res = await axios.post(`/api/kontakt/email`, {
+        email,
+        text,
+        ime,
+        prezime,
+      });
+      if (res.data.status === "success") {
+        return SetStatus("Uspesno ste poslali Email!");
+      } else {
+        return SetStatus("Prilikom Slanja Emila doslo je do greske");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <>
+      <div className={styles.status}><h3>{status}</h3></div>
       <div className={styles.pocetak}>
         <div className={containerClass} id="container">
           <div
@@ -85,12 +112,65 @@ export default function Form() {
             <form action="#">
               <h1>Posaljite nam Mail</h1>
 
-              <input type="text" placeholder="Ime"></input>
-              <input type="text" placeholder="Prezime"></input>
-              <input type="email" placeholder="Email" />
-              <textarea placeholder="Nesto nesto"></textarea>
+              <input type="text" placeholder="Ime" 
+                onChange={(e) => {
+                  return input(e, SetIme);
+                }}
+              ></input>
+              <input type="text" placeholder="Prezime"
+                onChange={(e) => {
+                  return input(e, SetPrezime);
+                }}
+              ></input>
+              <input type="email" placeholder="Email" 
+                onChange={(e) => {
+                  return input(e, SetEmail);
+                }}/>
+              <textarea placeholder="Dobar Dan u vezi sa..."
+                onChange={(e) => {
+                  return textArea(e, SetText);
+                }}
+              ></textarea>
 
-              <button>Send</button>
+              <button
+  onClick={(e) => {
+  e.preventDefault()
+   
+    if (!validator.isEmail(email)) {
+      e.preventDefault();
+      SetStatus("Unesite pravilan imejl");
+    } 
+
+    if (
+      !validator.isLength(ime, {
+        min: 1,
+      })
+    ) {
+      e.preventDefault();
+      SetStatus("Unesite Ime");
+    } 
+    if (
+      !validator.isLength(text, {
+        min: 1,
+      })
+    ) {
+      e.preventDefault();
+      SetStatus("Unesite text");
+    } 
+    if (
+      validator.isEmail(email) &&
+      validator.isLength(ime, {
+        min: 1,
+      }) &&
+      validator.isLength(text, {
+        min: 1,
+      }) &&
+      validator.isLength(ime, {
+        min: 1,
+      })
+    ) fetchData();
+  }}
+>Posalji</button>
             </form>
           </div>
           <div className={styles["overlay-container"]}>
@@ -136,4 +216,24 @@ export default function Form() {
       </div>
     </>
   );
+}
+
+
+function input(
+  e: React.ChangeEvent<HTMLInputElement>,
+  parametar: React.Dispatch<React.SetStateAction<string>>
+) {
+  return parametar(e.target.value);
+}
+function select(
+  e: React.ChangeEvent<HTMLSelectElement>,
+  parametar: React.Dispatch<React.SetStateAction<string>>
+) {
+  return parametar(e.target.value);
+}
+function textArea(
+  e: React.ChangeEvent<HTMLTextAreaElement>,
+  parametar: React.Dispatch<React.SetStateAction<string>>
+) {
+  return parametar(e.target.value);
 }
