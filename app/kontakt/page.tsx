@@ -67,8 +67,11 @@ export default function Form() {
                   title="My Map"
                   width="300"
                   height="200"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22641.51925868682!2d20.44252195!3d44.81769565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a6561a8c27169%3A0x81b82df6278d741a!2s%C5%A0tark%20Arena!5e0!3m2!1sen!2srs!4v1693664708631!5m2!1sen!2srs"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22641.51925868682!2d20.44252195!3d44.81769565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a6561a8c27169%3A0x81b82df6278d741a!2s%C5%A0tark%20Arena!5e0!3m2!1sen!2srs!4v1693664708631!5m2!1sen!2srs&output=embed"
                   loading="lazy"
+                  allowFullScreen={false}
+                  aria-hidden="false"
+                  tabIndex={0}
                 ></iframe>
               </div>
             </form>
