@@ -9,6 +9,7 @@ export default function New() {
   const [description, setDescription] = useState<string>("name");
   const [boje, setBoje] = useState<string[]>([]);
   const [image, SetImage] = useState<string>('');
+  const [file,SetFile]=useState<File>()
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -17,13 +18,33 @@ export default function New() {
     try {
       console.log(name);
       console.log("data");
-      const res = await axios.post("api/galerija/create", {
-        name,
-        description,
-        boje,
-        image
-      });
-      console.log(res)
+      const formData = new FormData()
+      if(file){
+        formData.append('file',file)
+        formData.append('upload_preset','Caliper')
+        const res = await fetch('https://api.cloudinary.com/v1_1/dzkq4y5z3/image/upload',{
+          method:'POST',
+          body:formData
+        }).then(r=>r.json())
+
+
+        await SetImage(res.secure_url)
+
+        const finalRes = await axios.post("api/galerija/create", {
+          name,
+          description,
+          boje,
+          image:res.secure_url
+        });
+        console.log(finalRes)
+      }
+
+
+
+
+
+
+     
     } catch (e: any) {
       console.error(e);
     }
@@ -48,16 +69,16 @@ export default function New() {
               }}
             />
           </div>
-          {/* <div>
+          <div>
             <label htmlFor="file">Izaberi sliku:</label>
             <input
               type="file"
               name="file"
               onChange={(e) => {
-                setFile(e.target.files?.[0]);
+                SetFile(e.target.files?.[0]);
               }}
             />
-          </div> */}
+          </div>
 
           <div>
             <label htmlFor="deskripcija">Deskripcija:</label>
