@@ -28,8 +28,10 @@
     "@types/react-dom": "18.2.7",
     "@types/swiper": "^6.0.0",
     "@types/validator": "^13.11.1",
+    "@uploadthing/react": "^5.5.0",
     "axios": "^1.4.0",
     "classnames": "^2.3.2",
+    "cloudinary": "^1.40.0",
     "formidable": "^3.5.0",
     "fs": "^0.0.1-security",
     "isomorphic-fetch": "^3.0.0",
@@ -41,8 +43,10 @@
     "nodemailer": "^6.9.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-dropzone": "^14.2.3",
     "swiper": "^10.1.0",
     "typescript": "5.1.6",
+    "uploadthing": "^5.5.2",
     "validator": "^13.11.0"
   },
   "devDependencies": {

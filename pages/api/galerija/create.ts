@@ -5,7 +5,8 @@ export default async function handler(
   res: NextApiResponse
 ) {
   if (req.method === "POST") {
-    const { name, image, boje, description } = req.body;
+    const { name,image, boje, description } = req.body;
+    console.log(name,image,boje,description)
     const dugaciji = await prisma.galerija.findFirst({
       where: {
         name,

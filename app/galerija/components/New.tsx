@@ -2,30 +2,28 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import styles from "../../../public/css/grid.module.css";
+import axios from "axios";
 export default function New() {
   const [state, SetState] = useState(styles.not);
-  const [file, setFile] = useState<File | undefined>();
   const [name, setName] = useState<string>("name");
-  const [descriprion, setDescription] = useState<string>("name");
+  const [description, setDescription] = useState<string>("name");
   const [boje, setBoje] = useState<string[]>([]);
+  const [image, SetImage] = useState<string>('');
+
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!file) return;
 
-    const data = new FormData();
-    await data.append("file", file);
-    await data.append("ime", name);
-    await data.append("deskripcija", descriprion);
-    await data.append("boje", boje.toString());
-
+ 
     try {
       console.log(name);
       console.log("data");
-      const res = await fetch("api/galerija/upload", {
-        method: "POST",
-        body: data,
+      const res = await axios.post("api/galerija/create", {
+        name,
+        description,
+        boje,
+        image
       });
-      if (!res.ok) throw new Error(await res.text());
+      console.log(res)
     } catch (e: any) {
       console.error(e);
     }
@@ -50,7 +48,7 @@ export default function New() {
               }}
             />
           </div>
-          <div>
+          {/* <div>
             <label htmlFor="file">Izaberi sliku:</label>
             <input
               type="file"
@@ -59,7 +57,7 @@ export default function New() {
                 setFile(e.target.files?.[0]);
               }}
             />
-          </div>
+          </div> */}
 
           <div>
             <label htmlFor="deskripcija">Deskripcija:</label>
