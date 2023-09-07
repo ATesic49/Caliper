@@ -7,8 +7,8 @@ export default function New() {
   const [state, SetState] = useState(styles.not);
   const [name, setName] = useState<string>("name");
   const [description, setDescription] = useState<string>("name");
-  const [boje, setBoje] = useState<string[]>([]);
-  const [image, SetImage] = useState<string>('');
+  const [boje, setBoje] = useState<string[]>(['plava','crvena']);
+  const [image, SetImage] = useState<string>('/');
   const [file,SetFile]=useState<File>()
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {

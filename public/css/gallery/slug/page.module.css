@@ -41,6 +41,7 @@
   grid-area: img;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
   position: relative;
+  min-height:20rem;
 }
 .page .slika img {
   width: 100%;
@@ -61,15 +62,15 @@
   }
   .page .slika {
     width: 100%;
-    height: 20vh;
     margin-inline: auto;
   }
 }
 @media (min-width: 1000px) {
+
   .page {
     grid-template-areas:
-      "name name name"
-      "paragraf paragraf img";
+      "name name "
+      "paragraf img";
   }
 }
 .page .boje {

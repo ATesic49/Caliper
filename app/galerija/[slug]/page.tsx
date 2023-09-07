@@ -3,6 +3,7 @@ import styles from "../../../public/css/gallery/slug/page.module.css";
 import { PrismaClient } from "@prisma/client";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import Edit from "./components/Edit";
 const prisma = new PrismaClient();
 interface Params {
   params: { slug: string };
@@ -29,6 +30,8 @@ export default async function page({ params }: Params) {
     notFound();
   }
   return (
+    <>
+    <Edit/>
     <div className={styles.page}>
       <h1>{product.name}</h1>
       <div className={styles.paragraf}>
@@ -55,5 +58,6 @@ export default async function page({ params }: Params) {
         </div>
       </div>
     </div>
+    </>
   );
 }

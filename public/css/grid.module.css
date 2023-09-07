@@ -45,7 +45,7 @@
 .galerija .grid {
   display: grid;
   gap: 2rem;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   justify-content: center;
   padding: 2rem 2rem;
 }
@@ -63,9 +63,20 @@
   text-align: center;
   position: relative;
 }
-.galerija .createNew {
-  border-radius: 1000%;
+.galerija .createNew{
   background-color: var(--secondary-color);
+
+  margin-block: 20px;
+
+
+  margin-left: calc(100% - 100px);
+}
+.createNew {
+  margin: 50px;
+  margin-left: calc(100% - 200px);
+
+  flex-direction: column;
+  border-radius: 1000%;
   font-size: var(--font-size-Xlarge);
   color: white;
   display: flex;
@@ -73,12 +84,10 @@
   align-items: center;
   width: 50px;
   height: 50px;
-  margin-left: calc(100% - 100px);
-  margin-block: 20px;
 
   cursor: pointer;
 }
-.galerija .createNew p {
+.createNew p {
   transform: translateY(-2.5px);
   color: white;
 }
@@ -113,7 +122,7 @@
   filter: brightness(70%);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
-.galerija .predGrid {
+.predGrid {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -122,13 +131,19 @@
   padding: 15vh 10vh;
   justify-content: center;
 }
-.galerija .predGrid h2 {
+.predGrid h2 {
   font-size: var(--font-size-Xlarge);
   font-weight: 400;
   position: relative;
   width: max-content;
 }
-.galerija .predGrid h2::after {
+.predGrid h1{
+  font-size: var(--font-size-Xlarge);
+  font-weight: 400;
+  position: relative;
+  width: max-content;
+}
+.predGrid h2::after {
   top: 110%;
   left: 50%;
   position: absolute;
@@ -138,7 +153,17 @@
   content: "";
   background-color: var(--primary-color);
 }
-.galerija .predGrid .searchBar {
+.predGrid h1::after {
+  top: 110%;
+  left: 50%;
+  position: absolute;
+  width: 60%;
+  transform: translate(-50%, -50%);
+  height: 2px;
+  content: "";
+  background-color: var(--primary-color);
+}
+.predGrid .searchBar {
   width: 80%;
   min-width: 300px;
   border: 1px solid #252525;
@@ -148,19 +173,19 @@
   flex-wrap: nowrap;
   justify-content: space-between;
 }
-.galerija .predGrid .searchBar .filter {
+.predGrid .searchBar .filter {
   background-color: var(--font-color-primary);
   display: flex;
   width: max(70px, 5%);
   justify-content: center;
   align-items: center;
 }
-.galerija .predGrid .searchBar .filter img {
+.predGrid .searchBar .filter img {
   filter: invert(1);
   width: 40%;
   cursor: pointer;
 }
-.galerija .predGrid .searchBar input {
+ .predGrid .searchBar input {
   outline: none;
   box-sizing: border-box;
   padding: 1vh;
@@ -168,7 +193,7 @@
   border: none;
   width: max(calc(100% - 90px - 5vh), calc(100% - 5vh - 20px - 10%));
 }
-.galerija .predGrid .searchBar .search {
+.predGrid .searchBar .search {
   width: 3vh;
   cursor: pointer;
   margin-inline: 10px;
@@ -278,4 +303,167 @@
 }
 .not {
   display: none;
+}
+.rGrid{
+  min-height: 90vh;
+  gap:clamp(5%,5rem,10rem);
+  padding: 5vh 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  align-items: flex-start;
+}
+.rGrid .kartica{
+  display: grid;
+  width:   100%;
+  grid-template-areas:
+  'slika'
+  'slika'
+  'slika'
+  'ispod '
+  'button'
+  ;
+  gap: 1rem;
+  grid-auto-rows: 1fr;
+  min-width: 30vh;
+  border-radius: 20px 0  ;
+  box-shadow: 0 0 2px var(--font-color-secondary);
+  height: auto;
+  overflow:hidden;
+}
+.rGrid .kartica .glavnaSlika{
+    grid-area: slika;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-position: center !important;
+    filter: brightness(.6);
+    border-radius: 20px 0;
+}
+.rGrid .kartica .ispod{
+  width: 100%;
+  grid-area: ispod;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-inline: 5%;
+  gap: 1rem;
+}
+.rGrid .kartica .ispod h2{
+  font-size: var(--font-size-mid);
+}
+.rGrid .kartica .ispod .opcije{
+  gap: .5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 5%;
+  justify-content: flex-start;
+}
+.rGrid .kartica .ispod .opcije .boje{
+  display: flex;
+  flex-wrap: nowrap;
+  gap: .125rem;
+  align-items: center;
+  width: fit-content;
+  justify-content: flex-start;
+}
+.rGrid .kartica .ispod .opcije .boje h3{
+  font-size: var(--font-size-small) !important;
+  font-weight: 500;
+  width: 40%;
+}
+.rGrid .kartica .ispod .opcije .boje .colorContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: auto;
+  gap: .75rem;
+}
+.rGrid .kartica .ispod .opcije .boje .colorContainer div{
+  border-radius: 100% ;
+  width: 20px;
+  height: 20px;
+  background-color: var(--primary-color);
+}
+.rGrid .kartica .ispod .opcije .boje .colorContainer div:nth-child(2){
+  background-color: var(--secondary-color) !important;
+}
+
+.rGrid .kartica .button{
+  grid-area: button;
+
+}
+
+.rGrid .kartica select{
+  border: none;
+  font-size: var(--font-size-small);
+  outline: none;
+}
+
+.rGrid .kartica .button{
+  margin-block: 2rem;
+margin-inline: auto;
+  z-index: 2;
+  height: auto;
+  width: 80%;
+}
+.rGrid .kartica .button a{
+text-decoration: none;
+background-color: var(--primary-color);
+overflow: hidden;
+border-radius: 1rem;
+
+text-align: center;
+transition: .5s;
+position: relative;
+font-weight: 500;
+padding: .75rem 2rem;
+display: block;
+z-index: 2;
+
+
+color: #fff;
+}
+.rGrid .kartica .button a::before{
+  position: absolute;
+  height: 50%;
+  aspect-ratio: 1;
+  top: 50%;
+  border-radius: 100%;
+  left: 50%;
+  content: '';
+  background-color: var(--secondary-color);
+  z-index: -1;
+  top: 150%;
+  transform:translate(0%,-50%);
+
+}
+.rGrid .kartica .button a:focus{
+transform: scale(.98);
+
+transition: .5s;
+}
+.rGrid .kartica .button a:focus::before{
+  animation: focus .5s ease-in-out forwards;
+}
+@keyframes focus {
+  0%{
+    top: 150%;
+    height: 50%;
+  transform:translate(-50%,-50%);
+
+  }
+  30%,50%{
+    top:50%;
+    height:50%;
+  transform:translate(-50%,-50%);
+
+  }
+  100%{
+    top: 50%;
+    height: 1000%;
+  transform:translate(-50%,-50%);
+
+  }
 }

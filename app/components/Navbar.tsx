@@ -38,7 +38,7 @@ export default function Navbar() {
       </div>
       <Link href="/" className={styles.logo}>
         <Image
-          src="/svgs/logo.svg"
+          src="/svgs/BetterLogo.svg"
           alt="Caliper"
           width={80}
           height={26}
@@ -171,7 +171,7 @@ export default function Navbar() {
             </div>
           </li>
           <li>
-            <Link href="/o-nama">Dizajnerske Rucice</Link>
+            <Link href="/dizajnerske-rucice">Dizajnerske Rucice</Link>
             <Image
               className={upShop}
               src="/svgs/down.svg"
