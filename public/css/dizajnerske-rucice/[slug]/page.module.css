@@ -32,12 +32,6 @@
 
 .ispod{
     width: 100%;
-    display: grid;
-    grid-template-areas: 
-    'text text text tabla'
-    'text text  text tabla'
-    'text text  text .'
-    ;
     gap: 2rem;
 }
 .ispod .text{
@@ -48,6 +42,8 @@
     font-weight: 400;
     padding-left: 5vw;
     font-size: var(--font-size-mid);
+    margin-block: 7.5vh;
+
 }
 .ispod .text p{
     margin: 2vh;
@@ -55,6 +51,7 @@
 
 .ispod .tabla {
     grid-area: tabla;
+    margin-block: 7.5vh;
 
 }
 .ispod .tabla ul{
@@ -98,12 +95,11 @@ justify-content: flex-start;
 .ispod .tabla button{
     padding: .5rem 1rem ;
     font-size: var(--font-size-mid);
-    margin-left:auto;
-    margin: 2rem 5%;
     border-radius: 10px;
     background-color: var(--secondary-color);
     border:none;
     width: 60%;
+    margin-top: 1rem;
     letter-spacing: .1rem;
     overflow: hidden;
     cursor: pointer;
@@ -150,5 +146,21 @@ justify-content: flex-start;
       height: 1000%;
     transform:translate(-50%,-50%);
   
+    }
+  }
+
+  @media (min-width:600px) {
+    .ispod{
+    display: grid;
+
+        grid-template-areas: 
+        'text text text tabla'
+        'text text  text tabla'
+        'text text  text .'
+        ;
+    }
+    .ispod .tabla .button button{
+    margin: 2rem 0 ;
+
     }
   }
