@@ -39,7 +39,7 @@ export default function page() {
         <Image className={styles.glavnaSlika} src={rucicadva}
         alt='rucica'></Image>
         <div className={styles.ispod}>
-          <h2>Naslov</h2>
+          <h2>APRA 0583</h2>
           <div className={styles.opcije}>
             <div className={styles.boje}><h3>Boje:</h3> <div className={styles.colorContainer} > 
             <div></div>
@@ -54,9 +54,7 @@ export default function page() {
         <div className={styles.button}>
 
         <Link href={'/dizajnerske-rucice/slug'}
-        onClick={e=>{
-          e.preventDefault()
-        }}
+     
         >
 
           Pogledaj Vise.
@@ -87,9 +85,7 @@ export default function page() {
         <div className={styles.button}>
 
         <Link href={'/dizajnerske-rucice/slug'}
-        onClick={e=>{
-          e.preventDefault()
-        }}
+       
         >
 
           Pogledaj Vise.
