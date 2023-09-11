@@ -40,6 +40,7 @@
   
   .modal {
     position: fixed;
+    padding: 1rem 0 0 0 !important;
     z-index: 1000;
     background-color: white;
     top: 50%;
@@ -51,14 +52,16 @@
     align-items: left;
     gap: 5vh;
     padding: 5vh 5vh 20vh 5vh;
-    overflow: hidden;
+    overflow-y: scroll;
+    overflow-x: hidden;
     border-radius: 2.5vh;
+    max-height: 80vh;
   }
   .modal * {
     padding: 1vh;
   }
   .modal h3 {
-    padding: 2vh;
+    padding: 2rem;
     font-size: var(--font-size-mid);
   
     font-weight: 800;
@@ -66,10 +69,9 @@
   
   .modal .doleSkroz {
     background-color: #e1e1e1;
-    padding-block: 1vh;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    margin:0;
+    padding: 0;
+    padding-block: 2rem;
     width: 100%;
     height: 20%;
     align-items: center;
@@ -81,6 +83,7 @@
   .modal div:has(label) {
     display: flex;
     margin-left: 5vh;
+    padding-inline: 2rem;
     align-items: flex-start;
     justify-content: space-between;
     gap: 1vh;
@@ -117,4 +120,10 @@
   }
   .not {
     display: none;
+  }
+
+
+  .modal input[type=number]{
+width: 5rem;
+margin-right: auto;
   }

@@ -7,8 +7,11 @@ export default function New() {
   const [state, SetState] = useState(styles.not);
   const [name, setName] = useState<string>("name");
   const [description, setDescription] = useState<string>("name");
-  const [boje, setBoje] = useState<string[]>(['plava','crvena']);
+  const [materijal_id,setMaterijal_id] = useState<Number[]>([])
+  const [dimanezije,setDimenzije] = useState('')
+  const [model, setModel] = useState<number>(5580);
   const [image, SetImage] = useState<string>('/');
+  const [cena, SetCena] = useState<string>('/');
   const [file,SetFile]=useState<File>()
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -33,7 +36,7 @@ export default function New() {
         const finalRes = await axios.post("api/galerija/create", {
           name,
           description,
-          boje,
+          materijal_id, 
           image:res.secure_url
         });
         console.log(finalRes)
@@ -70,6 +73,30 @@ export default function New() {
             />
           </div>
           <div>
+            <label htmlFor="model">Model:</label>
+
+            <input
+              type="number"
+              name="model"
+              onChange={(e) => {
+                setModel(Number(e.target.value));
+              }}
+            />
+          </div>
+          <div>
+            <label htmlFor="name">Dimenzije:</label>
+
+            <input
+              minLength={2}
+              type="text"
+              name="name"
+              onChange={(e) => {
+                setDimenzije(e.target.value);
+              }}
+            />
+          </div>
+
+          <div>
             <label htmlFor="file">Izaberi sliku:</label>
             <input
               type="file"
@@ -103,12 +130,19 @@ export default function New() {
                   .map((o) => o.value);
                 console.log(selectedValues.toString().split(","));
                 console.log(e.target.options[0].value);
-                setBoje(selectedValues);
+                const realArray:Number[] = []
+                const numberArray = selectedValues.map(e=>{
+                  const number = parseInt(e)
+                  realArray.push(number)
+                  console.log(realArray)
+                })
+                setMaterijal_id(realArray)
+
               }}
             >
-              <option value={"plavaBojaNamestaj"}>Plava</option>
-              <option value={"crvenaBojaNamestaj"}>Crvena</option>
-              <option value={"rozeBojaNamestaj"}>Roze</option>
+              <option value={"3"}>Zuto</option>
+              <option value={"1"}>Crvena</option>
+              <option value={"2"}>Roze</option>
             </select>
           </div>
           <div className={styles.doleSkroz}>
