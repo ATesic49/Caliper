@@ -5,7 +5,9 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  console.log('DOSAO JE SAMO NIJE POST IZ NEKOG RAZLOGA')
   if (req.method === "POST") {
+    console.log('POST JE')
     const { name,image, boje, description } = req.body;
     console.log(name,image,boje,description)
     const dugaciji = await prisma.galerija.findFirst({
@@ -13,6 +15,7 @@ export default async function handler(
         name,
       },
     });
+    console.log('PRONADJEN JE DTUGACIJI')
     if (!dugaciji) {
       const newProizvod = await prisma.galerija.create({
         data: {
@@ -22,6 +25,7 @@ export default async function handler(
           description,
         },
       });
+      console.log("KREIRALI SU GA HVALIM TE BOZE")
       res.status(200).json({ newProizvod });
     }
     res.status(401).json({ error: "Ovaj proizvod vec postoji" });
