@@ -9,6 +9,7 @@
   --font-size-large: clamp(18px, 2.3vw, 25px);
   --font-size-Xlarge: clamp(25px, 5vw, 55px);
   --almost-white: #252525;
+
 }
 
 * {
@@ -18,5 +19,6 @@
   color: var(--font-color-primary);
 }
 body {
+  scroll-behavior: smooth;
   width: 100%;
 }

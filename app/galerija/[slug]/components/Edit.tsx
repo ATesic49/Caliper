@@ -3,12 +3,19 @@ import Image from "next/image";
 import React, { useState } from "react";
 import styles from "../../../../public/css/grid.module.css";
 import axios from "axios";
-export default function Edit() {
+interface Product{
+  name: string;
+  image: string;
+  description: string;
+  boje: string[];
+  id: number;
+}
+export default function Edit({product}:{product:Product}) {
   const [state, SetState] = useState(styles.not);
-  const [name, setName] = useState<string>("name");
-  const [description, setDescription] = useState<string>("name");
-  const [boje, setBoje] = useState<string[]>(['plava','crvena']);
-  const [image, SetImage] = useState<string>('/');
+  const [name, setName] = useState<string>(product.name);
+  const [description, setDescription] = useState<string>(product.description);
+  const [boje, setBoje] = useState<string[]>(product.boje);
+  const [image, SetImage] = useState<string>(product.image);
   const [file,SetFile]=useState<File>()
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -30,16 +37,24 @@ export default function Edit() {
 
         await SetImage(res.secure_url)
 
-        const finalRes = await axios.post("api/galerija/create", {
+        const finalRes = await axios.post("/api/galerija/edit", {
           name,
           description,
           boje,
-          image:res.secure_url
+          image:res.secure_url,
+          id:product.id
         });
         console.log(finalRes)
       }
 
-
+      const finalRes = await axios.post("api/galerija/edit", {
+        name,
+        description,
+        boje,
+        image,
+        id:product.id
+      });
+      console.log(finalRes)
 
 
 

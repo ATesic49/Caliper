@@ -47,7 +47,7 @@ export default function Swipper() {
         </SwiperSlide>
       </Swiper>
       <h1> Dobro dosli u najbolje mesto za namestaj u Srbji</h1>
-      <Link href="/">Detalnije</Link>
+      <Link href="#kratakOpis">Detalnije</Link>
     </div>
   );
 }

@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "../../public/css/grid.module.css";
 import Grid from "./components/Grid";
 import New from "./components/New";
+import NewContainer from "./components/NewContainer";
+
 export const dynamic ='force-dynamic'
 
 
@@ -23,6 +25,7 @@ const Galerija = async function () {
   // const NewDynamic = dynamic(() => import("./components/New"));
   // const GridDynamic = dynamic(()=>import('./components/Grid'))
   console.log('rs')
+
   // console.log(proizvodi)
   
   // const proizvod = await prisma.galerija.create({
@@ -44,6 +47,7 @@ const Galerija = async function () {
         ></Image>
         <h1>Najveci Izbor u Srbiji</h1>
       </div>
+  
       <div className={styles.predGrid}>
         <h2>Nasa Galerija</h2>
         <div className={styles.searchBar}>
@@ -65,8 +69,8 @@ const Galerija = async function () {
           ></Image>
         </div>
       </div>
+      <NewContainer/>
       <Grid/>
-      <New />
     </div>
   );
 };

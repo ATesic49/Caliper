@@ -21,13 +21,21 @@
 }
 .slika{
     overflow: hidden;
-    width: 100%;
-    height: clamp(50vh,50vw,90vh);
-    object-fit: cover;
-    object-position: center;
-    padding: 5vh 0;
-    margin-block:15vh;
-    position: relative !important;
+    width: auto;
+    height: clamp(60vh, 50vw,90vh);
+    object-position: center !important;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.slika img{
+object-fit: cover;
+height:120%;
+width: auto;
+object-position: top;
+
+
 }
 
 .ispod{
@@ -40,7 +48,6 @@
     line-height: 1.5rem;
     letter-spacing: .0125rem;
     font-weight: 400;
-    padding-left: 5vw;
     font-size: var(--font-size-mid);
     margin-block: 7.5vh;
 
@@ -164,3 +171,5 @@ justify-content: flex-start;
 
     }
   }
+
+

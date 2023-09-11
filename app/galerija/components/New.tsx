@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import styles from "../../../public/css/grid.module.css";
 import axios from "axios";
-export default function New() {
+export default function New({SetStatus}:{SetStatus: React.Dispatch<React.SetStateAction<string>>}) {
   const [state, SetState] = useState(styles.not);
   const [name, setName] = useState<string>("name");
   const [description, setDescription] = useState<string>("name");
@@ -31,12 +31,16 @@ export default function New() {
         await SetImage(res.secure_url)
 
         const finalRes = await axios.post("api/galerija/create", {
-          name,
+          name:name.toLowerCase(),
           description,
           boje,
           image:res.secure_url
         });
         console.log(finalRes)
+        if(finalRes.status===200){
+          SetStatus('Sve je proslo kako treba &#128515;')
+        }else{
+        }
       }
 
 
@@ -47,15 +51,22 @@ export default function New() {
      
     } catch (e: any) {
       console.error(e);
+      SetStatus('Negde je doslo do greske &#128546;')
+
     }
   };
   return (
     <>
-      <div className={styles.createNew}>
-        <p onClick={() => SetState(styles.yes)}>+</p>
+      <div
+      
+      onClick={() => SetState(styles.yes)}
+      style={{aspectRatio:1}} className={styles.createNew}>
+        <p >+</p>
       </div>
       <form onSubmit={onSubmit}>
         <div className={[styles.modal, state].join(" ")}>
+
+
           <h3>Unesite podatke proizvoda:</h3>
           <div>
             <label htmlFor="name">Ime:</label>

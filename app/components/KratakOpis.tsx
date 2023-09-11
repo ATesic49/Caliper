@@ -3,7 +3,7 @@ import styles from "../../public/css/kratakOpis.module.css";
 import Image from "next/image";
 export default function KratakOpis() {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} id="kratakOpis"> 
       <div className={styles.container}>
         <h2>Lorem, ipsum.</h2>
         <div className={styles.p}>

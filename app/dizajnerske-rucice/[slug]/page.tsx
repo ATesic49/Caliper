@@ -1,7 +1,8 @@
 import Image from 'next/image'
 import React from 'react'
 import styles from '../../../public/css/dizajnerske-rucice/[slug]/page.module.css'
-import rucicadva from '../../../public/imgs/rucice/rucicatri.jpg'
+import rucicadva from '../../../public/imgs/rucice/rucica.jpg'
+import Swiperrr from './components/Swiperrr'
 export default function page
 
 
@@ -9,13 +10,9 @@ export default function page
   return (
     <div>
       <div className={styles.naslov}>
-        <h1>Neki naslov</h1>
+        <h1>ARPA 0530</h1>
       </div>
-      <div className={styles.slika}>
-    <Image src={rucicadva}  fill={true}  objectFit='cover' objectPosition="center" alt='as'></Image>
-
-
-      </div>
+<Swiperrr/>
       <div className={styles.ispod}>
 
 
@@ -32,7 +29,7 @@ export default function page
         <ul >
           <li><strong>Ime</strong> <span>ARPA</span></li>
           <li><strong>Model</strong>5888</li>
-          <li><strong>Materijal</strong><span> Radim Dosta bas</span></li>
+          <li><strong>Materijal</strong><span>Brushed Black </span></li>
           <li> <strong>Cena</strong>  <span>300e</span> </li>
         </ul>
         <div className={styles.button}>

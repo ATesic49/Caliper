@@ -175,6 +175,12 @@
   transform: translate(-50%, -50%);
 }
 @media (max-width: 500px) {
+.oNama .text .p {
+  padding-inline:1.25rem;
+}
+.oNama .text {
+  padding:0vw;
+}
   .oNama .text .container {
     grid-template-areas:
       "naslov naslov"
