@@ -15,6 +15,7 @@ export default function New({SetStatus}:{SetStatus: React.Dispatch<React.SetStat
     e.preventDefault();
 
 
+
  
     try {
       console.log(name);
