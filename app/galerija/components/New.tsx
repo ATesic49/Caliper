@@ -30,7 +30,7 @@ export default function New({SetStatus}:{SetStatus: React.Dispatch<React.SetStat
 
         await SetImage(res.secure_url)
 
-        const finalRes = await axios.post("api/galerija/create", {
+        const finalRes = await axios.post("/api/galerija/create", {
           name:name.toLowerCase(),
           description,
           boje,
