@@ -31,6 +31,8 @@ export default async function handler(
     console.log('Vec Postoji Proizvod')
     res.status(401).json({ error: "Ovaj proizvod vec postoji" });
   }else{
+    console.log('O% 305')
+
     res.status(405).json({errorMessage:'Pogresan Request'})
   }
   
