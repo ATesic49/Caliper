@@ -13,44 +13,36 @@ export default function New({SetStatus}:{SetStatus: React.Dispatch<React.SetStat
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    try{
-      const res = await axios.post('/api/galerija/test',{name})
-      if(res.status===200){
-        SetStatus(res.data)
-      }
-    }catch(e){
-      console.log(e)
-    }
 
 
  
-    // try {
-    //   console.log(name);
-    //   console.log("data");
-    //   const formData = new FormData()
-    //   if(file){
-    //     formData.append('file',file)
-    //     formData.append('upload_preset','Caliper')
-    //     const res = await fetch('https://api.cloudinary.com/v1_1/dzkq4y5z3/image/upload',{
-    //       method:'POST',
-    //       body:formData
-    //     }).then(r=>r.json())
+    try {
+      console.log(name);
+      console.log("data");
+      const formData = new FormData()
+      if(file){
+        formData.append('file',file)
+        formData.append('upload_preset','Caliper')
+        const res = await fetch('https://api.cloudinary.com/v1_1/dzkq4y5z3/image/upload',{
+          method:'POST',
+          body:formData
+        }).then(r=>r.json())
 
 
-    //     await SetImage(res.secure_url)
+        await SetImage(res.secure_url)
 
-    //     const finalRes = await axios.post("/api/galerija/create", {
-    //       name:name.toLowerCase(),
-    //       description,
-    //       boje,
-    //       image:res.secure_url
-    //     });
-    //     console.log(finalRes)
-    //     if(finalRes.status===200){
-    //       SetStatus('Sve je proslo kako treba &#128515;')
-    //     }else{
-    //     }
-    //   }
+        const finalRes = await axios.post("/api/galerija/create", {
+          name:name.toLowerCase(),
+          description,
+          boje,
+          image:res.secure_url
+        });
+        console.log(finalRes)
+        if(finalRes.status===200){
+          SetStatus('Sve je proslo kako treba &#128515;')
+        }else{
+        }
+      }
 
 
 
@@ -58,11 +50,11 @@ export default function New({SetStatus}:{SetStatus: React.Dispatch<React.SetStat
 
 
      
-    // } catch (e: any) {
-    //   console.error(e);
-    //   SetStatus('Negde je doslo do greske &#128546;')
+    } catch (e: any) {
+      console.error(e);
+      SetStatus('Negde je doslo do greske &#128546;')
 
-    // }
+    }
   };
   return (
     <>
