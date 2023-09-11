@@ -17,38 +17,31 @@ export default function New() {
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    try{
-      const res = await axios.post('/api/galerija/',{name})
-      if(res.status===200){
-        SetState(res.data)
-      }
-    }catch(e){
-      console.log(e)
-    }
+
  
-    // try {
-    //   console.log(name);
-    //   console.log("data");
-    //   const formData = new FormData()
-    //   if(file){
-    //     formData.append('file',file)
-    //     formData.append('upload_preset','Caliper')
-    //     const res = await fetch('https://api.cloudinary.com/v1_1/dzkq4y5z3/image/upload',{
-    //       method:'POST',
-    //       body:formData
-    //     }).then(r=>r.json())
+    try {
+      console.log(name);
+      console.log("data");
+      const formData = new FormData()
+      if(file){
+        formData.append('file',file)
+        formData.append('upload_preset','Caliper')
+        const res = await fetch('https://api.cloudinary.com/v1_1/dzkq4y5z3/image/upload',{
+          method:'POST',
+          body:formData
+        }).then(r=>r.json())
 
 
-    //     await SetImage(res.secure_url)
+        await SetImage(res.secure_url)
 
-    //     const finalRes = await axios.post("api/galerija/create", {
-    //       name,
-    //       description,
-    //       materijal_id, 
-    //       image:res.secure_url
-    //     });
-    //     console.log(finalRes)
-    //   }
+        const finalRes = await axios.post("api/galerija/create", {
+          name,
+          description,
+          materijal_id, 
+          image:res.secure_url
+        });
+        console.log(finalRes)
+      }
 
 
 
@@ -56,9 +49,9 @@ export default function New() {
 
 
      
-    // } catch (e: any) {
-    //   console.error(e);
-    // }
+    } catch (e: any) {
+      console.error(e);
+    }
   };
   return (
     <>

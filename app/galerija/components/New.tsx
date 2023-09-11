@@ -13,6 +13,16 @@ export default function New({SetStatus}:{SetStatus: React.Dispatch<React.SetStat
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    try{
+      const res = await axios.post('/api/galerija/test',{name})
+      if(res.status===200){
+        SetStatus(res.data)
+      }
+    }catch(e){
+      console.log(e)
+    }
+
+return
 
  
     try {
