@@ -38,10 +38,12 @@ export default function New({SetStatus}:{SetStatus: React.Dispatch<React.SetStat
           boje,
           image:res.secure_url
         });
-        console.log(finalRes)
+        console.log(finalRes,'finalniResultat')
         if(finalRes.status===200){
           SetStatus('Sve je proslo kako treba &#128515;')
-        }else{
+        }else if(finalRes.status === 405){
+          SetStatus('Sve je proslo kako treba &#128515;')
+
         }
       }
 
