@@ -28,6 +28,8 @@ export default async function handler(
       console.log("KREIRALI SU GA HVALIM TE BOZE")
       res.status(200).json({ newProizvod });
     }
+    console.log('Vec Postoji Proizvod
+    ')
     res.status(401).json({ error: "Ovaj proizvod vec postoji" });
   }else{
     res.status(405).json({errorMessage:'Pogresan Request'})
