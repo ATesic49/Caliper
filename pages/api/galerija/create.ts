@@ -26,14 +26,16 @@ export default async function handler(
         },
       });
       console.log("KREIRALI SU GA HVALIM TE BOZE")
-      res.status(200).json({ newProizvod });
+       return res.status(200).json({ newProizvod });
+    }else{
+      
+      console.log('Vec Postoji Proizvod')
+      return res.status(401).json({ error: "Ovaj proizvod vec postoji" });
     }
-    console.log('Vec Postoji Proizvod')
-    res.status(401).json({ error: "Ovaj proizvod vec postoji" });
   }else{
-    console.log('O% 305')
+    console.log('Opet 405')
 
-    res.status(405).json({errorMessage:'Pogresan Request'})
+    return res.status(405).json({errorMessage:'Pogresan Request'})
   }
   
 }
