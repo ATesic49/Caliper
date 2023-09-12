@@ -37,13 +37,14 @@ export default function New({SetStatus}:{SetStatus: React.Dispatch<React.SetStat
           description,
           boje,
           image:res.secure_url
-        });
+        })
+
+
+
+
         console.log(finalRes,'finalniResultat')
         if(finalRes.status===200){
           SetStatus('Sve je proslo kako treba &#128515;')
-        }else if(finalRes.status === 405){
-          SetStatus('Sve je proslo kako treba &#128515;')
-
         }
       }
 
@@ -53,9 +54,14 @@ export default function New({SetStatus}:{SetStatus: React.Dispatch<React.SetStat
 
 
      
-    } catch (e: any) {
-      console.error(e);
-      SetStatus('Negde je doslo do greske &#128546;')
+    } catch (error: any) {
+      console.log('DAJ BOZE DA BAR OVO IADJE')
+      console.log(error.response.status)
+      if (error.response.status===421){
+        return SetStatus('Vec imate jedan artikal sa istim imenom &#128544;')
+
+      }
+       return SetStatus('Negde je doslo do greske &#128546;')
 
     }
   };
@@ -138,6 +144,7 @@ export default function New({SetStatus}:{SetStatus: React.Dispatch<React.SetStat
               type="submit"
               onClick={() => {
                 SetState(styles.not);
+                SetStatus('')
               }}
             >
               Save changes

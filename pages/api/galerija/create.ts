@@ -30,7 +30,7 @@ export default async function handler(
     }else{
       
       console.log('Vec Postoji Proizvod')
-      return res.status(401).json({ error: "Ovaj proizvod vec postoji" });
+      return res.status(421).json({ error: "Ovaj proizvod vec postoji" });
     }
   }else{
     console.log('Opet 405')

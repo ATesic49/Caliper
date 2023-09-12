@@ -51,6 +51,7 @@ name String
   updated_at DateTime @updatedAt
   description String
   rucice Rucice[]
+  hex String
 
 }
 
