@@ -33,7 +33,6 @@ model Rucice{
   id Int @id @default(autoincrement())
   image String
   name String 
-  cena Int
   opis String
   model Int
   created_at DateTime @default(now())
@@ -60,5 +59,6 @@ model RuciceMaterijal{
   materijal Materijal @relation(fields: [materijalId],references: [id])
   rucica Rucice @relation(fields: [rucicaId],references: [id])
   rucicaId Int
+  cena Int
   @@id([rucicaId,materijalId])
 }
