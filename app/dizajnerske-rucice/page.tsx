@@ -1,4 +1,3 @@
-'use client'
 import Image from 'next/image'
 import styles from '../../public/css/grid.module.css'
 import Link from 'next/link'
@@ -6,8 +5,26 @@ export const dynamic ='force-dynamic'
 import rucica from '../../public/imgs/rucice/rucica.jpg'
 import rucicadva from '../../public/imgs/rucice/rucicadva.jpg'
 import New from './components/New'
+import prisma from '@/lib/prisma'
 
-export default function page() {
+export default  async function page() {
+
+const rucica = await prisma.rucice.create({
+  data:{
+    image:'Slika Majke Mi',
+    name:'Aleksa',
+  }
+})
+
+
+
+
+
+
+
+
+
+
   return (
     <>    <div className={styles.predGrid}>
     <h1>Dizajnerske ručice</h1>

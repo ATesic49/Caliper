@@ -34,13 +34,11 @@ model Rucice{
   image String
   name String 
   cena Int
-  materijal_id Int
   opis String
   model Int
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
   slug String @unique
-  materijal Materijal @relation(fields: [materijal_id],references: [id])
   dimenzije String
   rucicaMaterijal RuciceMaterijal[]
 
@@ -52,7 +50,6 @@ name String
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
   description String
-  rucice Rucice[]
   hex String
   rucicaMaterijal RuciceMaterijal[]
 
