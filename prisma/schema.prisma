@@ -42,6 +42,8 @@ model Rucice{
   slug String @unique
   materijal Materijal @relation(fields: [materijal_id],references: [id])
   dimenzije String
+  rucicaMaterijal RuciceMaterijal[]
+
 }
 
 model Materijal{
@@ -52,6 +54,14 @@ name String
   description String
   rucice Rucice[]
   hex String
+  rucicaMaterijal RuciceMaterijal[]
 
 }
 
+model RuciceMaterijal{
+  materijalId Int
+  materijal Materijal @relation(fields: [materijalId],references: [id])
+  rucica Rucice @relation(fields: [rucicaId],references: [id])
+  rucicaId Int
+  @@id([rucicaId,materijalId])
+}
