@@ -4,6 +4,7 @@ import { PrismaClient } from "@prisma/client";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import Edit from "./components/Edit";
+import Delete from "./components/Delete";
 const prisma = new PrismaClient();
 
 
@@ -37,6 +38,8 @@ export default async function page({ params }: Params) {
   return (
     <>
     <Edit product={product}/>
+    <Delete product={product}/>
+
     <div className={styles.page}>
       <h1>{product.name}</h1>
       <div className={styles.paragraf}>

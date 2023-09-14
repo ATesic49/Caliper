@@ -9,14 +9,9 @@ interface Product{
   name: string;
   image: string;
   description: string;
-  boje_id: {
-    galerija_id: number;
-        boje_id: number;
-        cena: number;
-  }[];
+  boje: string[];
   id: number;
 }
-
 
 
 export default function Delete({product}:{product:Product}) {
