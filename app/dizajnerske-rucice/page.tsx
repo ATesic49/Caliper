@@ -9,24 +9,27 @@ import prisma from '@/lib/prisma'
 
 export default  async function page() {
 
-const rucica = await prisma.rucice.create({
-  data:{
-    image:'Slika Majke Mi',
-    name:'Aleksa',
+const proizvodi = await prisma.rucice.findMany({
+  include:{
+    rucicaMaterijal:{
+      include:{
+        materijal:true
+      }
+    }
   }
 })
 
 
 
-
-
+console.log(proizvodi)
 
 
 
 
 
   return (
-    <>    <div className={styles.predGrid}>
+    <>  
+    <div className={styles.predGrid}>
     <h1>Dizajnerske ručice</h1>
     <div className={styles.searchBar}>
       <div className={styles.filter}>
@@ -109,6 +112,48 @@ const rucica = await prisma.rucice.create({
         </Link>
           </div>
     </div>
+
+    {proizvodi.map(proizvod=>{
+      return(
+        
+        
+   
+   <div className={styles.kartica} key={proizvod.id}>
+        <Image className={styles.glavnaSlika} src={proizvod.image}
+        width={500}
+        height={1000}
+        quality={100}
+        alt='rucica'></Image>
+        <div className={styles.ispod}>
+          <h2>{proizvod.name}</h2>
+          <div className={styles.opcije}>
+            <div className={styles.boje}><h3>Boje:</h3> <div className={styles.colorContainer} > 
+            <div></div>
+             <div></div>
+               </div></div>
+            <div className={styles.boje}> <h3>Dizajnerske Rucice:</h3> <select name="dizajnerske rucice" id="">
+              <option value="070">{proizvod.dimenzije}</option>
+              <option value='1178'>1200mm</option>
+              </select></div> 
+          </div>
+        </div>
+        <div className={styles.button}>
+
+        <Link href={proizvod.slug}
+       
+        >
+
+          Pogledaj Vise.
+        </Link>
+          </div>
+    </div>     
+
+)
+    })}
+
+
+
+
   </div>
     <New/>  
    

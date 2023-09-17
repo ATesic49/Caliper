@@ -3,19 +3,27 @@ import Image from "next/image";
 import React, { useState } from "react";
 import styles from "../../../public/css/dizajnerske-rucice/new.module.css";
 import axios from "axios";
+import { Interface } from "readline";
+
+interface RucicaMaterijal  {
+cena:number,
+materijal:number
+}
+
 export default function New() {
   const [state, SetState] = useState(styles.not);
   const [name, setName] = useState<string>("name");
-  const [description, setDescription] = useState<string>("name");
-  const [materijal_id,setMaterijal_id] = useState<Number[]>([])
-  const [dimanezije,setDimenzije] = useState('')
-  const [model, setModel] = useState<number>(5580);
+  const [description, setDescription] = useState<string>("names");
   const [image, SetImage] = useState<string>('/');
-  const [cena, SetCena] = useState<string>('/');
   const [file,SetFile]=useState<File>()
+  const [model, setModel] = useState<number>(5580);
+  const [materijal_id,setMaterijal_id] = useState<RucicaMaterijal[]>([])
+  const [dimenzije,setDimenzije] = useState('a')
+
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
 
 
  
@@ -34,10 +42,12 @@ export default function New() {
 
         await SetImage(res.secure_url)
 
-        const finalRes = await axios.post("api/galerija/create", {
+        const finalRes = await axios.post("api/rucice/create", {
           name,
-          description,
-          materijal_id, 
+          opis:description,
+          // materijal_id,
+          model,
+          dimenzije,
           image:res.secure_url
         });
         console.log(finalRes)
@@ -50,7 +60,7 @@ export default function New() {
 
      
     } catch (e: any) {
-      console.error(e);
+      console.log(e);
     }
   };
   return (
@@ -60,7 +70,7 @@ export default function New() {
       </div>
       <form onSubmit={onSubmit}>
         <div className={[styles.modal, state].join(" ")}>
-          <h3>Unesite podatke proizvoda:</h3>
+          <h3>Unesite podatke proizvoda:   </h3>
           <div>
             <label htmlFor="name">Ime:</label>
 
@@ -137,7 +147,6 @@ export default function New() {
                   realArray.push(number)
                   console.log(realArray)
                 })
-                setMaterijal_id(realArray)
 
               }}
             >
