@@ -77,6 +77,7 @@ display: grid;
 padding-block:1rem;
 grid-template-columns: 1fr 1fr;
 width: 100%;
+text-transform: capitalize;
 position: relative;
     gap:1rem;
 justify-content: flex-start;
@@ -92,7 +93,20 @@ justify-content: flex-start;
     height: 1px;
     background-color: white;
 }
-
+.ispod .tabla li select{
+background-color: transparent;
+text-transform: capitalize;
+border: none;
+font-size: var(--font-size-small);
+border-radius: 0;
+padding: 2px;
+}
+.ispod .tabla li option{
+    background-color: var(--font-color-primary);
+    min-height: 200px !important;
+    font-size: 1rem;
+    display: block !important;
+}
 .ispod .tabla .button{
     width: 100%;
     display: flex;

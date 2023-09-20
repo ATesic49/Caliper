@@ -18,7 +18,7 @@ const proizvodi = await prisma.rucice.findMany({
     }
   }
 })
-
+const materiali=await prisma.materijal.findMany({})
 
 
 console.log(proizvodi)
@@ -55,63 +55,7 @@ console.log(proizvodi)
   <div className={styles.rGrid}>
 
 
-    <div className={styles.kartica}>
-        <Image className={styles.glavnaSlika} src={rucicadva}
-        alt='rucica'></Image>
-        <div className={styles.ispod}>
-          <h2>APRA 0583</h2>
-          <div className={styles.opcije}>
-            <div className={styles.boje}><h3>Boje:</h3> <div className={styles.colorContainer} > 
-            <div></div>
-             <div></div>
-               </div></div>
-            <div className={styles.boje}> <h3>Dizajnerske Rucice:</h3> <select name="dizajnerske rucice" id="">
-              <option value="070">70x37mm</option>
-              <option value='1178'>1200mm</option>
-              </select></div> 
-          </div>
-        </div>
-        <div className={styles.button}>
-
-        <Link href={'/dizajnerske-rucice/slug'}
-     
-        >
-
-          Pogledaj Vise.
-        </Link>
-          </div>
-    </div>
-
-    
-    <div className={styles.kartica}>
-        <Image className={styles.glavnaSlika} src={rucica}
-        width={500}
-        height={1000}
-        quality={100}
-        alt='rucica'></Image>
-        <div className={styles.ispod}>
-          <h2>Naslov</h2>
-          <div className={styles.opcije}>
-            <div className={styles.boje}><h3>Boje:</h3> <div className={styles.colorContainer} > 
-            <div></div>
-             <div></div>
-               </div></div>
-            <div className={styles.boje}> <h3>Dizajnerske Rucice:</h3> <select name="dizajnerske rucice" id="">
-              <option value="070">70x37mm</option>
-              <option value='1178'>1200mm</option>
-              </select></div> 
-          </div>
-        </div>
-        <div className={styles.button}>
-
-        <Link href={'/dizajnerske-rucice/slug'}
-       
-        >
-
-          Pogledaj Vise.
-        </Link>
-          </div>
-    </div>
+  
 
     {proizvodi.map(proizvod=>{
       return(
@@ -131,7 +75,7 @@ console.log(proizvodi)
             <div></div>
              <div></div>
                </div></div>
-            <div className={styles.boje}> <h3>Dizajnerske Rucice:</h3> <select name="dizajnerske rucice" id="">
+            <div className={styles.boje}> <h3>Dimenzije</h3> <select name="dizajnerske rucice" id="">
               <option value="070">{proizvod.dimenzije}</option>
               <option value='1178'>1200mm</option>
               </select></div> 
@@ -139,7 +83,7 @@ console.log(proizvodi)
         </div>
         <div className={styles.button}>
 
-        <Link href={proizvod.slug}
+        <Link href={`/dizajnerske-rucice/${proizvod.slug}`}
        
         >
 
@@ -155,8 +99,8 @@ console.log(proizvodi)
 
 
   </div>
-    <New/>  
-   
+    <New proizvodi={proizvodi} materijali={materiali}/>  
+  
     </>
   )
 }

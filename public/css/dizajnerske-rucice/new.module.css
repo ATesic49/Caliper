@@ -127,3 +127,102 @@
 width: 5rem;
 margin-right: auto;
   }
+
+
+
+  .plus{
+    background-color: #e7e6e6;
+    display: block;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-right: auto;
+    border:1px solid black;
+    border-style:outset ;
+    width: fit-content;
+    margin-inline: auto;
+  }
+
+  .materijalModal{
+    position: fixed !important;
+    top: 50%;
+    left: 50%;
+    z-index: 1000;
+    border: 1px solid black;
+    padding: 2rem 1rem;
+    transform: translate(-50%,-50%);
+    background-color: white;
+    display: flex;
+    max-height: 80%;
+    justify-content: space-between;
+    align-items: stretch;
+    overflow-y: auto;
+    gap:1rem;
+    flex-direction: column;
+  }
+  .materijalModal h3{
+    padding: 1rem;
+    text-align: center;
+    font-size: var(--font-size-mid);
+  }
+  .materijalModal input{
+    width: min-content;
+    width: 100px;
+      
+
+  }
+  .materijalModal div{
+    gap: 1rem;
+    justify-content: space-between;
+    display: flex;
+  }
+
+
+  .materijalModal div select{
+    width: 100px;
+  }
+  .materijalModal div:has(select){
+    margin-top: 2rem;
+  }
+  .materijalModal div button{
+    background-color: var(--secondary-color )!important;
+    color:white;
+    border-radius: none;
+    border: none;
+  }
+  .materijalModal button {
+    padding: 2vh;
+    margin-inline: 1vh;
+    width: max-content;
+    border-radius: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 0;
+    color: var(--font-color-secondary);
+    background: transparent;
+  }
+
+  .materijalModal select{
+    border: 1px solid var(--primary-color);
+    width:fit-content !important;
+  }
+  .materijalModal input{
+    border: 1px solid var(--primary-color);
+    width:fit-content !important;
+  }
+
+  .materijalModal div:has(p) button {
+    background-color: var(--primary-color) !important;
+    border-radius: 0 !important;
+  }
+
+  .materijalModal .close{
+    width: 100%;
+  }
+  .materijalModal .close button{
+    margin-inline: auto;
+    margin-top:2rem;
+    background-color: transparent !important;
+
+    font-size: var(--font-size-small);
+    color: var(--font-color-secondary);
+  }

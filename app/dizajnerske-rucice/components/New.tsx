@@ -1,25 +1,61 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useReducer, useState } from "react";
 import styles from "../../../public/css/dizajnerske-rucice/new.module.css";
 import axios from "axios";
 import { Interface } from "readline";
 
 interface RucicaMaterijal  {
 cena:number,
-materijal:number
+materijal:String
 }
 
-export default function New() {
+export default function New({proizvodi,materijali}:
+  { proizvodi: ({
+  rucicaMaterijal: ({
+      materijal: {
+          id: number;
+          name: string;
+          created_at: Date;
+          updated_at: Date;
+          description: string;
+          hex: string;
+      };
+  } & {
+      materijalId: number;
+      rucicaId: number;
+      cena: number;
+  })[];
+} & {
+    id: number;
+    image: string;
+    name: string;
+    opis: string;
+    model: number;
+    created_at: Date;
+    updated_at: Date;
+    slug: string;
+    dimenzije: string;
+})[],materijali: {
+  id: number;
+  name: string;
+  created_at: Date;
+  updated_at: Date;
+  description: string;
+  hex: string;
+}[]}) {
   const [state, SetState] = useState(styles.not);
   const [name, setName] = useState<string>("name");
   const [description, setDescription] = useState<string>("names");
-  const [image, SetImage] = useState<string>('/');
   const [file,SetFile]=useState<File>()
   const [model, setModel] = useState<number>(5580);
-  const [materijal_id,setMaterijal_id] = useState<RucicaMaterijal[]>([])
+  const [materijal,setMaterijal] = useState<RucicaMaterijal[]>([])
+  const [materijalCena,setMaterijalCena] =useState<number>(1)
+  const [materijalId,setMaterijalId] =useState<String>('Zlatna')
   const [dimenzije,setDimenzije] = useState('a')
-
+  const [materijalModal,setMaterijalModal] = useState(styles.not)  
+  const [_, forceUpdate] = useReducer(x => x + 1, 0);
+console.log(materijali)
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -40,12 +76,11 @@ export default function New() {
         }).then(r=>r.json())
 
 
-        await SetImage(res.secure_url)
 
         const finalRes = await axios.post("api/rucice/create", {
           name,
           opis:description,
-          // materijal_id,
+          materijal,
           model,
           dimenzije,
           image:res.secure_url
@@ -71,6 +106,7 @@ export default function New() {
       <form onSubmit={onSubmit}>
         <div className={[styles.modal, state].join(" ")}>
           <h3>Unesite podatke proizvoda:   </h3>
+         
           <div>
             <label htmlFor="name">Ime:</label>
 
@@ -129,9 +165,9 @@ export default function New() {
             ></textarea>
           </div>
           <div>
-            <label htmlFor="boje">Izaberi boju:</label>
+            {/* <label htmlFor="boje">Izaberi Materijal i Cenu:</label> */}
 
-            <select
+            {/* <select
               multiple
               name="boje"
               id=""
@@ -141,19 +177,16 @@ export default function New() {
                   .map((o) => o.value);
                 console.log(selectedValues.toString().split(","));
                 console.log(e.target.options[0].value);
-                const realArray:Number[] = []
-                const numberArray = selectedValues.map(e=>{
-                  const number = parseInt(e)
-                  realArray.push(number)
-                  console.log(realArray)
-                })
+         
 
               }}
             >
-              <option value={"3"}>Zuto</option>
-              <option value={"1"}>Crvena</option>
-              <option value={"2"}>Roze</option>
-            </select>
+              <option value={3}>Zuto</option>
+              <option value={1}>Crvena</option>
+              <option value={2}>Roze</option>
+            </select> */}
+            <div className={styles.plus} onClick={()=>setMaterijalModal(styles.materijalModal)}>Izaberi Materijal I Cenu:</div>
+       
           </div>
           <div className={styles.doleSkroz}>
             <button
@@ -180,6 +213,81 @@ export default function New() {
           SetState(styles.not);
         }}
       ></div>
+           <div className={materijalModal}>
+              <h3>
+
+Unesi Odgovarajucu cenu i materijal:
+              </h3>
+{materijal.map(p=>{
+            return(
+              <div>
+                <div> 
+                <p>{p.materijal.split('-')[0]}</p>
+                <p>{p.cena}rsd</p>
+                </div>
+                
+                <button onClick={()=>{
+                  
+                  function arrayRemove(arr:RucicaMaterijal[], value:RucicaMaterijal) {
+                    
+                    return arr.filter( (geeks)=> {
+                      return geeks.materijal !== value.materijal
+                    });
+                  }
+                  const result = arrayRemove(materijal,{cena:p.cena,materijal:p.materijal})       
+                  setMaterijal(result)
+                  forceUpdate()
+                }}>Delete.</button>
+              </div>
+            )
+          })}
+              <div>
+              <select name="materijal" onChange={(e)=>{
+                setMaterijalId(e.target.value)
+              }}>
+              {materijali.map(materijal=>{
+  return(
+
+   <option value={`${materijal.name}-${materijal.id}`} key={materijal.id}>{materijal.name}</option>
+  )
+})}
+              </select> 
+              <input type="number" placeholder="Cena" onChange={(e)=>{
+                setMaterijalCena(Number(e.target.value))
+              }}/>  
+             
+              <button onClick={()=>{
+                // if (materijal.includes({materijal:materijalId,cena:materijalCena})) {
+                //   // materijal.push({cena:materijalCena,materijal:materijalId})
+                //   setMaterijal([{cena:materijalCena,materijal:materijalId}])
+                // }else(
+                //   setMaterijal([])
+                // )
+                if(materijal.find(e=>{
+                  if(e.materijal ===  materijalId){
+                    return true
+                  }
+                })){
+                  console.log('Materijal',materijal)
+
+                }else{
+
+                  materijal.push({cena:materijalCena,materijal:materijalId})
+                }
+
+
+
+
+
+                forceUpdate()
+              }}>Sacuvaj.</button>
+              </div>
+              <div className={styles.close}>
+                <button onClick={()=>{
+                  setMaterijalModal(styles.not)
+                }}>Close.</button>
+              </div>
+            </div>
     </>
   );
 }
