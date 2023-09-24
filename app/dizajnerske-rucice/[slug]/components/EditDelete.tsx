@@ -1,33 +1,19 @@
-"use client";
-import Image from "next/image";
-import React, { useReducer, useState } from "react";
-import styles from "../../../public/css/dizajnerske-rucice/new.module.css";
-import axios from "axios";
-import { Interface } from "readline";
-import RucicaMaterijal from "../[slug]/components/RucicaMaterijal";
+'use client'
+import React, { useEffect, useReducer, useState } from 'react'
+import styles from '@/public/css/dizajnerske-rucice/[slug]/editDelete.module.css'
+import trash from '@/public/svgs/trash.svg'
+import { useRouter } from 'next/navigation'
 
+
+
+import Image from 'next/image';
+import axios from 'axios';
 interface RucicaMaterijal  {
-cena:number,
-materijal:String
-}
+    cena:number,
+    materijal:String
+    }
 
-export default function New({proizvodi,materijali}:
-  { proizvodi: ({
-  rucicaMaterijal: ({
-      materijal: {
-          id: number;
-          name: string;
-          created_at: Date;
-          updated_at: Date;
-          description: string;
-          hex: string;
-      };
-  } & {
-      materijalId: number;
-      rucicaId: number;
-      cena: number;
-  })[];
-} & {
+interface rucica{
     id: number;
     image: string;
     name: string;
@@ -36,86 +22,184 @@ export default function New({proizvodi,materijali}:
     created_at: Date;
     updated_at: Date;
     slug: string;
-    dimenzije: string;
-})[],materijali: {
-  id: number;
-  name: string;
-  created_at: Date;
-  updated_at: Date;
-  description: string;
-  hex: string;
-}[]}) {
-  const [state, SetState] = useState(styles.not);
-  const [name, setName] = useState<string>("name");
-  const [description, setDescription] = useState<string>("names");
-  const [file,SetFile]=useState<File>()
-  const [model, setModel] = useState<number>(5580);
-  const [materijal,setMaterijal] = useState<RucicaMaterijal[]>([])
-  const [materijalCena,setMaterijalCena] =useState<number>(1)
-  const [materijalId,setMaterijalId] =useState<String>(`${materijali[0].name}-${materijali[0].id}`)
-  const [dimenzije,setDimenzije] = useState('a')
-  const [materijalModal,setMaterijalModal] = useState(styles.not)  
-  const [_, forceUpdate] = useReducer(x => x + 1, 0);
-  
-console.log(materijali)
-
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-if(materijal.length!==0){
+    dimenzije: string;   
+        rucicaMaterijal: ({
+            materijal: {
+                id: number;
+                name: string;
+                created_at: Date;
+                updated_at: Date;
+                description: string;
+                hex: string;
+            };
+        } & {
+            materijalId: number;
+            rucicaId: number;
+            cena: number;
+        })[];
+    } 
 
 
-  
-  
-  try {
-    console.log(name);
-    console.log("data");
-    const formData = new FormData()
-    if(file){
-      formData.append('file',file)
-      formData.append('upload_preset','Caliper')
-      const res = await fetch('https://api.cloudinary.com/v1_1/dzkq4y5z3/image/upload',{
-        method:'POST',
-        body:formData
-      }).then(r=>r.json())
+export default function EditDelete({product,materijali}:{product:rucica,materijali: {
+    id: number;
+    name: string;
+    created_at: Date;
+    updated_at: Date;
+    description: string;
+    hex: string;
+  }[]}) {
+    const router = useRouter()
+    const [state, SetState] = useState(styles.not);
+    const [name, setName] = useState<string>(product.name);
+    const [description, setDescription] = useState<string>(product.opis);
+    const [file,SetFile]=useState<File>()
+    const [model, setModel] = useState<number>(product.model);
+    const [materijal,setMaterijal] = useState<RucicaMaterijal[]>([])
+    const [materijalCena,setMaterijalCena] =useState<number>(product.rucicaMaterijal[0].cena)
+    const [materijalId,setMaterijalId] =useState<String>(`${materijali[0].name}-${materijali[0].id}`)
+    const [dimenzije,setDimenzije] = useState(product.dimenzije)
+    const [materijalModal,setMaterijalModal] = useState(styles.not)  
+    const [_, forceUpdate] = useReducer(x => x + 1, 0);
+    const [modal, setModal] = useState(styles.mNo)
+    const [status, setStatus] = useState('')
+
+  useEffect(()=>{
+    fromPrismaToState(product.rucicaMaterijal,materijal)
+
+  },[])
+
+
+  const deleteData =async (product:rucica)=>{
+
+    console.log(product)
+    try{
+      const res = await axios.post('/api/rucice/delete',{
+        
+        id:product.id,
+        materijal
       
       
       
-      const finalRes = await axios.post("api/rucice/create", {
+      
+      })
+      setStatus('Sve je proslo kako treba &#128513;')
+      console.log(res)
+      setTimeout(()=>{
+        let i =5
+        const reditectErval = setInterval(()=>{
+          if(i==0){
+              
+            setStatus('Prebacivanje...')
+            clearInterval(reditectErval)
+            return router.push('/dizajnerske-rucice')
+  
+          }
+          setStatus(`Prebacujem za ${i}s`)
+          i--
+        },1000)
+      },2500)
+    }catch(e){
+  console.log(e)
+  setStatus('Negde je doslo do greske &#128546;')
+    }
+  }
+
+    const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+  
+  
+  
+   
+      try {
+        console.log(name);
+        console.log("data");
+        const formData = new FormData()
+        if(file){
+          formData.append('file',file)
+          formData.append('upload_preset','Caliper')
+          const res = await fetch('https://api.cloudinary.com/v1_1/dzkq4y5z3/image/upload',{
+            method:'POST',
+            body:formData
+          }).then(r=>r.json())
+  
+  console.log('fetched')
+          
+          const finalRes = await axios.post("/api/rucica/edit", {
+            name,
+            opis:description,
+            materijal,
+            model,
+            dimenzije,
+            image:res.secure_url,
+            id:product.id
+          });
+          console.log(finalRes)
+        }
+  
+        const finalRes = await axios.post("/api/rucice/edit", {
           name,
           opis:description,
           materijal,
           model,
           dimenzije,
-          image:res.secure_url
+          image:product.image,
+          id:product.id
         });
-        console.log(finalRes)
+  console.log(finalRes)
+       
+      } catch (e: any) {
+        console.log(e);
       }
-      
-      
-      
-      
-      
-      
-      
-    } catch (e: any) {
-      console.log(e);
-    }
-    
-    
-    
-    
-  }
-  else{
-    alert('okadokdsaokdo')
-  }
-  };
+    };
   return (
-    <>
-      <div className={styles.createNew}>
-        <p onClick={() => SetState(styles.yes)}>+</p>
-      </div>
-      <form onSubmit={onSubmit}>
+    <div className={styles.container} >
+        <div className={styles.edit} onClick={() => SetState(styles.yes)}>
+            <Image src='/svgs/edit.svg' width={50} height={50} alt='edit'></Image>
+            <h3>
+            Izmeni.
+
+            </h3>
+        </div>
+        <div className={[modal,styles.dModal].join(' ')}>
+      <h3>Da li ste sigurni da zelite da izbrisete ovaj fajl?</h3>
+      <h3 style={{marginInline:'auto',color:'var(--font-color-secondary)',fontSize:'1rem'}} dangerouslySetInnerHTML={{__html:status }}></h3>
+      <button
+      onClick={()=>{
+
+
+        setStatus('...loading')
+        deleteData(product)
+      }
+        
+      }
+      >Izbrisi</button>
+    </div>
+    <div
+    onClick={()=>{
+  setModal(styles.mNo)
+      
+    }
+    }
+    className={[modal,styles.outlay].join(' ')}
+    ></div>
+        <div className={styles.delete} onClick={()=>{
+          setStatus('')
+          setModal(styles.mYes)}
+        }
+           >
+        <Image src={trash} width={50} height={50} alt='edit'></Image>
+        <h3>
+        Izbrisi.
+
+        </h3>
+
+        </div>
+
+
+
+
+
+        <form onSubmit={onSubmit}>
         <div className={[styles.modal, state].join(" ")}>
           <h3>Unesite podatke proizvoda:   </h3>
          
@@ -129,12 +213,14 @@ if(materijal.length!==0){
               onChange={(e) => {
                 setName(e.target.value);
               }}
+              value={name}
             />
           </div>
           <div>
             <label htmlFor="model">Model:</label>
 
             <input
+            value={model}
               type="number"
               name="model"
               onChange={(e) => {
@@ -146,6 +232,7 @@ if(materijal.length!==0){
             <label htmlFor="name">Dimenzije:</label>
 
             <input
+            value={dimenzije}
               minLength={2}
               type="text"
               name="name"
@@ -170,6 +257,7 @@ if(materijal.length!==0){
             <label htmlFor="deskripcija">Deskripcija:</label>
 
             <textarea
+            value={description}
               name="deskripcija"
               onChange={(e) => {
                 setDescription(e.target.value);
@@ -300,6 +388,39 @@ Unesi Odgovarajucu cenu i materijal:
                 }}>Close.</button>
               </div>
             </div>
-    </>
-  );
+    </div>
+  )
 }
+function fromPrismaToState (rucicaMaterijal: ({
+    materijal: {
+        id: number;
+        name: string;
+        created_at: Date;
+        updated_at: Date;
+        description: string;
+        hex: string;
+    };
+} & {
+    materijalId: number;
+    rucicaId: number;
+    cena: number;
+})[],materijal:RucicaMaterijal[]){
+rucicaMaterijal.forEach(rucica=>{
+  if(materijal.length<=rucicaMaterijal.length){
+
+    materijal.push({cena:rucica.cena,materijal:`${rucica.materijal.name}-${rucica.materijal.id}`})
+  }
+
+})
+
+
+
+
+
+
+
+
+}
+
+
+

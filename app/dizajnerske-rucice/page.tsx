@@ -6,6 +6,7 @@ import rucica from '../../public/imgs/rucice/rucica.jpg'
 import rucicadva from '../../public/imgs/rucice/rucicadva.jpg'
 import New from './components/New'
 import prisma from '@/lib/prisma'
+import NewContainer from '../galerija/components/NewContainer'
 
 export default  async function page() {
 
@@ -55,7 +56,7 @@ console.log(proizvodi)
   <div className={styles.rGrid}>
 
 
-  
+    
 
     {proizvodi.map(proizvod=>{
       return(

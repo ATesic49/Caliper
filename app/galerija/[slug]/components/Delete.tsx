@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react'
-import trash from '@/public/svgs/Trash.svg'
+import trash from '@/public/svgs/trash.svg'
 import Image from 'next/image'
 import styles from '@/public/css/gallery/slug/components/delete.module.css'
 import axios from 'axios'

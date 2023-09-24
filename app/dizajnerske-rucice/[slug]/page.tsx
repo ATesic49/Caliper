@@ -8,6 +8,7 @@ import Swiperrr from './components/Swiperrr'
 import prisma from '@/lib/prisma'
 import { notFound } from "next/navigation";
 import RucicaMaterijal from './components/RucicaMaterijal'
+import EditDelete from './components/EditDelete'
 
 
 export const dynamic ='force-dynamic'
@@ -33,6 +34,7 @@ export default async function page({ params }: Params) {
       }
     }
   });
+  const materijali = await prisma.materijal.findMany({})
   if (!product) {
     notFound()
   }
@@ -40,6 +42,7 @@ export default async function page({ params }: Params) {
   console.log(product.rucicaMaterijal[0].materijal)
   return (
     <div>
+      <EditDelete materijali={materijali} product={product}/>
       <div className={styles.naslov}>
         <h1 style={{textTransform:'capitalize'}}>{product.name}</h1>
       </div>
