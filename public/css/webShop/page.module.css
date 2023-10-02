@@ -134,7 +134,7 @@ margin-inline: auto;
     transition: .5s;
 
 }
-.webShop .form .text:focus-within label{
+.webShop .form .text:has(input:not(:placeholder-shown)) label{
     top: -.125rem;
     left: 0;
     transition:.5s;
