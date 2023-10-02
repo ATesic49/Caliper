@@ -212,7 +212,7 @@ export default function Navbar() {
         </ul>
       </nav>
       <div className={styles.buttons}>
-        <a href="">Web Shop</a>
+        <Link className={styles.webShop} href="/webShop">Web Shop</Link>
         <button>Log In</button>
         <button>Sing Up</button>
       </div>

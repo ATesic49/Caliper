@@ -76,7 +76,7 @@ console.log(proizvodi)
             <div></div>
              <div></div>
                </div></div>
-            <div className={styles.boje}> <h3>Dimenzije</h3> <select name="dizajnerske rucice" id="">
+            <div className={styles.boje}> <h3>Dimenzije:</h3> <select name="dizajnerske rucice" id="">
               <option value="070">{proizvod.dimenzije}</option>
               <option value='1178'>1200mm</option>
               </select></div> 

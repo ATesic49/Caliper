@@ -21,4 +21,6 @@
 body {
   scroll-behavior: smooth;
   width: 100%;
+  min-height: 100vh !important;
+  min-height: 100svh !important;
 }

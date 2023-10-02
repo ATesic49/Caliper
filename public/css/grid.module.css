@@ -363,7 +363,7 @@
 .rGrid .kartica .ispod .opcije .boje{
   display: flex;
   flex-wrap: nowrap;
-  gap: .125rem;
+  gap: 1.125rem;
   align-items: center;
   width: fit-content;
   justify-content: flex-start;
