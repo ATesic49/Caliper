@@ -3,6 +3,7 @@ import React from 'react'
 import validator from 'validator'
 import {useState} from 'react'
 import styles from '../../public/css/webShop/page.module.css'
+import axios from 'axios'
 export default function webShop() {
 
 
@@ -23,6 +24,22 @@ export default function webShop() {
         if(password!== ppassword) return setStatus("Šifre se ne podudaraju")
         if(!password) return setStatus('Potrebno je uneti šifru')
         if (password.length<4) setStatus('Molimo Vas unesite dužu šifru')
+
+    }
+    const logInEndpoint = async ()=>{
+      const res = await axios.post('/api/logInRegister/logIn',
+      {
+        email,
+        password
+      })
+      console.log(res)
+    }
+    const logInF= async ()=>{
+      if(!email)return setStatus('Potrebno je uneti email')
+      if(!password) return setStatus('Potrebno je uneti šifru')
+
+      if(!validator.isEmail(email)) setStatus('Sifra i email se ne podudaraju')
+     await logInEndpoint()
 
     }
 
@@ -46,7 +63,7 @@ export default function webShop() {
     </div>
 
   <div className={styles.levo} style={{marginInline:'auto'}}>
-<p style={{color:'red',fontSize:'var(--font-size-small)'}}>{status}<s/p>
+<p style={{color:'red',fontSize:'var(--font-size-small)'}}>{status}</p>
     
 
   <div className={styles.form}>
@@ -64,7 +81,7 @@ export default function webShop() {
   </form>      
   </div>
   <div className={styles.submit}>
-      <button type='submit'>Log In</button>
+      <button type='submit' onClick={()=>logInF()}>Log In</button>
   </div> 
   </div>
 
