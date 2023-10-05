@@ -15,15 +15,17 @@ export default function webShop() {
     const [password,setPassword] = useState<string>()
     const [ppassword,setPpassword] = useState<string>()
     const [status,setStatus] = useState('')
+    const sighUpEndpoint = async ()=>{
 
-    const signUp = ()=>{
-        if(!name)return
-        if(name.length<2)return setStatus('Ime je previse malo')
-        if(!email)return setStatus('Potrebno je uneti email')
-        if(!validator.isEmail(email)) setStatus('Unesite pravi email')
-        if(password!== ppassword) return setStatus("Šifre se ne podudaraju")
-        if(!password) return setStatus('Potrebno je uneti šifru')
-        if (password.length<4) setStatus('Molimo Vas unesite dužu šifru')
+      const res = await axios.post('/api/logInRegister/register',{
+        email,
+        name,
+        password
+      })
+      console.log(res)
+
+      if(res.status===200) return setStatus('Sve je proslo kako treba :)')
+
 
     }
     const logInEndpoint = async ()=>{
@@ -33,12 +35,31 @@ export default function webShop() {
         password
       })
       console.log(res)
+      if(res.status===200) return setStatus('Sve je proslo kako treba :)')
     }
+
+
+
+    const signUp = ()=>{
+      setStatus('')
+        if(!name)return
+        if(name.length<2)return setStatus('Ime je previse malo')
+        if(!email)return setStatus('Potrebno je uneti email')
+        if(!validator.isEmail(email)) setStatus('Unesite pravi email')
+        if(password!== ppassword) return setStatus("Šifre se ne podudaraju")
+        if(!password) return setStatus('Potrebno je uneti šifru')
+        if (password.length<4) setStatus('Molimo Vas unesite dužu šifru')
+        sighUpEndpoint()
+    }
+
     const logInF= async ()=>{
+      setStatus('')
+
       if(!email)return setStatus('Potrebno je uneti email')
       if(!password) return setStatus('Potrebno je uneti šifru')
 
-      if(!validator.isEmail(email)) setStatus('Sifra i email se ne podudaraju')
+      if(!validator.isEmail(email)) setStatus('Molimo Vas da unesete ispravan email')
+      setStatus('')
      await logInEndpoint()
 
     }
@@ -63,7 +84,16 @@ export default function webShop() {
     </div>
 
   <div className={styles.levo} style={{marginInline:'auto'}}>
+    {status !== 'Sve je proslo kako treba :)' ? (
 <p style={{color:'red',fontSize:'var(--font-size-small)'}}>{status}</p>
+
+    )
+  : (
+<p style={{color:'green',fontSize:'var(--font-size-small)'}}>{status}</p>
+
+  )
+  }
+
     
 
   <div className={styles.form}>
@@ -106,7 +136,15 @@ export default function webShop() {
   
   <div className={styles.levo}>
     
+  {status !== 'Sve je proslo kako treba :)' ? (
 <p style={{color:'red',fontSize:'var(--font-size-small)'}}>{status}</p>
+
+    )
+  : (
+<p style={{color:'green',fontSize:'var(--font-size-small)'}}>{status}</p>
+
+  )
+  }
   <div className={styles.form}>
   <form >
   <div className={styles.text}>

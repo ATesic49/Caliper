@@ -64,9 +64,13 @@ model User{
   name String 
   email String @unique
   hashedPassword String
+  colorId Int
+  color UserColor  @relation(fields: [colorId],references: [id])
 }
 
 model UserColor{
   id Int @id @default(autoincrement())
   hex String
+  user User[]
+  
 }
