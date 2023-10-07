@@ -3,6 +3,7 @@ import { Ubuntu } from "next/font/google";
 import Navbar from "./components/Navbar";
 import "../public/globals.css";
 import Footer from "./components/Footer";
+import AuthContext from "./context/context";
 export const metadata = {
   title: "Caliper - Enterijeri | Nameštaj po meri | Dizajnerske ručice",
   description:
@@ -15,8 +16,6 @@ const ubuntu = Ubuntu({
   style: ["normal"],
 });
 
-
-
 export default function RootLayout({
   children,
 }: {
@@ -25,9 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={ubuntu.className}>
-        <Navbar />
-        {children}
-        <Footer />
+        <AuthContext>
+          <Navbar />
+          {children}
+          <Footer />
+        </AuthContext>
       </body>
     </html>
   );
