@@ -4,6 +4,7 @@ import bcrypt from "bcrypt";
 import * as jose from "jose";
 import { easing } from "@mui/material";
 import { faEarthAmerica } from "@fortawesome/free-solid-svg-icons";
+import { setCookie } from "cookies-next";
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -30,13 +31,18 @@ export default async function handler(
     // HOSE
     const secret = new TextEncoder().encode(process.env.SECRET);
     const alg = "HS256";
+
     const token = await new jose.SignJWT({ email: user.email })
       .setProtectedHeader({ alg })
       .setExpirationTime("24h")
       .sign(secret);
 
+    setCookie("jwt", token, { req, res, maxAge: 60 * 60 * 60 });
+
     // HOSE
 
-    return res.status(200).json({ token });
+    return res.status(200).json({
+      user,
+    });
   } else return res.status(405).json({ errorMessage: "Unsupported request" });
 }
