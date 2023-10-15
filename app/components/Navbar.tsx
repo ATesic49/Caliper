@@ -58,7 +58,6 @@ export default function Navbar() {
               width={5}
               height={5}
               onClick={(e) => {
-                console.log(e);
                 e.preventDefault();
                 if (upGallery === styles.up) SetUpGallery(styles.down);
                 else SetUpGallery(styles.up);
@@ -179,7 +178,6 @@ export default function Navbar() {
               width={5}
               height={5}
               onClick={(e) => {
-                console.log(e);
                 e.preventDefault();
                 if (upShop === styles.up) SetUpShop(styles.down);
                 else SetUpShop(styles.up);
@@ -212,7 +210,9 @@ export default function Navbar() {
         </ul>
       </nav>
       <div className={styles.buttons}>
-        <Link className={styles.webShop} href="/webShop">Web Shop</Link>
+        <Link className={styles.webShop} href="/webShop">
+          Web Shop
+        </Link>
         <button>Log In</button>
         <button>Sing Up</button>
       </div>

@@ -7,15 +7,15 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const bearerToken = req.headers["authorisation"] as string;
+  console.log(req.headers);
+  const bearerToken = req.headers["authorization"] as string;
   console.log(bearerToken, "bearerTOken");
   if (!bearerToken)
     return res
       .status(401)
       .json({ errorMessage: "Unauthorised request,no bearer token" });
 
-  // const token = bearerToken.split(" ")[1];
-  const token = bearerToken;
+  const token = bearerToken.split(" ")[1];
 
   if (!token)
     return res

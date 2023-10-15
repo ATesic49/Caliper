@@ -39,10 +39,7 @@ export default function AuthContext({
 }) {
   const fetchUser = async () => {
     const jwt = getCookie("jwt");
-    console.log("USERUSERUSERUSER");
-    console.log(jwt);
     if (!jwt) {
-      console.log("rispons");
       return setAuthState({
         data: null,
         error: null,
@@ -55,16 +52,14 @@ export default function AuthContext({
           Authorization: `Bearer ${jwt}`,
         },
       });
-      return response;
+      setAuthState({
+        loading: false,
+        data: response.data,
+        error: null,
+      });
     } catch (e) {
       console.log(e);
     }
-
-    // setAuthState({
-    //   loading: false,
-    //   data: response,
-    //   error: null,
-    // });
   };
 
   const [authState, setAuthState] = useState<State>({

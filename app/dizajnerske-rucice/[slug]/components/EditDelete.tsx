@@ -78,14 +78,12 @@ export default function EditDelete({
   }, []);
 
   const deleteData = async (product: rucica) => {
-    console.log(product);
     try {
       const res = await axios.post("/api/rucice/delete", {
         id: product.id,
         materijal,
       });
       setStatus("Sve je proslo kako treba &#128513;");
-      console.log(res);
       setTimeout(() => {
         let i = 5;
         const reditectErval = setInterval(() => {

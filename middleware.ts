@@ -46,5 +46,5 @@ export async function middleware(req: NextRequest, res: NextResponse) {
   return new NextResponse(JSON.stringify({ user }), { status: 200 });
 }
 export const config = {
-  matcher: ["/api/logInRegister/me"],
+  matcher: ["/api/logInRegister/mea"],
 };

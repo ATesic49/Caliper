@@ -21,7 +21,6 @@ export default async function page() {
   });
   const materiali = await prisma.materijal.findMany({});
 
-  console.log(proizvodi);
   return (
     <>
       <div className={styles.predGrid}>

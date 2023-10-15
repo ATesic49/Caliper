@@ -4,6 +4,9 @@ import validator from "validator";
 import { useState } from "react";
 import styles from "../../public/css/webShop/page.module.css";
 import axios from "axios";
+import { AuthenticationContext } from "../context/context";
+import Image from "next/image";
+
 export default function webShop() {
   const [logIn, setLogIn] = useState(false);
   const [name, setName] = useState<string>();
@@ -11,6 +14,7 @@ export default function webShop() {
   const [password, setPassword] = useState<string>();
   const [ppassword, setPpassword] = useState<string>();
   const [status, setStatus] = useState("");
+  const { data } = useContext(AuthenticationContext);
   const sighUpEndpoint = async () => {
     try {
       const res = await axios.post("/api/logInRegister/register", {
@@ -68,163 +72,205 @@ export default function webShop() {
   };
 
   return (
-    <div className={styles.webShop}>
-      <div className={styles.h1}>
-        <h1>Web Shop</h1>
-      </div>
-
-      {logIn ? (
-        <>
-          <div className={styles.buttons}>
-            <button
-              className={styles.selected}
-              onClick={() => {
-                setLogIn(true);
-                setStatus("");
-              }}
+    <>
+      {data ? (
+        <div className={styles.goodScenario}>
+          <div className={styles.sideBar}>
+            <div
+              className={styles.avatar}
+              style={{ backgroundColor: "royalblue" }}
             >
-              Log In
-            </button>
-            <button
-              onClick={() => {
-                setLogIn(false);
-                setStatus("");
-              }}
-            >
-              Sign Up
-            </button>
-          </div>
-
-          <div className={styles.levo} style={{ marginInline: "auto" }}>
-            {status !== "Sve je proslo kako treba :)" ? (
-              <p style={{ color: "red", fontSize: "var(--font-size-small)" }}>
-                {status}
-              </p>
-            ) : (
-              <p style={{ color: "green", fontSize: "var(--font-size-small)" }}>
-                {status}
-              </p>
-            )}
-
-            <div className={styles.form}>
-              <form>
-                <div className={styles.text}>
-                  <label htmlFor="email">Email:</label>
-                  <input
-                    type="text"
-                    placeholder=" "
-                    name="email"
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </div>
-                <div className={styles.text}>
-                  <label htmlFor="password">Sifra:</label>
-                  <input
-                    type="text" //pass
-                    placeholder=" "
-                    name="password"
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                </div>
-              </form>
-            </div>
-            <div className={styles.submit}>
-              <button type="submit" onClick={() => logInF()}>
-                Log In
-              </button>
+              {data.name}
             </div>
           </div>
-
-          {/* <div className={styles.desno}>
-    
- 
-  </div> */}
-        </>
+          <div className={styles.levo}>
+            <div className={styles.korpa}></div>
+            <Image
+              alt={""}
+              src="/svgs/korpa.svg"
+              width={500}
+              height={500}
+            ></Image>
+          </div>
+          <div className={styles.desno}>
+            <button className={styles.buttonDole}>Naruci jos</button>
+          </div>
+        </div>
       ) : (
-        <>
-          <div className={styles.buttons}>
-            <button
-              onClick={() => {
-                setLogIn(true);
-                setStatus("");
-              }}
-            >
-              Log In
-            </button>
-            <button
-              className={styles.selected}
-              onClick={() => {
-                setLogIn(false);
-                setStatus("");
-              }}
-            >
-              Sign Up
-            </button>
+        <div className={styles.webShop}>
+          <div className={styles.h1}>
+            <h1>Web Shop</h1>
           </div>
-          <div className={styles.ld}>
-            <div className={styles.levo}>
-              {status !== "Sve je proslo kako treba :)" ? (
-                <p style={{ color: "red", fontSize: "var(--font-size-small)" }}>
-                  {status}
-                </p>
-              ) : (
-                <p
-                  style={{ color: "green", fontSize: "var(--font-size-small)" }}
+
+          {logIn ? (
+            <>
+              <div className={styles.buttons}>
+                <button
+                  className={styles.selected}
+                  onClick={() => {
+                    setLogIn(true);
+                    setStatus("");
+                  }}
                 >
-                  {status}
-                </p>
-              )}
-              <div className={styles.form}>
-                <form>
-                  <div className={styles.text}>
-                    <label htmlFor="name">Ime:</label>
-                    <input
-                      type="text"
-                      name="name"
-                      placeholder=" "
-                      onChange={(e) => setName(e.target.value)}
-                    />
-                  </div>
-                  <div className={styles.text}>
-                    <label htmlFor="email">Email:</label>
-                    <input
-                      type="text"
-                      name="email"
-                      placeholder=" "
-                      onChange={(e) => setEmail(e.target.value)}
-                    />
-                  </div>
-                  <div className={styles.text}>
-                    <label htmlFor="password">Sifra:</label>
-                    <input
-                      type="text" //pass
-                      name="password"
-                      placeholder=" "
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
-                  </div>
-                  <div className={styles.text}>
-                    <label htmlFor="password">Ponovi Sifru:</label>
-                    <input
-                      type="text" //pass
-                      name="password"
-                      placeholder=" "
-                      onChange={(e) => setPpassword(e.target.value)}
-                    />
-                  </div>
-                </form>
-              </div>
-            </div>
-            <div className={styles.desno}>
-              <div className={styles.submit}>
-                <button type="submit" onClick={() => signUp()}>
+                  Log In
+                </button>
+                <button
+                  onClick={() => {
+                    setLogIn(false);
+                    setStatus("");
+                  }}
+                >
                   Sign Up
                 </button>
               </div>
-            </div>
-          </div>
-        </>
+
+              <div className={styles.levo} style={{ marginInline: "auto" }}>
+                {status !== "Sve je proslo kako treba :)" ? (
+                  <p
+                    style={{ color: "red", fontSize: "var(--font-size-small)" }}
+                  >
+                    {status}
+                  </p>
+                ) : (
+                  <p
+                    style={{
+                      color: "green",
+                      fontSize: "var(--font-size-small)",
+                    }}
+                  >
+                    {status}
+                  </p>
+                )}
+
+                <div className={styles.form}>
+                  <form>
+                    <div className={styles.text}>
+                      <label htmlFor="email">Email:</label>
+                      <input
+                        type="text"
+                        placeholder=" "
+                        name="email"
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
+                    </div>
+                    <div className={styles.text}>
+                      <label htmlFor="password">Sifra:</label>
+                      <input
+                        type="text" //pass
+                        placeholder=" "
+                        name="password"
+                        onChange={(e) => setPassword(e.target.value)}
+                      />
+                    </div>
+                  </form>
+                </div>
+                <div className={styles.submit}>
+                  <button type="submit" onClick={() => logInF()}>
+                    Log In
+                  </button>
+                </div>
+              </div>
+
+              {/* <div className={styles.desno}>
+    
+ 
+  </div> */}
+            </>
+          ) : (
+            <>
+              <div className={styles.buttons}>
+                <button
+                  onClick={() => {
+                    setLogIn(true);
+                    setStatus("");
+                  }}
+                >
+                  Log In
+                </button>
+                <button
+                  className={styles.selected}
+                  onClick={() => {
+                    setLogIn(false);
+                    setStatus("");
+                  }}
+                >
+                  Sign Up
+                </button>
+              </div>
+              <div className={styles.ld}>
+                <div className={styles.levo}>
+                  {status !== "Sve je proslo kako treba :)" ? (
+                    <p
+                      style={{
+                        color: "red",
+                        fontSize: "var(--font-size-small)",
+                      }}
+                    >
+                      {status}
+                    </p>
+                  ) : (
+                    <p
+                      style={{
+                        color: "green",
+                        fontSize: "var(--font-size-small)",
+                      }}
+                    >
+                      {status}
+                    </p>
+                  )}
+                  <div className={styles.form}>
+                    <form>
+                      <div className={styles.text}>
+                        <label htmlFor="name">Ime:</label>
+                        <input
+                          type="text"
+                          name="name"
+                          placeholder=" "
+                          onChange={(e) => setName(e.target.value)}
+                        />
+                      </div>
+                      <div className={styles.text}>
+                        <label htmlFor="email">Email:</label>
+                        <input
+                          type="text"
+                          name="email"
+                          placeholder=" "
+                          onChange={(e) => setEmail(e.target.value)}
+                        />
+                      </div>
+                      <div className={styles.text}>
+                        <label htmlFor="password">Sifra:</label>
+                        <input
+                          type="text" //pass
+                          name="password"
+                          placeholder=" "
+                          onChange={(e) => setPassword(e.target.value)}
+                        />
+                      </div>
+                      <div className={styles.text}>
+                        <label htmlFor="password">Ponovi Sifru:</label>
+                        <input
+                          type="text" //pass
+                          name="password"
+                          placeholder=" "
+                          onChange={(e) => setPpassword(e.target.value)}
+                        />
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div className={styles.desno}>
+                  <div className={styles.submit}>
+                    <button type="submit" onClick={() => signUp()}>
+                      Sign Up
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+        </div>
       )}
-    </div>
+    </>
   );
 }
