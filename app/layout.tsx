@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import "../public/globals.css";
 import Footer from "./components/Footer";
 import AuthContext from "./context/context";
+import prisma from "@/lib/prisma";
 export const metadata = {
   title: "Caliper - Enterijeri | Nameštaj po meri | Dizajnerske ručice",
   description:
@@ -16,16 +17,27 @@ const ubuntu = Ubuntu({
   style: ["normal"],
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const galerija = await prisma.galerija.findMany({
+    select: {
+      name: true,
+    },
+  });
+  const rucice = await prisma.rucice.findMany({
+    select: {
+      name: true,
+      slug: true,
+    },
+  });
   return (
     <html lang="en">
       <body className={ubuntu.className}>
         <AuthContext>
-          <Navbar />
+          <Navbar rucice={rucice} galerija={galerija} />
           {children}
           <Footer />
         </AuthContext>

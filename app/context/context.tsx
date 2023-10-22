@@ -14,7 +14,7 @@ interface User {
   name: String;
   email: String;
   hashedPassword: String;
-  colorId: Number;
+  hex: string;
 }
 interface State {
   loading: boolean;

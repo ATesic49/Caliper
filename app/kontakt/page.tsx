@@ -1,35 +1,35 @@
-"use client"
-import React, { useState } from "react"
-import classNames from "classnames"
-import styles from "../../public/css/kontakt.module.css"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faPhone } from "@fortawesome/free-solid-svg-icons"
-import { faViber } from "@fortawesome/free-brands-svg-icons"
-import { faWhatsapp } from "@fortawesome/free-brands-svg-icons"
-import Link from "next/link"
-import axios from "axios"
-import validator from "validator"
+"use client";
+import React, { useState } from "react";
+import classNames from "classnames";
+import styles from "../../public/css/kontakt.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faViber } from "@fortawesome/free-brands-svg-icons";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import Link from "next/link";
+import axios from "axios";
+import validator from "validator";
 
 export default function Form() {
-  const [isRightPanelActive, setIsRightPanelActive] = useState(false)
+  const [isRightPanelActive, setIsRightPanelActive] = useState(false);
 
   const containerClass = classNames(styles.container, {
     [styles["right-panel-active"]]: isRightPanelActive,
-  })
+  });
 
   const handleMailClick = () => {
-    setIsRightPanelActive(true)
-  }
+    setIsRightPanelActive(true);
+  };
 
   const handleCallInClick = () => {
-    setIsRightPanelActive(false)
-  }
+    setIsRightPanelActive(false);
+  };
 
-  const [ime, SetIme] = useState("Petar")
-  const [text, SetText] = useState("U vezi sa namestajem...")
-  const [email, SetEmail] = useState("petar.petrovic@gmail.com")
-  const [prezime, SetPrezime] = useState("")
-  const [status, SetStatus] = useState("")
+  const [ime, SetIme] = useState("Petar");
+  const [text, SetText] = useState("U vezi sa namestajem...");
+  const [email, SetEmail] = useState("petar.petrovic@gmail.com");
+  const [prezime, SetPrezime] = useState("");
+  const [status, SetStatus] = useState("");
 
   const fetchData = async () => {
     try {
@@ -38,16 +38,16 @@ export default function Form() {
         text,
         ime,
         prezime,
-      })
+      });
       if (res.data.status === "success") {
-        return SetStatus("Uspesno ste poslali Email!")
+        return SetStatus("Uspesno ste poslali Email!");
       } else {
-        return SetStatus("Prilikom Slanja Emila doslo je do greske")
+        return SetStatus("Prilikom Slanja Emila doslo je do greske");
       }
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-  }
+  };
   return (
     <>
       <div className={styles.status}>
@@ -89,7 +89,15 @@ export default function Form() {
                   />
                 </Link>
               </div>
-              <span>Ili nas posetite</span>
+              <span
+                style={{
+                  fontSize: ".75rem",
+                  fontWeight: "bold",
+                  margin: "1rem",
+                }}
+              >
+                Ili nas posetite
+              </span>
               <div className={styles.mapa}>
                 <iframe
                   title="My Map"
@@ -117,38 +125,38 @@ export default function Form() {
                 type="text"
                 placeholder="Ime"
                 onChange={(e) => {
-                  return input(e, SetIme)
+                  return input(e, SetIme);
                 }}
               ></input>
               <input
                 type="text"
                 placeholder="Prezime"
                 onChange={(e) => {
-                  return input(e, SetPrezime)
+                  return input(e, SetPrezime);
                 }}
               ></input>
               <input
                 type="email"
                 placeholder="Email"
                 onChange={(e) => {
-                  return input(e, SetEmail)
+                  return input(e, SetEmail);
                 }}
               />
               <textarea
                 placeholder="Dobar Dan u vezi sa..."
                 onChange={(e) => {
-                  return textArea(e, SetText)
+                  return textArea(e, SetText);
                 }}
                 style={{ resize: "none" }}
               ></textarea>
 
               <button
                 onClick={(e) => {
-                  e.preventDefault()
+                  e.preventDefault();
 
                   if (!validator.isEmail(email)) {
-                    e.preventDefault()
-                    SetStatus("Unesite pravilan imejl")
+                    e.preventDefault();
+                    SetStatus("Unesite pravilan imejl");
                   }
 
                   if (
@@ -156,16 +164,16 @@ export default function Form() {
                       min: 1,
                     })
                   ) {
-                    e.preventDefault()
-                    SetStatus("Unesite Ime")
+                    e.preventDefault();
+                    SetStatus("Unesite Ime");
                   }
                   if (
                     !validator.isLength(text, {
                       min: 1,
                     })
                   ) {
-                    e.preventDefault()
-                    SetStatus("Unesite text")
+                    e.preventDefault();
+                    SetStatus("Unesite text");
                   }
                   if (
                     validator.isEmail(email) &&
@@ -179,7 +187,7 @@ export default function Form() {
                       min: 1,
                     })
                   )
-                    fetchData()
+                    fetchData();
                 }}
               >
                 Posalji
@@ -195,13 +203,13 @@ export default function Form() {
                 )}
               >
                 <h1>Posaljite nam Mail</h1>
-                <p>Voleli bi ste da se direktno obratite nasem staffu</p>
+                <p>Voleli bi ste da nam se obratite direktno? </p>
                 <button
                   className={classNames(styles.ghost)}
                   id="signIn"
                   onClick={handleCallInClick}
                 >
-                  Mail Us
+                  Pošaljite nam mejl
                 </button>
               </div>
               <div
@@ -211,9 +219,7 @@ export default function Form() {
                 )}
               >
                 <h1>Kontaktirajte nas </h1>
-                <p>
-                  Mrzi vas da saljete mail? Kontanktirajte nas na druge nacine
-                </p>
+                <p>Kontanktirajte nas na druge nacine.</p>
                 <button
                   className={classNames(styles.ghost)}
                   id="signUp"
@@ -228,24 +234,24 @@ export default function Form() {
         <div className={styles.seperator}></div>
       </div>
     </>
-  )
+  );
 }
 
 function input(
   e: React.ChangeEvent<HTMLInputElement>,
   parametar: React.Dispatch<React.SetStateAction<string>>
 ) {
-  return parametar(e.target.value)
+  return parametar(e.target.value);
 }
 function select(
   e: React.ChangeEvent<HTMLSelectElement>,
   parametar: React.Dispatch<React.SetStateAction<string>>
 ) {
-  return parametar(e.target.value)
+  return parametar(e.target.value);
 }
 function textArea(
   e: React.ChangeEvent<HTMLTextAreaElement>,
   parametar: React.Dispatch<React.SetStateAction<string>>
 ) {
-  return parametar(e.target.value)
+  return parametar(e.target.value);
 }

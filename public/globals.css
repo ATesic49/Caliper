@@ -9,7 +9,6 @@
   --font-size-large: clamp(18px, 2.3vw, 25px);
   --font-size-Xlarge: clamp(25px, 5vw, 55px);
   --almost-white: #252525;
-
 }
 
 * {
@@ -23,4 +22,43 @@ body {
   width: 100%;
   min-height: 100vh !important;
   min-height: 100svh !important;
+}
+#rdw-wrapper-8254 {
+  width: 100%;
+}
+.rdw-editor-toolbar {
+  width: fit-content;
+}
+
+.rdw-editor-toolbar > div {
+  display: none;
+}
+
+.rdw-editor-toolbar .rdw-inline-wrapper {
+  display: flex;
+  width: fit-content;
+}
+.rdw-editor-main {
+  width: 100% !important;
+}
+.rdw-editor-main div {
+  padding: 0;
+}
+.DraftEditor-root .DraftEditor-editorContainer {
+  border: 1px solid var(--font-color-secondary);
+}
+
+.DraftEditor-root .DraftEditor-editorContainer .public-DraftEditor-content {
+  margin: 0;
+  padding: 1rem;
+}
+.DraftEditor-root .DraftEditor-editorContainer .public-DraftEditor-content div {
+  padding: 0;
+  margin: 0;
+}
+.public-DraftStyleDefault-block {
+  margin: 0px !important;
+  max-width: 60vw;
+  min-height: 7.5rem;
+  overflow: auto;
 }

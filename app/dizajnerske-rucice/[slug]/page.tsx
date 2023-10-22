@@ -8,6 +8,9 @@ import prisma from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import RucicaMaterijal from "./components/RucicaMaterijal";
 import EditDelete from "./components/EditDelete";
+import { EditorState, convertFromRaw, convertToRaw } from "draft-js";
+import draftToHtml from "draftjs-to-html";
+import Opis from "./components/Opis";
 
 export const dynamic = "force-dynamic";
 
@@ -35,6 +38,7 @@ export default async function page({ params }: Params) {
   if (!product) {
     notFound();
   }
+
   return (
     <div>
       <EditDelete materijali={materijali} product={product} />
@@ -44,29 +48,9 @@ export default async function page({ params }: Params) {
       <Swiperrr />
       <div className={styles.ispod}>
         <div className={styles.text}>
-          <p>
-            <b>{product.opis}</b>
-          </p>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat,
-            esse nesciunt, vel praesentium facere repudiandae minima, modi
-            dignissimos voluptate ipsum deleniti quis quia dolorum delectus quam
-            numquam repellat nisi vitae veniam ab ad ipsa blanditiis maiores.
-            Ducimus sequi eos cupiditate ut labore excepturi iusto nostrum nemo
-            repudiandae accusamus natus praesentium quidem quis aut, nulla cum
-            harum, consequatur consequuntur cumque a ad perspiciatis? Nemo cum
-            aliquam corrupti, minus harum obcaecati perferendis omnis architecto
-            asperiores commodi vitae reiciendis nostrum quis, corporis maxime
-            facere labore numquam cumque blanditiis neque libero voluptate unde.
-            Explicabo perspiciatis officiis consequatur suscipit odit minus
-            consequuntur ab dignissimos non!
-          </p>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora
-            quis aliquam optio minus reprehenderit fugit autem libero numquam
-            provident nostrum?
-          </p>
+          <Opis opis={product.opis} />
         </div>
+
         <div className={styles.tabla}>
           <ul>
             <li>

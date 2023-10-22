@@ -6,13 +6,33 @@ import Router from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import styles from "../../public/css/navbar.module.css";
-
+import { Galerija } from "@prisma/client";
+const toSlug = (name: String) => {
+  const lowername = name.toLocaleLowerCase();
+  const slug = lowername.replaceAll(" ", "-");
+  return slug;
+};
+interface rucice {
+  name: string;
+  slug: string;
+}
+interface galerija {
+  name: string;
+}
+[];
 const ubuntu = Ubuntu({
   subsets: ["latin"],
   weight: ["300", "400", "500", "700"],
   style: ["normal"],
 });
-export default function Navbar() {
+
+export default function Navbar({
+  rucice,
+  galerija,
+}: {
+  rucice: rucice[];
+  galerija: { name: string }[];
+}) {
   const pathname = usePathname();
   const [upGallery, SetUpGallery] = useState(styles.down);
   const [upShop, SetUpShop] = useState(styles.down);
@@ -21,7 +41,10 @@ export default function Navbar() {
     SetUpGallery(styles.down);
     SetUpShop(styles.down);
   }, [pathname]);
+  const groupedGallery = groupByFirstWord(galerija);
+  const groupedRucice = groupByFirstWord(rucice);
 
+  console.log(groupedGallery, "grouped gallery");
   return (
     <div className={[styles.nav, ubuntu.className].join(" ")}>
       <div className={styles.options}>
@@ -65,108 +88,27 @@ export default function Navbar() {
               }}
             ></Image>
             <div className={styles.menu}>
-              <div className={styles.container}>
-                <Link href="/galerija" onClick={() => {}}>
-                  {" "}
-                  <h4>Fotelje</h4>{" "}
-                </Link>
-                <ul>
-                  <li>
-                    <Link href="">Fotelja #1</Link>
-                  </li>
-                  <li>
-                    <Link href="">Fotelja #2</Link>
-                  </li>
-                  <li>
-                    <Link href="">Fotelja #3</Link>
-                  </li>
-                </ul>
-              </div>
-              <div className={styles.container}>
-                <Link href="">
-                  {" "}
-                  <h4>Fotelje</h4>{" "}
-                </Link>
-                <ul>
-                  <li>
-                    <Link href="">Fotelja #1</Link>
-                  </li>
-                  <li>
-                    <Link href="">Fotelja #2</Link>
-                  </li>
-                  <li>
-                    <Link href="">Fotelja #3</Link>
-                  </li>
-                </ul>
-              </div>
-              <div className={styles.container}>
-                <Link href="/fotelje">
-                  {" "}
-                  <h4>Fotelje</h4>{" "}
-                </Link>
-                <ul>
-                  <li>
-                    <Link href="">Fotelja #1</Link>
-                  </li>
-                  <li>
-                    <Link href="">Fotelja #2</Link>
-                  </li>
-                  <li>
-                    <Link href="">Fotelja #3</Link>
-                  </li>
-                </ul>
-              </div>
-              <div className={styles.container}>
-                <Link href="/fotelje">
-                  {" "}
-                  <h4>Fotelje</h4>{" "}
-                </Link>
-                <ul>
-                  <li>
-                    <Link href="">Fotelja #1</Link>
-                  </li>
-                  <li>
-                    <Link href="">Fotelja #2</Link>
-                  </li>
-                  <li>
-                    <Link href="">Fotelja #3</Link>
-                  </li>
-                </ul>
-              </div>
-              <div className={styles.container}>
-                <Link href="/fotelje">
-                  {" "}
-                  <h4>Fotelje</h4>{" "}
-                </Link>
-                <ul>
-                  <li>
-                    <Link href="">Fotelja #1</Link>
-                  </li>
-                  <li>
-                    <Link href="">Fotelja #2</Link>
-                  </li>
-                  <li>
-                    <Link href="">Fotelja #3</Link>
-                  </li>
-                </ul>
-              </div>
-              <div className={styles.container}>
-                <Link href="/fotelje">
-                  {" "}
-                  <h4>Fotelje</h4>{" "}
-                </Link>
-                <ul>
-                  <li>
-                    <Link href="">Fotelja #1</Link>
-                  </li>
-                  <li>
-                    <Link href="">Fotelja #2</Link>
-                  </li>
-                  <li>
-                    <Link href="">Fotelja #3</Link>
-                  </li>
-                </ul>
-              </div>
+              {groupedGallery.map((gallery) => {
+                return (
+                  <>
+                    <div className={styles.container}>
+                      <Link href="/galerija" onClick={() => {}}>
+                        {" "}
+                        <h4 style={{ textTransform: "capitalize" }}>
+                          {gallery[0].split(" ")[0]}
+                        </h4>{" "}
+                      </Link>
+                      <ul>
+                        {gallery.map((gal) => (
+                          <li>
+                            <Link href={`/galerija/${toSlug(gal)}`}>{gal}</Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </>
+                );
+              })}
             </div>
           </li>
           <li>
@@ -185,23 +127,31 @@ export default function Navbar() {
               }}
             ></Image>
             <div className={styles.menu}>
-              <div className={styles.container}>
-                <Link href="/fotelje" onClick={() => {}}>
-                  {" "}
-                  <h4>Fotelje</h4>{" "}
-                </Link>
-                <ul>
-                  <li>
-                    <Link href="">Fotelja #1</Link>
-                  </li>
-                  <li>
-                    <Link href="">Fotelja #2</Link>
-                  </li>
-                  <li>
-                    <Link href="">Fotelja #3</Link>
-                  </li>
-                </ul>
-              </div>
+              {groupedRucice.map((rucice) => {
+                return (
+                  <>
+                    <div className={styles.container}>
+                      <Link href="/fotelje" onClick={() => {}}>
+                        {" "}
+                        <h4>{rucice[0].split(" ")[0]}</h4>{" "}
+                      </Link>
+                      <ul>
+                        {rucice.map((rucica) => {
+                          return (
+                            <li>
+                              <Link
+                                href={`/dizajnerske-rucice/${toSlug(rucica)}`}
+                              >
+                                {rucica}
+                              </Link>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  </>
+                );
+              })}
             </div>
           </li>
           <li>
@@ -228,4 +178,19 @@ export default function Navbar() {
       </div>
     </div>
   );
+}
+function groupByFirstWord(arr: galerija[] | rucice[]): string[][] {
+  const result: Record<string, string[]> = {};
+
+  arr.forEach((str) => {
+    const firstWord = str.name.split(" ")[0].toLowerCase();
+
+    if (!result[firstWord]) {
+      result[firstWord] = [str.name];
+    } else {
+      result[firstWord].push(str.name);
+    }
+  });
+
+  return Object.values(result);
 }

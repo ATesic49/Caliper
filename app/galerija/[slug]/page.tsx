@@ -7,8 +7,7 @@ import Edit from "./components/Edit";
 import Delete from "./components/Delete";
 import prisma from "@/lib/prisma";
 
-
-export const dynamic ='force-dynamic'
+export const dynamic = "force-dynamic";
 interface Params {
   params: { slug: string };
 }
@@ -18,7 +17,6 @@ export default async function page({ params }: Params) {
     const replaced = slug.replaceAll("-", " ");
     return replaced;
   };
-  console.log(fromSlugToName(params.slug),'sluggg')
   const product = await prisma.galerija.findFirst({
     where: {
       name: fromSlugToName(params.slug.toLowerCase()),
@@ -36,35 +34,37 @@ export default async function page({ params }: Params) {
   }
   return (
     <>
-    <Edit product={product}/>
-    <Delete product={product}/>
-
-    <div className={styles.page}>
-      <h1>{product.name}</h1>
-      <div className={styles.paragraf}>
-        <p>{product.description}</p>
+      <div className={styles.editDelete}>
+        <Edit product={product} />
+        <Delete product={product} />
       </div>
-      <div className={styles.slika}>
-        <Image
-          src={`${product.image}`}
-          width={1000}
-          height={1000}
-          alt="ime"
-        />
-        <div className={styles.boje}>
-          <p>Boje:</p>{" "}
-          <div className={styles.container}>
-            {product.boje.map((boja: string) => {
-              return (
-                <div>
-                  <p>{boja}</p> <span></span>
-                </div>
-              );
-            })}
+
+      <div className={styles.page}>
+        <h1>{product.name}</h1>
+        <div className={styles.paragraf}>
+          <p>{product.description}</p>
+        </div>
+        <div className={styles.slika}>
+          <Image
+            src={`${product.image}`}
+            width={1000}
+            height={1000}
+            alt="ime"
+          />
+          <div className={styles.boje}>
+            <p>Boje:</p>{" "}
+            <div className={styles.container}>
+              {product.boje.map((boja: string) => {
+                return (
+                  <div>
+                    <p>{boja}</p> <span></span>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </>
   );
 }

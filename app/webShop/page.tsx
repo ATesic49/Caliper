@@ -5,7 +5,7 @@ import { useState } from "react";
 import styles from "../../public/css/webShop/page.module.css";
 import axios from "axios";
 import { AuthenticationContext } from "../context/context";
-import Image from "next/image";
+import Korpa from "./components/Korpa";
 
 export default function webShop() {
   const [logIn, setLogIn] = useState(false);
@@ -74,27 +74,11 @@ export default function webShop() {
   return (
     <>
       {data ? (
-        <div className={styles.goodScenario}>
-          <div className={styles.sideBar}>
-            <div
-              className={styles.avatar}
-              style={{ backgroundColor: "royalblue" }}
-            >
-              {data.name}
-            </div>
+        <div className={styles.webShop}>
+          <div className={styles.h1}>
+            <h1>Web Shop</h1>
           </div>
-          <div className={styles.levo}>
-            <div className={styles.korpa}></div>
-            <Image
-              alt={""}
-              src="/svgs/korpa.svg"
-              width={500}
-              height={500}
-            ></Image>
-          </div>
-          <div className={styles.desno}>
-            <button className={styles.buttonDole}>Naruci jos</button>
-          </div>
+          <Korpa />
         </div>
       ) : (
         <div className={styles.webShop}>
@@ -156,7 +140,7 @@ export default function webShop() {
                     <div className={styles.text}>
                       <label htmlFor="password">Sifra:</label>
                       <input
-                        type="text" //pass
+                        type="password" //pass
                         placeholder=" "
                         name="password"
                         onChange={(e) => setPassword(e.target.value)}
@@ -241,7 +225,7 @@ export default function webShop() {
                       <div className={styles.text}>
                         <label htmlFor="password">Sifra:</label>
                         <input
-                          type="text" //pass
+                          type="password" //pass
                           name="password"
                           placeholder=" "
                           onChange={(e) => setPassword(e.target.value)}
@@ -250,7 +234,7 @@ export default function webShop() {
                       <div className={styles.text}>
                         <label htmlFor="password">Ponovi Sifru:</label>
                         <input
-                          type="text" //pass
+                          type="password" //pass
                           name="password"
                           placeholder=" "
                           onChange={(e) => setPpassword(e.target.value)}

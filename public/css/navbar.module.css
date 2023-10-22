@@ -1,5 +1,5 @@
 .nav {
-  position: sticky ;
+  position: sticky;
   top: 0;
   display: flex;
   justify-content: flex-start;
@@ -37,12 +37,12 @@
 }
 .nav nav ul li {
   z-index: 102;
-  padding: 2vh;
+  padding: 0.25rem 2vh;
   list-style-type: none;
   min-width: max-content;
   display: flex;
   justify-content: center;
-  height: 100%;
+  /* height: 100%; */
   align-items: center;
   column-gap: calc(var(--font-size-small) / 3.5);
   position: relative;
@@ -136,7 +136,13 @@
 }
 .nav nav ul li .menu .container:has(h4) a {
   cursor: default;
+  text-transform: capitalize;
   color: white;
+}
+.nav nav ul li .menu .container:has(h4) ul li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 .nav nav ul li .menu .container:has(h4) ul li a:hover {
   text-decoration: underline;
@@ -165,7 +171,6 @@
   gap: 1.25vw;
   margin-left: auto;
 }
-
 
 .nav .buttons button {
   display: none;

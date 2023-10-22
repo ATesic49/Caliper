@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  min-height: 100vh;
-  min-height: 100svh;
+  min-height: 80vh;
+  min-height: 80svh;
   margin-bottom: 2.5rem;
 }
 .webShop .h1 {
@@ -137,4 +137,150 @@
 
 .webShop .levo p {
   font-size: var(--font-size-mid) !important;
+}
+
+/* GOOD SCENARIO */
+.webShop .sideBar {
+  position: fixed;
+  top: 5rem;
+  right: 0;
+  display: flex;
+  padding: 0.75rem 1rem;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+.webShop .sideBar .avatar {
+  overflow: hidden;
+  border-radius: 100%;
+  aspect-ratio: 1;
+  z-index: 100;
+  padding: 0.75rem;
+  font-size: var(--font-size-large);
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.shop {
+  display: grid;
+  grid-template-areas:
+    "levo desno"
+    "levo desno";
+  grid-auto-columns: 1fr;
+  gap: 0;
+  min-height: 75vh;
+}
+.shop .desna {
+  grid-area: desno;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.shop .desna button {
+  width: 80%;
+  opacity: 0.4;
+  margin-inline: auto;
+  padding: 0.5rem 0;
+  background-color: var(--primary-color);
+  font-size: var(--font-size-mid);
+  cursor: pointer;
+  border-radius: 0.25rem;
+  border: none;
+  color: white;
+  transition: 0.5s;
+}
+.shop button:focus {
+  transition: 0.5s;
+  transform: scale(0.98);
+}
+.shop .leva {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  grid-area: levo;
+  height: 100%;
+  transition: 0.2s;
+}
+.shop .leva button {
+  width: 80%;
+  margin-inline: auto;
+  padding: 0.5rem 0;
+  background-color: var(--secondary-color);
+  font-size: var(--font-size-mid);
+  cursor: pointer;
+  border-radius: 0.25rem;
+  border: none;
+  color: white;
+}
+
+.shop .leva .korpa {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+.shop .leva .korpa img {
+  width: 35%;
+  opacity: 0.75;
+  height: 35%;
+}
+.shop .leva .korpa p {
+  font-size: var(--font-size-large);
+  font-weight: 500;
+  color: var(--font-color-secondary);
+}
+
+.shop .userOptions {
+  position: fixed;
+  top: 5rem;
+  right: -100%;
+  padding: 2rem 5rem;
+  transition: 0.5s;
+  background-color: white;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  min-height: 5rem;
+  padding: 2rem;
+}
+.shop .openOptions {
+  transition: 0.5s;
+  right: 0 !important;
+}
+.shop .openOptions::after {
+  right: 0;
+}
+
+.shop .userOptions .podatci {
+  display: flex;
+  gap: 2rem;
+}
+.shop .userOptions button {
+  padding: 0.25rem 1rem;
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: var(--font-size-mid);
+  cursor: pointer;
+}
+
+.overflow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
 }

@@ -45,12 +45,25 @@ export default async function handler(
   });
 
   if (!user) return res.status(401).json({ errorMessage: "Greska" });
-
+  const color = await prisma.userColor.findUnique({
+    where: {
+      id: user.colorId,
+    },
+  });
+  if (!color) {
+    return res.json({
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      hashedPassword: user.hashedPassword,
+      hex: "#cf1f57",
+    });
+  }
   return res.json({
     id: user.id,
     name: user.name,
     email: user.email,
     hashedPassword: user.hashedPassword,
-    colorId: user.colorId,
+    hex: color.hex,
   });
 }
