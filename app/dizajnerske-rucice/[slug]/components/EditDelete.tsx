@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useReducer, useState } from "react";
 import styles from "@/public/css/dizajnerske-rucice/[slug]/editDelete.module.css";
-import trash from "@/public/svgs/trash.svg";
+import trash from "../../../../public/svgs/trash.svg";
 import { useRouter } from "next/navigation";
 
 import { useContext } from "react";
