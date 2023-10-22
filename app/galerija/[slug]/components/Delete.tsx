@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import trash from "../../../../public/svgs/trash.svg";
 
 import Image from "next/image";
 import styles from "@/public/css/gallery/slug/components/delete.module.css";
@@ -52,7 +51,7 @@ export default function Delete({ product }: { product: Product }) {
           setStatus("");
         }}
       >
-        <Image src={trash} alt="Izbrisi"></Image>
+        <Image src="/svgs/trash.svg" alt="Izbrisi"></Image>
         <h4>Izbriši.</h4>
       </div>
       <div className={[modal, styles.modal].join(" ")}>
